@@ -254,10 +254,11 @@ section{position:relative}
 #mc .split,#lr .split{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
 #lr .split{grid-template-columns:.9fr 1.1fr}
 #mc .art,#lr .art{position:relative;aspect-ratio:1;width:100%;max-width:520px;justify-self:center;margin:0}
-#lr .art.photo{aspect-ratio:auto;max-width:620px;margin:0;position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 34px 70px rgba(0,0,0,.65),0 0 0 8px rgba(212,164,55,.06);transform:rotate(-1.6deg);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
-#lr .art.photo:hover{transform:rotate(0) scale(1.02);box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 8px rgba(212,164,55,.14)}
-#lr .art.photo img{width:100%;height:auto;display:block}
-#lr .art.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.2rem .6rem;text-align:center;font-family:var(--font-script);font-size:2.4rem;line-height:1;color:var(--gold-4);background:linear-gradient(transparent,rgba(10,9,8,.85));text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.sec .art.photo{aspect-ratio:auto;max-width:620px;margin:0;position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 34px 70px rgba(0,0,0,.65),0 0 0 8px rgba(212,164,55,.06);transform:rotate(-1.6deg);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+.sec .art.photo:hover{transform:rotate(0) scale(1.02);box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 8px rgba(212,164,55,.14)}
+#mc .art.photo{transform:rotate(1.6deg)}
+.sec .art.photo img{width:100%;height:auto;display:block}
+.sec .art.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.2rem .6rem;text-align:center;font-family:var(--font-script);font-size:2.4rem;line-height:1;color:var(--gold-4);background:linear-gradient(transparent,rgba(10,9,8,.85));text-shadow:0 2px 12px rgba(0,0,0,.8)}
 #mc .art svg,#lr .art svg{width:100%;height:100%}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
 .pillar{border:1px solid var(--line);padding:1.3rem;border-radius:3px;background:rgba(10,9,8,.5)}
@@ -555,60 +556,10 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
         <div class="pillar"><b>Family first</b><span>Uso means brother. That's the whole rulebook. Everything else follows from it.</span></div>
       </div>
     </div>
-    <div class="art rv d2" aria-hidden="true">
-      <svg viewBox="0 0 560 520">
-        <defs>
-          <radialGradient id="mg" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="rgba(212,164,55,.22)"/><stop offset="1" stop-color="rgba(212,164,55,0)"/></radialGradient>
-          <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6ecd2"/><stop offset=".5" stop-color="#8a6420"/><stop offset="1" stop-color="#d4a437"/></linearGradient>
-          <linearGradient id="tank" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d43a3a"/><stop offset=".5" stop-color="#7a1414"/><stop offset="1" stop-color="#a31d1d"/></linearGradient>
-        </defs>
-        <circle cx="280" cy="270" r="250" fill="url(#mg)"/>
-        <circle cx="280" cy="270" r="238" fill="none" stroke="#d4a437" stroke-width="1" opacity=".35" stroke-dasharray="4 10"/>
-        <ellipse cx="290" cy="392" rx="215" ry="8" fill="rgba(0,0,0,.55)"/>
-        <g transform="translate(150 325)">
-          <circle r="66" fill="#0a0908" stroke="#1b1813" stroke-width="22"/>
-          <circle r="66" fill="none" stroke="#2a251d" stroke-width="20"/>
-          <circle r="46" fill="none" stroke="url(#chrome)" stroke-width="4"/>
-          <g stroke="#d4a437" stroke-width="1.3" opacity=".85"><path d="M0 -46 V46 M-46 0 H46 M-33 -33 L33 33 M-33 33 L33 -33 M-18 -42 L18 42 M-42 -18 L42 18 M-18 42 L18 -42 M-42 18 L42 -18"/></g>
-          <circle r="10" fill="#0a0908" stroke="#f2c94c" stroke-width="3"/>
-        </g>
-        <g transform="translate(445 322)">
-          <circle r="70" fill="#0a0908" stroke="#1b1813" stroke-width="14"/>
-          <circle r="70" fill="none" stroke="#2a251d" stroke-width="12"/>
-          <circle r="54" fill="none" stroke="url(#chrome)" stroke-width="3.5"/>
-          <g stroke="#d4a437" stroke-width="1.2" opacity=".85"><path d="M0 -54 V54 M-54 0 H54 M-38 -38 L38 38 M-38 38 L38 -38 M-21 -50 L21 50 M-50 -21 L50 21 M-21 50 L21 -50 M-50 21 L50 -21"/></g>
-          <circle r="9" fill="#0a0908" stroke="#f2c94c" stroke-width="3"/>
-        </g>
-        <path d="M92 300 A70 70 0 0 1 208 300" fill="none" stroke="#f3ead7" stroke-width="9" stroke-linecap="round"/>
-        <g fill="none" stroke="#f3ead7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M150 325 L205 240 L300 232"/>
-          <path d="M150 325 L245 330 L330 300"/>
-          <path d="M205 240 L245 330"/>
-          <path d="M300 232 L330 300"/>
-          <path d="M300 232 L395 180"/>
-        </g>
-        <g fill="none" stroke="url(#chrome)" stroke-width="7" stroke-linecap="round">
-          <path d="M392 176 L445 322"/><path d="M404 172 L457 318"/>
-        </g>
-        <g fill="none" stroke="#f3ead7" stroke-width="6" stroke-linecap="round">
-          <path d="M395 178 L380 118 L360 104"/><path d="M395 178 L410 118 L430 104"/>
-        </g>
-        <circle cx="408" cy="200" r="13" fill="#f6ecd2" stroke="#d4a437" stroke-width="3"/>
-        <path d="M215 232 C230 208 300 202 318 218 C330 230 312 246 296 246 L240 246 C222 246 210 240 215 232 Z" fill="url(#tank)" stroke="#f3ead7" stroke-width="2"/>
-        <path d="M232 228 C250 216 296 214 308 224" fill="none" stroke="#f6ecd2" stroke-width="1.6" opacity=".9"/>
-        <path d="M150 262 C170 250 205 250 220 258 L218 268 L152 270 Z" fill="#0a0908" stroke="#f3ead7" stroke-width="2.5"/>
-        <g fill="#1b1813" stroke="url(#chrome)" stroke-width="3">
-          <path d="M248 258 L262 258 L272 300 L238 300 Z"/><path d="M286 254 L300 254 L318 296 L282 296 Z"/>
-          <rect x="240" y="298" width="80" height="26" rx="6"/>
-        </g>
-        <g stroke="#d4a437" stroke-width="2" opacity=".9"><path d="M249 266 H270 M251 275 H273 M253 284 H276 M289 262 H306 M292 271 H310 M295 280 H314"/></g>
-        <g fill="none" stroke="url(#chrome)" stroke-width="7" stroke-linecap="round">
-          <path d="M318 296 C360 300 400 330 470 348"/><path d="M270 300 C300 318 360 344 460 362"/>
-        </g>
-        <path d="M228 330 L215 350" stroke="#f3ead7" stroke-width="5" stroke-linecap="round"/>
-        <text x="280" y="470" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="54" fill="#f6ecd2">Familia</text>
-      </svg>
-    </div>
+    <figure class="art photo rv d2">
+      <img src="motorcycle.jpg" alt="A rider on a brown Uso Motorcycle Club cruiser waving at the family on a palm-lined street at sunset" loading="lazy" width="694" height="463">
+      <figcaption>Familia</figcaption>
+    </figure>
   </div>
 </section>
 
