@@ -79,15 +79,15 @@ section{position:relative}
 .brand .mark{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--font-black);font-size:1.45rem;color:var(--gold);line-height:1;padding-top:2px;background:radial-gradient(circle at 50% 40%,rgba(212,164,55,.16),transparent 70%)}
 .brand b{font-family:var(--font-display);letter-spacing:.2em;font-size:1.05rem;font-weight:400}
 .brand small{display:block;font-size:.6rem;letter-spacing:.26em;color:var(--mute);margin-top:-.15rem}
-.links{display:flex;gap:1.6rem;align-items:center}
-.links a{font-family:var(--font-display);letter-spacing:.18em;font-size:.95rem;color:var(--bone-2);position:relative;padding:.3rem 0}
+.links{display:flex;gap:1.15rem;align-items:center}
+.links a{font-family:var(--font-display);letter-spacing:.14em;font-size:.92rem;white-space:nowrap;color:var(--bone-2);position:relative;padding:.3rem 0}
 .links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
 .links a:hover{color:var(--bone)}.links a:hover::after{right:0}
 .links .cta{border:1px solid var(--gold);color:var(--gold);padding:.45rem 1rem;border-radius:2px}
 .links .cta::after{display:none}
 .burger{display:none;background:none;border:1px solid var(--line-2);color:var(--gold);width:42px;height:42px;border-radius:2px;font-size:1.2rem}
 .drawer{display:none}
-@media (max-width:860px){
+@media (max-width:1180px){
   .links{display:none}.burger{display:grid;place-items:center}
   .drawer.open{display:flex;flex-direction:column;position:fixed;inset:68px 0 0 0;background:rgba(10,9,8,.97);z-index:49;padding:2rem 1.5rem;gap:1.2rem}
   .drawer a{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.14em;color:var(--bone);border-bottom:1px solid var(--line);padding-bottom:.8rem}
@@ -194,6 +194,7 @@ section{position:relative}
 .meta svg{width:14px;height:14px;flex:none;margin-top:.22rem;fill:none;stroke:var(--gold);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .meta .alt{color:var(--mute);font-size:.78rem}
 .meta .by b{color:var(--gold);font-weight:600}
+.meta .by b.plink{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
 .card p{margin:.7rem 0 0;color:var(--bone-2);font-size:.9rem;white-space:pre-line}
 .card p.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .card .more{background:none;border:0;color:var(--gold);font-size:.8rem;padding:0;margin-top:.3rem;letter-spacing:.05em}
@@ -332,6 +333,79 @@ footer .bottom{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--l
 footer .bottom a{color:var(--mute)}footer .bottom a:hover{color:var(--gold)}
 @media (max-width:760px){footer .cols{grid-template-columns:1fr}}
 
+
+/* ===================================================================
+   FAMILY DIRECTORY / PROFILE / MESSAGES
+   =================================================================== */
+#family{background:var(--ink)}
+.famtools{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.famcount{font-family:var(--font-display);letter-spacing:.2em;font-size:.9rem;color:var(--mute)}
+.famcount b{font-size:1.6rem;color:var(--gold);letter-spacing:.06em;margin-right:.3rem}
+#fam-q{background:var(--ink-3);border:1px solid var(--line-2);color:var(--bone);padding:.6rem .9rem;border-radius:3px;font:inherit;font-size:.95rem;min-width:240px;color-scheme:dark}
+#fam-q:focus{outline:none;border-color:var(--gold)}
+.famgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem;margin-top:1.4rem}
+.fam{display:flex;align-items:center;gap:.8rem;border:1px solid var(--line);background:linear-gradient(160deg,var(--ink-3),var(--ink-2));padding:.8rem .9rem;border-radius:4px;cursor:pointer;text-align:left;color:var(--bone);font:inherit;transition:transform .25s,border-color .25s}
+.fam:hover{transform:translateY(-3px);border-color:var(--gold)}
+.av{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--font-display);font-size:1.25rem;color:var(--ink);background:var(--gold-foil);background-size:220% 100%}
+.av.officer{box-shadow:0 0 0 2px var(--ink),0 0 0 3.5px var(--gold-2)}
+.fam b{display:block;font-weight:600;font-size:.95rem;line-height:1.15;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fam small{display:block;color:var(--mute);font-size:.74rem;margin-top:.15rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fam .star{color:var(--gold-2);font-size:.7rem;margin-left:.3rem;vertical-align:middle}
+.fam.me{border-color:var(--line-2)}
+.famgrid .empty{grid-column:1/-1}
+
+.modal{position:fixed;inset:0;z-index:85;background:rgba(6,5,4,.8);backdrop-filter:blur(6px);display:grid;place-items:center;padding:1.2rem}
+.modal-card{position:relative;width:min(440px,100%);background:linear-gradient(160deg,var(--ink-3),var(--ink));border:1px solid var(--line-2);border-radius:6px;padding:1.6rem;box-shadow:0 40px 90px rgba(0,0,0,.7)}
+.modal-x{position:absolute;top:.7rem;right:.7rem;background:transparent;border:1px solid var(--line-2);color:var(--bone-2);width:34px;height:34px;border-radius:50%;font-size:.9rem}
+.modal-x:hover{border-color:var(--gold);color:var(--gold)}
+.pv-top{display:flex;align-items:center;gap:1rem}
+.pv-av{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-size:2rem;color:var(--ink);background:var(--gold-foil);background-size:220% 100%;flex:none}
+.pv-av.officer{box-shadow:0 0 0 3px var(--ink),0 0 0 5px var(--gold-2)}
+.pv-name{font-family:var(--font-display);font-size:1.9rem;letter-spacing:.04em;line-height:1}
+.pv-tag{color:var(--bone-2);font-size:.9rem;margin-top:.3rem}
+.pv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.2rem 0}
+.pv-stats div{border:1px solid var(--line);border-radius:3px;padding:.6rem .5rem;text-align:center}
+.pv-stats b{display:block;font-family:var(--font-display);font-size:1.4rem;color:var(--gold);line-height:1}
+.pv-stats span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pv-acts{display:flex;gap:.6rem;flex-wrap:wrap}
+.pv-acts .note{font-size:.8rem;color:var(--mute);align-self:center}
+
+.dm{position:fixed;inset:0;z-index:86;background:rgba(6,5,4,.55);backdrop-filter:blur(3px)}
+.dm-panel{position:absolute;top:0;right:0;bottom:0;width:min(760px,100%);background:var(--ink-2);border-left:1px solid var(--line-2);display:flex;flex-direction:column;box-shadow:-30px 0 80px rgba(0,0,0,.6);animation:dmin .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes dmin{from{transform:translateX(40px);opacity:0}}
+.dm-head{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);min-height:64px}
+.dm-head .modal-x{position:static;margin-left:auto}
+.dm-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.06em}
+.dm-title small{display:block;font-family:var(--font-body);font-size:.75rem;letter-spacing:0;color:var(--mute)}
+.dm-body{flex:1;display:grid;grid-template-columns:280px 1fr;min-height:0}
+.dm-list{border-right:1px solid var(--line);overflow:auto}
+.dm-list .conv{display:flex;gap:.7rem;align-items:center;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:.8rem 1rem;color:var(--bone);font:inherit;cursor:pointer}
+.dm-list .conv:hover,.dm-list .conv.on{background:rgba(212,164,55,.07)}
+.dm-list .conv b{display:block;font-weight:600;font-size:.92rem}
+.dm-list .conv small{display:block;color:var(--mute);font-size:.76rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.dm-list .conv .badge{margin-left:auto;background:var(--red-2);color:#fff;font-size:.68rem;font-weight:700;border-radius:999px;padding:.1rem .45rem;min-width:1.4em;text-align:center}
+.dm-list .none,.dm-msgs .none{padding:1.2rem;color:var(--mute);font-size:.88rem}
+.dm-thread{display:flex;flex-direction:column;min-height:0}
+.dm-msgs{flex:1;overflow:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.45rem}
+.msg{max-width:78%;padding:.55rem .8rem;border-radius:12px;font-size:.92rem;line-height:1.4;white-space:pre-wrap;word-break:break-word;position:relative}
+.msg.them{align-self:flex-start;background:var(--ink-4);border:1px solid var(--line);border-bottom-left-radius:3px}
+.msg.me{align-self:flex-end;background:var(--gold);color:var(--ink);border-bottom-right-radius:3px}
+.msg time{display:block;font-size:.64rem;opacity:.65;margin-top:.25rem;text-align:right}
+.dm-day{align-self:center;font-family:var(--font-display);letter-spacing:.2em;font-size:.68rem;color:var(--mute);margin:.5rem 0 .2rem}
+.dm-form{display:flex;gap:.6rem;padding:.8rem 1rem;border-top:1px solid var(--line);align-items:flex-end}
+.dm-form textarea{flex:1;background:var(--ink-3);border:1px solid var(--line-2);color:var(--bone);padding:.6rem .8rem;border-radius:3px;font:inherit;font-size:.95rem;resize:none;max-height:140px;color-scheme:dark}
+.dm-form textarea:focus{outline:none;border-color:var(--gold)}
+.navbadge{display:inline-block;background:var(--red-2);color:#fff;font-size:.62rem;font-weight:700;border-radius:999px;padding:.05rem .4rem;margin-left:.35rem;vertical-align:middle;letter-spacing:0}
+@media (min-width:721px){.dm-back{display:none!important}}
+@media (max-width:720px){
+  .dm-body{grid-template-columns:1fr}
+  .dm-list{border-right:0}
+  .dm.thread-open .dm-list{display:none}
+  .dm:not(.thread-open) .dm-thread{display:none!important}
+  .famtools{width:100%}
+  #fam-q{flex:1;min-width:0}
+}
+
 /* ===================================================================
    LIGHTBOX / TOAST / REVEAL
    =================================================================== */
@@ -400,6 +474,8 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       <a href="#mc">Motorcycle Club</a>
       <a href="#story">Our Story</a>
       <a href="#world">Chapters</a>
+      <a href="#family">Family</a>
+      <a href="#" id="nav-msg" hidden>Messages</a>
       <a href="#/account" id="nav-acct">Sign in</a>
       <a class="cta" href="#board">What's next</a>
     </div>
@@ -407,7 +483,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   </div>
 </nav>
 <div class="drawer" id="drawer">
-  <a href="#board">Uso Announcements</a><a href="#lr">Low Riders</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/account">Sign in / Join</a>
+  <a href="#board">Uso Announcements</a><a href="#lr">Low Riders</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#family">Family</a><a href="#/account">Sign in / Join</a>
 </div>
 
 <div id="site">
@@ -630,6 +706,58 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     </div>
   </div>
 </section>
+<!-- ================================================================
+     FAMILY (member directory)
+     ================================================================ -->
+<section class="sec" id="family">
+  <div class="wrap">
+    <div class="boardhead">
+      <div>
+        <div class="eyebrow rv">Family</div>
+        <h2 class="h2 rv d1">Who's <span class="foil">on the site</span></h2>
+        <p class="lede rv d2">Every Uso with an account. Tap a name to see where they're from and what they ride, and to send them a message.</p>
+      </div>
+      <div class="famtools rv d2">
+        <div class="famcount"><b id="fam-n">—</b> Usos</div>
+        <input id="fam-q" type="search" placeholder="Search name or area" aria-label="Search members" autocomplete="off">
+      </div>
+    </div>
+    <div class="famgrid" id="famgrid"></div>
+  </div>
+</section>
+
+<!-- profile popup -->
+<div class="modal" id="profile" role="dialog" aria-modal="true" aria-label="Member profile" hidden>
+  <div class="modal-card">
+    <button class="modal-x" id="profile-x" aria-label="Close">✕</button>
+    <div class="pv-top"><div class="pv-av" id="pv-av"></div>
+      <div><div class="pv-name" id="pv-name"></div><div class="pv-tag" id="pv-tag"></div></div></div>
+    <div class="pv-stats" id="pv-stats"></div>
+    <div class="pv-acts" id="pv-acts"></div>
+  </div>
+</div>
+
+<!-- messages drawer -->
+<div class="dm" id="dm" hidden>
+  <div class="dm-panel">
+    <div class="dm-head">
+      <button class="ib dm-back" id="dm-back" hidden>‹ Back</button>
+      <div class="dm-title" id="dm-title">Messages</div>
+      <button class="modal-x" id="dm-x" aria-label="Close">✕</button>
+    </div>
+    <div class="dm-body">
+      <div class="dm-list" id="dm-list"></div>
+      <div class="dm-thread" id="dm-thread" hidden>
+        <div class="dm-msgs" id="dm-msgs"></div>
+        <form class="dm-form" id="dm-form">
+          <textarea id="dm-text" rows="1" maxlength="2000" placeholder="Write a message…" required></textarea>
+          <button class="btn sm" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <footer>
   <div class="wrap">
@@ -640,7 +768,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       </div>
       <div>
         <h5>On the site</h5>
-        <ul><li><a href="#board">Uso Announcements</a></li><li><a href="#lr">Low Riders</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
+        <ul><li><a href="#board">Uso Announcements</a></li><li><a href="#lr">Low Riders</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li><li><a href="#family">Family</a></li></ul>
       </div>
       <div>
         <h5>Family</h5>
@@ -961,7 +1089,7 @@ function rsvpButtons(p){
 function goingList(p){
   const list=RSVPS[p.id]||[];
   if(!list.length) return '<div class="none">Nobody has RSVP\'d yet. Be the first.</div>';
-  return `<div class="gl-h">${list.length} going</div>`+list.map(r=>`<div class="gl"><i>${esc((r.display_name||"?").slice(0,1).toUpperCase())}</i><span><b>${esc(r.display_name)}</b>${(r.area||r.ride)?` <small>· ${esc([r.area,RIDE[r.ride]||""].filter(Boolean).join(" · "))}</small>`:""}</span></div>`).join("");
+  return `<div class="gl-h">${list.length} going</div>`+list.map(r=>`<div class="gl"><i>${esc((r.display_name||"?").slice(0,1).toUpperCase())}</i><span><b class="plink" data-member="${r.member_id}" role="button" tabindex="0" style="cursor:pointer">${esc(r.display_name)}</b>${(r.area||r.ride)?` <small>· ${esc([r.area,RIDE[r.ride]||""].filter(Boolean).join(" · "))}</small>`:""}</span></div>`).join("");
 }
 async function toggleRsvp(btn){
   const card=btn.closest(".card"), p=POSTS.find(x=>x.id===card.dataset.id);
@@ -975,12 +1103,13 @@ async function toggleRsvp(btn){
        toast(mine?"RSVP removed":"You\'re on the list"); }
   catch(e){ toast(e.message); btn.disabled=false; }
 }
-function postedBy(p){ if(!p.created_by || p.created_by==="site") return ""; const m=MEMBERS[p.member_id]; const tag=m?memberTag(m):""; return `<div class="by">${ICON.flag}<span>Posted by <b>${esc(p.created_by)}</b>${tag?` <span class="alt">· ${esc(tag)}</span>`:""}</span></div>`; }
+function postedBy(p){ if(!p.created_by || p.created_by==="site") return ""; const m=MEMBERS[p.member_id]; const tag=m?memberTag(m):""; return `<div class="by">${ICON.flag}<span>Posted by <b${p.member_id?` class="plink" data-member="${p.member_id}" role="button" tabindex="0"`:""}>${esc(p.created_by)}</b>${tag?` <span class="alt">· ${esc(tag)}</span>`:""}</span></div>`; }
 function bindCards(root){
   $$("[data-lb]",root).forEach(el=>el.onclick=()=>{ $("#lb img").src=el.dataset.lb; $("#lb").classList.add("on"); });
   $$("[data-more]",root).forEach(b=>b.onclick=()=>{ b.previousElementSibling.classList.remove("clamp"); b.remove(); });
   $$("[data-rsvp]",root).forEach(b=>b.onclick=()=>toggleRsvp(b));
-  $$("[data-who]",root).forEach(b=>b.onclick=()=>{ const card=b.closest(".card"), p=POSTS.find(x=>x.id===card.dataset.id), g=card.querySelector("[data-going]"); if(g.hidden){ g.innerHTML=goingList(p); g.hidden=false; } else g.hidden=true; });
+  $$(".plink",root).forEach(b=>b.onclick=()=>openProfile(b.dataset.member));
+  $$("[data-who]",root).forEach(b=>b.onclick=()=>{ const card=b.closest(".card"), p=POSTS.find(x=>x.id===card.dataset.id), g=card.querySelector("[data-going]"); if(g.hidden){ g.innerHTML=goingList(p); g.hidden=false; $$(".plink",g).forEach(x=>x.onclick=()=>openProfile(x.dataset.member)); } else g.hidden=true; });
   $$("[data-ics]",root).forEach(b=>b.onclick=()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const blob=new Blob([icsFor(p)],{type:"text/calendar"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=(p.title||"event").replace(/[^\w]+/g,"-").toLowerCase()+".ics"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); });
   $$("[data-share]",root).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const w=whenText(p); const url="https://usofamily.com/#post-"+p.id; const text=p.title+(w.main?" — "+w.main:"")+((p.location_name||p.address)?" @ "+[p.location_name,p.address].filter(Boolean).join(", "):""); try{ if(navigator.share){ await navigator.share({title:p.title,text,url}); return; } await navigator.clipboard.writeText(text+"\n"+url); toast("Copied to clipboard"); }catch(e){} });
 }
@@ -1095,6 +1224,7 @@ function renderAcct(){
   const on = !!ME, officer = on && ME.role === "officer";
   if(POSTS.length) renderBoard();
   const na=$("#nav-acct"); if(na) na.textContent = on ? ME.username : "Sign in";
+  if(typeof renderFamily==="function"){ renderFamily(); refreshUnread(); }
   $("#authpanels").hidden = on; $("#adminui").hidden = !on; $("#signout").hidden = !on;
   $("#who").textContent = on ? ME.username + (memberTag(ME) ? " · " + memberTag(ME) : "") + (officer ? " · Officer" : "") : "";
   $("#acct-title").textContent = on ? (officer ? "Officer desk" : "Post an announcement") : "Sign in or join";
@@ -1111,7 +1241,7 @@ $("#loginform").onsubmit = async e => {
 $("#regform").onsubmit = async e => {
   e.preventDefault(); setMsg("rg-msg", "Creating your account…");
   try{ const r = await rpc("uso_register", { p_username: $("#rg-user").value.trim(), p_password: $("#rg-pass").value, p_email: $("#rg-email").value.trim() || null, p_area: $("#rg-area").value.trim(), p_ride: $("#rg-ride").value });
-       SESS.set(r.token); ME = r.member; $("#regform").reset(); setMsg("rg-msg",""); renderAcct(); toast("Welcome to the family, " + ME.username); }
+       SESS.set(r.token); ME = r.member; $("#regform").reset(); setMsg("rg-msg",""); renderAcct(); loadFamily(); toast("Welcome to the family, " + ME.username); }
   catch(err){ setMsg("rg-msg", err.message, "err"); }
 };
 $("#forgot-toggle").onclick = () => { const f=$("#forgotform"); f.hidden = !f.hidden; if(!f.hidden) $("#fg-user").focus(); };
@@ -1171,7 +1301,7 @@ function fillProfile(){ if(!ME) return; $("#pr-user").value=ME.username; $("#pr-
 $("#profform").onsubmit = async e => {
   e.preventDefault(); setMsg("pr-msg","Saving…");
   try{ ME = await rpc("uso_update_profile", { p_token:SESS.token, p_email:$("#pr-email").value.trim()||null, p_area:$("#pr-area").value.trim(), p_ride:$("#pr-ride").value, p_current_password:$("#pr-cur").value||null, p_new_password:$("#pr-new").value||null });
-       setMsg("pr-msg","Saved.","ok"); renderAcct(); loadPosts(); }
+       setMsg("pr-msg","Saved.","ok"); renderAcct(); loadPosts(); loadFamily(); }
   catch(err){ setMsg("pr-msg", err.message, "err"); }
 };
 
@@ -1211,6 +1341,114 @@ async function loadRecovery(){ if(!ME||ME.role!=="officer") return; let rows=[];
 }
 $("#reload-recovery").onclick = loadRecovery;
 
+
+/* ===================================================================
+   FAMILY DIRECTORY / PROFILE / MESSAGES
+   =================================================================== */
+let FAMILY = [];
+const initial = n => (n||"?").replace(/[^A-Za-z0-9]/g,"").slice(0,1).toUpperCase() || "?";
+async function loadFamily(){
+  try{ FAMILY = await sbGet("uso_members_public?select=id,display_name,area,ride,role,created_at&order=display_name.asc"); }catch(e){ FAMILY=[]; }
+  FAMILY.forEach(m => MEMBERS[m.id] = m);
+  renderFamily();
+}
+function renderFamily(){
+  const q = ($("#fam-q").value||"").trim().toLowerCase();
+  const list = FAMILY.filter(m => !q || (m.display_name+" "+m.area+" "+(RIDE[m.ride]||"")).toLowerCase().includes(q));
+  $("#fam-n").textContent = FAMILY.length;
+  $("#famgrid").innerHTML = list.length ? list.map(m => `<button class="fam${ME&&ME.id===m.id?" me":""}" data-member="${m.id}">
+      <span class="av${m.role==="officer"?" officer":""}">${esc(initial(m.display_name))}</span>
+      <span style="min-width:0"><b>${esc(m.display_name)}${m.role==="officer"?'<span class="star" title="Officer">★ OFFICER</span>':""}</b><small>${esc(memberTag(m)||"—")}</small></span></button>`).join("")
+    : `<div class="empty"><b>${FAMILY.length?"No match":"Nobody yet"}</b>${FAMILY.length?"Try another name or area.":"Be the first to create an account."}</div>`;
+  $$("[data-member]", $("#famgrid")).forEach(b => b.onclick = () => openProfile(b.dataset.member));
+}
+$("#fam-q").oninput = renderFamily;
+
+/* ---- profile popup ---- */
+function openProfile(id){
+  const m = FAMILY.find(x => x.id === id) || MEMBERS[id]; if(!m) return;
+  const posts = POSTS.filter(p => p.member_id === id && p.is_published).length;
+  const going = Object.values(RSVPS).reduce((n, l) => n + (l.some(r => r.member_id === id) ? 1 : 0), 0);
+  const joined = m.created_at ? fmt(new Date(m.created_at), VIEW_TZ, {month:"short", year:"numeric"}) : "";
+  $("#pv-av").textContent = initial(m.display_name); $("#pv-av").className = "pv-av" + (m.role === "officer" ? " officer" : "");
+  $("#pv-name").textContent = m.display_name;
+  $("#pv-tag").innerHTML = [m.area ? esc(m.area) : "", m.ride ? esc(RIDE[m.ride]) : "", m.role === "officer" ? '<span style="color:var(--gold-2)">★ Officer</span>' : ""].filter(Boolean).join(" · ") || "No details yet";
+  $("#pv-stats").innerHTML = `<div><b>${posts}</b><span>Posted</span></div><div><b>${going}</b><span>Going to</span></div><div><b>${esc(joined||"—")}</b><span>Joined</span></div>`;
+  const self = ME && ME.id === id;
+  $("#pv-acts").innerHTML = self ? `<a class="btn sm" href="#/account" id="pv-edit">Edit your profile</a>`
+    : ME ? `<button class="btn sm" id="pv-msg">Message ${esc(m.display_name)}</button>`
+    : `<a class="btn sm" href="#/account">Sign in to message</a><span class="note">Members can message each other.</span>`;
+  const pm = $("#pv-msg"); if(pm) pm.onclick = () => { closeProfile(); openDM(id); };
+  const pe = $("#pv-edit"); if(pe) pe.onclick = closeProfile;
+  $("#profile").hidden = false;
+}
+function closeProfile(){ $("#profile").hidden = true; }
+$("#profile-x").onclick = closeProfile;
+$("#profile").onclick = e => { if(e.target === $("#profile")) closeProfile(); };
+
+/* ---- direct messages ---- */
+const DM = { peer:null, convs:[], timer:null, unreadTimer:null };
+async function refreshUnread(){
+  if(!ME){ setNavBadge(0); return; }
+  try{ setNavBadge(await rpc("uso_unread_count", { p_token: SESS.token })); }catch(e){}
+}
+function setNavBadge(n){ const el = $("#nav-msg"); if(!el) return; el.hidden = !ME; el.innerHTML = "Messages" + (n ? `<span class="navbadge">${n}</span>` : ""); }
+async function openDM(peerId){
+  if(!ME){ toast("Sign in to send messages"); location.hash = "#/account"; return; }
+  $("#dm").hidden = false;
+  await loadConvs();
+  if(peerId) await openThread(peerId); else showList();
+  clearInterval(DM.timer); DM.timer = setInterval(() => { if($("#dm").hidden){ clearInterval(DM.timer); return; } if(DM.peer) loadThread(true); else loadConvs(); }, 8000);
+}
+function closeDM(){ $("#dm").hidden = true; clearInterval(DM.timer); DM.peer = null; refreshUnread(); }
+$("#dm-x").onclick = closeDM;
+$("#dm").onclick = e => { if(e.target === $("#dm")) closeDM(); };
+$("#dm-back").onclick = showList;
+function showList(){ DM.peer = null; $("#dm").classList.remove("thread-open"); $("#dm-thread").hidden = true; $("#dm-back").hidden = true; $("#dm-title").innerHTML = "Messages"; $$("#dm-list .conv").forEach(c => c.classList.remove("on")); }
+async function loadConvs(){
+  try{ DM.convs = await rpc("uso_conversations", { p_token: SESS.token }); }catch(e){ DM.convs = []; }
+  const list = $("#dm-list");
+  list.innerHTML = DM.convs.length ? DM.convs.map(c => `<button class="conv${DM.peer===c.peer_id?" on":""}" data-peer="${c.peer_id}">
+      <span class="av${c.peer_ride==="motorcycle"?"":""}">${esc(initial(c.peer_name))}</span>
+      <span style="min-width:0"><b>${esc(c.peer_name)}</b><small>${c.last_from_me?"You: ":""}${esc(c.last_body)}</small></span>
+      ${c.unread ? `<span class="badge">${c.unread}</span>` : ""}</button>`).join("")
+    : `<div class="none">No conversations yet. Open someone's profile in the Family section and tap Message.</div>`;
+  $$("[data-peer]", list).forEach(b => b.onclick = () => openThread(b.dataset.peer));
+  const total = DM.convs.reduce((n, c) => n + (c.unread||0), 0); setNavBadge(total);
+}
+async function openThread(peerId){
+  DM.peer = peerId; const m = MEMBERS[peerId] || (DM.convs.find(c => c.peer_id === peerId) ? { display_name: DM.convs.find(c => c.peer_id === peerId).peer_name, area: DM.convs.find(c => c.peer_id === peerId).peer_area, ride: DM.convs.find(c => c.peer_id === peerId).peer_ride } : { display_name: "Member" });
+  $("#dm-title").innerHTML = esc(m.display_name) + (memberTag(m) ? `<small>${esc(memberTag(m))}</small>` : "");
+  $("#dm").classList.add("thread-open"); $("#dm-thread").hidden = false; $("#dm-back").hidden = false;
+  $$("#dm-list .conv").forEach(c => c.classList.toggle("on", c.dataset.peer === peerId));
+  $("#dm-msgs").innerHTML = '<div class="none">Loading…</div>';
+  await loadThread(false);
+  $("#dm-text").focus();
+}
+async function loadThread(quiet){
+  if(!DM.peer) return;
+  let msgs = []; try{ msgs = await rpc("uso_thread", { p_token: SESS.token, p_peer: DM.peer }); }catch(e){ if(!quiet) $("#dm-msgs").innerHTML = `<div class="none">${esc(e.message)}</div>`; return; }
+  const box = $("#dm-msgs"); const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 60;
+  const sig = msgs.map(x => x.id).join(","); if(quiet && box.dataset.sig === sig) return; box.dataset.sig = sig;
+  let lastDay = ""; box.innerHTML = msgs.length ? msgs.map(x => { const d = new Date(x.created_at); const day = fmt(d, VIEW_TZ, {weekday:"short", month:"short", day:"numeric"}); const head = day !== lastDay ? `<div class="dm-day">${esc(day)}</div>` : ""; lastDay = day; return head + `<div class="msg ${x.from_me?"me":"them"}">${esc(x.body)}<time>${esc(fmt(d, VIEW_TZ, {hour:"numeric", minute:"2-digit"}))}</time></div>`; }).join("")
+    : '<div class="none">Say hi. This is the start of your conversation.</div>';
+  if(!quiet || atBottom) box.scrollTop = box.scrollHeight;
+  if(!quiet) loadConvs();
+}
+$("#dm-form").onsubmit = async e => {
+  e.preventDefault(); const ta = $("#dm-text"); const body = ta.value.trim(); if(!body || !DM.peer) return;
+  ta.disabled = true;
+  try{ await rpc("uso_send_message", { p_token: SESS.token, p_to: DM.peer, p_body: body }); ta.value = ""; ta.style.height = ""; await loadThread(false); }
+  catch(err){ toast(err.message); }
+  ta.disabled = false; ta.focus();
+};
+$("#dm-text").addEventListener("keydown", e => { if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); $("#dm-form").requestSubmit(); } });
+$("#dm-text").addEventListener("input", function(){ this.style.height = ""; this.style.height = Math.min(this.scrollHeight, 140) + "px"; });
+addEventListener("keydown", e => { if(e.key === "Escape"){ closeProfile(); if(!$("#dm").hidden) closeDM(); } });
+$("#nav-msg").onclick = e => { e.preventDefault(); openDM(); };
+clearInterval(DM.unreadTimer); DM.unreadTimer = setInterval(refreshUnread, 60000);
+
+
 /* ===================================================================
    CHROME: nav, drawer, reveal, lightbox, parallax
    =================================================================== */
@@ -1234,7 +1472,7 @@ if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
 }
 addEventListener("hashchange",()=>{ route(); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c) c.scrollIntoView({behavior:"smooth",block:"center"}); } });
 (async()=>{ if(SESS.token && !ME){ try{ ME = await rpc("uso_me",{p_token:SESS.token}); }catch(e){} if(!ME) SESS.set(null); const na=$("#nav-acct"); if(na && ME) na.textContent = ME.username; }
-  await route(); await Promise.all([loadPosts(),loadChapters()]); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c){ c.scrollIntoView({block:"center"}); c.style.borderColor="var(--gold)"; } } })();
+  await route(); await Promise.all([loadPosts(),loadChapters(),loadFamily()]); refreshUnread(); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c){ c.scrollIntoView({block:"center"}); c.style.borderColor="var(--gold)"; } } })();
 </script>
 </body>
 </html>
