@@ -184,6 +184,7 @@ section{position:relative}
 .meta div{display:flex;gap:.5rem;align-items:flex-start}
 .meta svg{width:14px;height:14px;flex:none;margin-top:.22rem;fill:none;stroke:var(--gold);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .meta .alt{color:var(--mute);font-size:.78rem}
+.meta .by b{color:var(--gold);font-weight:600}
 .card p{margin:.7rem 0 0;color:var(--bone-2);font-size:.9rem;white-space:pre-line}
 .card p.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .card .more{background:none;border:0;color:var(--gold);font-size:.8rem;padding:0;margin-top:.3rem;letter-spacing:.05em}
@@ -351,6 +352,8 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
 .tabs button{border:1px solid var(--line-2);background:transparent;color:var(--bone-2);font-family:var(--font-display);letter-spacing:.16em;padding:.5rem 1rem;border-radius:2px}
 .tabs button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .tabpane{display:none}.tabpane.on{display:block}
+.authgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;align-items:start}
+@media (max-width:820px){.authgrid{grid-template-columns:1fr}}
 .adminbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem}
 .adminbar .who{font-size:.85rem;color:var(--mute)}
 </style>
@@ -368,13 +371,14 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       <a href="#mc">Motorcycle Club</a>
       <a href="#story">Our Story</a>
       <a href="#world">Chapters</a>
+      <a href="#/account" id="nav-acct">Sign in</a>
       <a class="cta" href="#board">What's next</a>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 <div class="drawer" id="drawer">
-  <a href="#board">Uso Announcements</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/admin">Officer sign-in</a>
+  <a href="#board">Uso Announcements</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/account">Sign in / Join</a>
 </div>
 
 <div id="site">
@@ -631,7 +635,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       </div>
       <div>
         <h5>Family</h5>
-        <ul><li><a href="https://www.instagram.com/usocarclub/" target="_blank" rel="noopener">Instagram @usocarclub</a></li><li><a href="#/admin">Officer sign-in</a></li></ul>
+        <ul><li><a href="https://www.instagram.com/usocarclub/" target="_blank" rel="noopener">Instagram @usocarclub</a></li><li><a href="#/account">Sign in or create an account</a></li></ul>
       </div>
     </div>
     <div class="bottom">
@@ -643,40 +647,68 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
 </div><!-- /site -->
 
 <!-- ================================================================
-     ADMIN
+     ACCOUNT / MEMBERS
      ================================================================ -->
 <section id="admin">
-  <div class="wrap" style="max-width:960px">
+  <div class="wrap" style="max-width:1000px">
     <div class="adminbar">
-      <div><div class="eyebrow">Officers</div><h2 class="h2" style="margin-bottom:0">Post an announcement</h2></div>
-      <div style="display:flex;gap:.6rem;align-items:center"><span class="who" id="who"></span><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
+      <div><div class="eyebrow">Members</div><h2 class="h2" style="margin-bottom:0" id="acct-title">Sign in or join</h2></div>
+      <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap"><span class="who" id="who"></span><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
     </div>
 
-    <div class="panel" id="loginpanel">
-      <h3>Sign in</h3>
-      <form class="f" id="loginform">
-        <div class="row">
-          <label class="l">Email<input type="email" id="li-email" autocomplete="username" required></label>
-          <label class="l">Password<input type="password" id="li-pass" autocomplete="current-password" required minlength="8"></label>
-        </div>
-        <div class="btns"><button class="btn sm" type="submit">Sign in</button><button class="btn ghost sm" type="button" id="signup">First time? Create account</button></div>
-        <div class="msg" id="li-msg"></div>
-        <p style="font-size:.78rem;color:var(--mute);margin:0">Only emails on the officer list can post. Creating an account with an email that isn't on the list does nothing.</p>
-      </form>
+    <div id="authpanels" class="authgrid">
+      <div class="panel">
+        <h3>Sign in</h3>
+        <form class="f" id="loginform">
+          <label class="l">Username<input id="li-user" autocomplete="username" required autocapitalize="off"></label>
+          <label class="l">Password<input id="li-pass" type="password" autocomplete="current-password" required></label>
+          <div class="btns"><button class="btn sm" type="submit">Sign in</button><button class="btn ghost sm" type="button" id="forgot-toggle">Forgot username or password?</button></div>
+          <div class="msg" id="li-msg"></div>
+        </form>
+        <form class="f" id="forgotform" hidden style="margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem">
+          <p style="font-size:.85rem;color:var(--bone-2);margin:0">Give us the username or the email on the account. An officer will confirm it's you and reset your password.</p>
+          <div class="row"><label class="l">Username<input id="fg-user" autocapitalize="off"></label><label class="l">Email on the account<input id="fg-email" type="email"></label></div>
+          <label class="l">Anything that helps us confirm it's you<textarea id="fg-text" style="min-height:70px" maxlength="500"></textarea></label>
+          <div class="btns"><button class="btn sm" type="submit">Send request</button><span class="msg" id="fg-msg"></span></div>
+        </form>
+      </div>
+      <div class="panel">
+        <h3>Create account</h3>
+        <form class="f" id="regform">
+          <div class="row">
+            <label class="l">Username<input id="rg-user" required minlength="3" maxlength="24" pattern="[A-Za-z0-9_.]{3,24}" title="3-24 letters, numbers, dots or underscores" autocomplete="username" autocapitalize="off" placeholder="e.g. big_tone"></label>
+            <label class="l">Password<input id="rg-pass" type="password" required minlength="8" autocomplete="new-password" placeholder="at least 8 characters"></label>
+          </div>
+          <label class="l">Email <span style="text-transform:none;letter-spacing:0">(optional, so an officer can help if you forget your login)</span><input id="rg-email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <div class="row">
+            <label class="l">Your area<input id="rg-area" maxlength="60" placeholder="Santa Maria"></label>
+            <label class="l">You ride<select id="rg-ride"><option value="">Choose…</option><option value="motorcycle">Motorcycle</option><option value="lowrider">Low Rider</option><option value="both">Both</option></select></label>
+          </div>
+          <div class="btns"><button class="btn sm" type="submit">Create account</button><span class="msg" id="rg-msg"></span></div>
+          <p style="font-size:.76rem;color:var(--mute);margin:0">Your username goes on everything you post, with your area and what you ride, like <b style="color:var(--bone-2)">Santa Maria · Motorcycle</b>.</p>
+        </form>
+      </div>
     </div>
 
     <div id="adminui" hidden>
-      <div class="tabs"><button class="on" data-tab="posts">Announcements</button><button data-tab="chapters">Chapters</button></div>
+      <div class="tabs">
+        <button class="on" data-tab="posts">Post</button>
+        <button data-tab="mine" id="tab-mine-btn">Your announcements</button>
+        <button data-tab="profile">Profile</button>
+        <button data-tab="chapters" data-officer hidden>Chapters</button>
+        <button data-tab="members" data-officer hidden>Members</button>
+        <button data-tab="recovery" data-officer hidden>Recovery requests</button>
+      </div>
 
       <div class="tabpane on" id="tab-posts">
         <div class="panel">
-          <h3><span id="pf-title">New post</span><button class="btn ghost sm" type="button" id="pf-reset" hidden>Cancel edit</button></h3>
+          <h3><span id="pf-title">New announcement</span><button class="btn ghost sm" type="button" id="pf-reset" hidden>Cancel edit</button></h3>
           <form class="f" id="postform">
             <input type="hidden" id="pf-id">
             <div class="row3">
-              <label class="l">Kind<select id="pf-kind"><option value="event">Event (has a date)</option><option value="notice">Notice (no date)</option></select></label>
+              <label class="l">Kind<select id="pf-kind"><option value="event">Event (goes on the calendar)</option><option value="notice">Notice (no date)</option></select></label>
               <label class="l">Type<select id="pf-type"><option value="ride">Ride</option><option value="show">Car show</option><option value="cruise">Cruise</option><option value="meeting">Meeting</option><option value="gathering" selected>Gathering</option><option value="memorial">Memorial</option><option value="fundraiser">Fundraiser</option><option value="party">Party</option><option value="other">Other</option></select></label>
-              <label class="l">Chapter<input id="pf-chapter" list="chaplist" placeholder="e.g. Sacramento"><datalist id="chaplist"></datalist></label>
+              <label class="l">Chapter<input id="pf-chapter" list="chaplist" placeholder="e.g. Santa Maria"><datalist id="chaplist"></datalist></label>
             </div>
             <label class="l">Title<input id="pf-title-in" maxlength="140" required placeholder="Memorial Ride for Kita"></label>
             <div class="row3" id="pf-dates">
@@ -694,14 +726,38 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
               <label class="l">Link (optional)<input id="pf-link" type="url" placeholder="https://… tickets, Facebook event, etc."></label>
             </div>
             <div class="row">
-              <label class="l">Hosted by<input id="pf-host" placeholder="Uso MC Sacramento"></label>
-              <div class="btns" style="align-self:end"><label class="l chk"><input type="checkbox" id="pf-pub" checked> Published</label><label class="l chk"><input type="checkbox" id="pf-pin"> Pinned to top</label></div>
+              <label class="l">Hosted by<input id="pf-host" placeholder="Uso MC Santa Maria"></label>
+              <div class="btns" style="align-self:end"><label class="l chk"><input type="checkbox" id="pf-pub" checked> Published</label><label class="l chk" data-officer hidden><input type="checkbox" id="pf-pin"> Pinned to top</label></div>
             </div>
             <div class="btns"><button class="btn sm" type="submit" id="pf-save">Post it</button><span class="msg" id="pf-msg"></span></div>
-            <p style="font-size:.76rem;color:var(--mute);margin:0">Times are entered in your own time zone (<b id="pf-tz"></b>) and shown to everyone in theirs.</p>
+            <p style="font-size:.76rem;color:var(--mute);margin:0">Times are entered in your own time zone (<b id="pf-tz"></b>) and shown to everyone in theirs. Your username is attached to the post.</p>
           </form>
         </div>
-        <div class="panel"><h3>All announcements <button class="btn ghost sm" type="button" id="reload-posts">Refresh</button></h3><div class="alist" id="postlist"></div></div>
+      </div>
+
+      <div class="tabpane" id="tab-mine">
+        <div class="panel"><h3><span id="mine-title">Your announcements</span> <button class="btn ghost sm" type="button" id="reload-posts">Refresh</button></h3><div class="alist" id="postlist"></div></div>
+      </div>
+
+      <div class="tabpane" id="tab-profile">
+        <div class="panel">
+          <h3>Profile</h3>
+          <form class="f" id="profform">
+            <div class="row">
+              <label class="l">Username<input id="pr-user" disabled></label>
+              <label class="l">Email (optional, for recovery)<input id="pr-email" type="email" autocomplete="email"></label>
+            </div>
+            <div class="row">
+              <label class="l">Your area<input id="pr-area" maxlength="60" placeholder="Sacramento"></label>
+              <label class="l">You ride<select id="pr-ride"><option value="">Choose…</option><option value="motorcycle">Motorcycle</option><option value="lowrider">Low Rider</option><option value="both">Both</option></select></label>
+            </div>
+            <div class="row">
+              <label class="l">Current password (only to change it)<input id="pr-cur" type="password" autocomplete="current-password"></label>
+              <label class="l">New password<input id="pr-new" type="password" minlength="8" autocomplete="new-password"></label>
+            </div>
+            <div class="btns"><button class="btn sm" type="submit">Save profile</button><span class="msg" id="pr-msg"></span></div>
+          </form>
+        </div>
       </div>
 
       <div class="tabpane" id="tab-chapters">
@@ -710,16 +766,16 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
           <form class="f" id="chapform">
             <input type="hidden" id="cf-id">
             <div class="row">
-              <label class="l">Chapter name<input id="cf-name" required maxlength="80" placeholder="Sacramento"></label>
-              <label class="l">City<input id="cf-city" placeholder="Sacramento"></label>
+              <label class="l">Chapter name<input id="cf-name" required maxlength="80" placeholder="Santa Maria"></label>
+              <label class="l">City<input id="cf-city" placeholder="Santa Maria"></label>
             </div>
             <div class="row">
               <label class="l">State / region<input id="cf-region" placeholder="California"></label>
               <label class="l">Country<input id="cf-country" placeholder="USA"></label>
             </div>
             <div class="row3">
-              <label class="l">Latitude<input id="cf-lat" type="number" step="any" min="-90" max="90" required placeholder="38.58"></label>
-              <label class="l">Longitude<input id="cf-lng" type="number" step="any" min="-180" max="180" required placeholder="-121.49"></label>
+              <label class="l">Latitude<input id="cf-lat" type="number" step="any" min="-90" max="90" required placeholder="34.95"></label>
+              <label class="l">Longitude<input id="cf-lng" type="number" step="any" min="-180" max="180" required placeholder="-120.43"></label>
               <label class="l">Sort order<input id="cf-sort" type="number" value="100"></label>
             </div>
             <label class="l">Note<input id="cf-note" placeholder="Founded 2010"></label>
@@ -729,6 +785,16 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
           </form>
         </div>
         <div class="panel"><h3>All chapters</h3><div class="alist" id="chaplistadmin"></div></div>
+      </div>
+
+      <div class="tabpane" id="tab-members">
+        <div class="panel"><h3>Members <button class="btn ghost sm" type="button" id="reload-members">Refresh</button></h3><div class="alist" id="memberlist"></div></div>
+      </div>
+
+      <div class="tabpane" id="tab-recovery">
+        <div class="panel"><h3>Recovery requests <button class="btn ghost sm" type="button" id="reload-recovery">Refresh</button></h3>
+          <p style="font-size:.82rem;color:var(--bone-2);margin:0 0 .8rem">Someone forgot their login. Confirm who they are (the email on file helps), then reset their password from the Members tab and get it to them.</p>
+          <div class="alist" id="recoverylist"></div></div>
       </div>
     </div>
   </div>
@@ -744,30 +810,28 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
    =================================================================== */
 const SB_URL = "https://oylpbdmrtskzrlchcvso.supabase.co";
 const SB_KEY = "sb_publishable_qJMFWpxtpEoj2lm-dM879w_ZTfLvqUN";
-const auth = {
-  get token(){ try{return localStorage.getItem("uso_tok")||null}catch(e){return null} },
-  get email(){ try{return localStorage.getItem("uso_email")||null}catch(e){return null} },
-  set(tok,email){ try{ if(tok){localStorage.setItem("uso_tok",tok);localStorage.setItem("uso_email",email||"")} else {localStorage.removeItem("uso_tok");localStorage.removeItem("uso_email")} }catch(e){} }
+// Member sessions are our own (uso_members / uso_sessions), not Supabase Auth —
+// this project's Auth is shared with other apps and requires email confirmation.
+// The site only ever holds the publishable key; every write goes through an RPC
+// that checks the session token server-side.
+const SESS = {
+  get token(){ try{ return localStorage.getItem("uso_sess") || null }catch(e){ return null } },
+  set(t){ try{ if(t) localStorage.setItem("uso_sess", t); else localStorage.removeItem("uso_sess"); }catch(e){} }
 };
-function hdrs(extra){ return Object.assign({apikey:SB_KEY,"Content-Type":"application/json",Authorization:"Bearer "+(auth.token||SB_KEY)},extra||{}); }
-async function sbFetch(path,init){
-  let r = await fetch(SB_URL+path,init());
-  if(r.status===401 && auth.token){ auth.set(null); if(!isAdminRoute()) r = await fetch(SB_URL+path,init()); }
-  return r;
+let ME = null;                       // {id, username, email, area, ride, role} or null
+const RIDE = { motorcycle:"Motorcycle", lowrider:"Low Rider", both:"Motorcycle & Low Rider", "":"" };
+function memberTag(m){ return m ? [m.area, RIDE[m.ride]||""].filter(Boolean).join(" · ") : ""; }
+function hdrs(extra){ return Object.assign({ apikey:SB_KEY, "Content-Type":"application/json", Authorization:"Bearer "+SB_KEY }, extra||{}); }
+async function sbGet(path){
+  const r = await fetch(SB_URL + "/rest/v1/" + path, { headers: hdrs() });
+  if(!r.ok) throw new Error((await r.text()) || r.status);
+  return r.json();
 }
-async function sbGet(path){ const r=await sbFetch("/rest/v1/"+path,()=>({headers:hdrs()})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
-async function sbPost(table,rows){ const r=await sbFetch("/rest/v1/"+table,()=>({method:"POST",headers:hdrs({Prefer:"return=representation"}),body:JSON.stringify(rows)})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
-async function sbPatch(table,filter,patch){ const r=await sbFetch("/rest/v1/"+table+"?"+filter,()=>({method:"PATCH",headers:hdrs({Prefer:"return=representation"}),body:JSON.stringify(patch)})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
-async function sbDelete(table,filter){ const r=await sbFetch("/rest/v1/"+table+"?"+filter,()=>({method:"DELETE",headers:hdrs({Prefer:"return=minimal"})})); if(!r.ok) throw new Error(await r.text()||r.status); return true; }
-async function signIn(email,password){
-  const r=await fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
-  const j=await r.json(); if(!r.ok) throw new Error(j.error_description||j.msg||j.message||"Could not sign in");
-  auth.set(j.access_token,email); return j;
-}
-async function signUp(email,password){
-  const r=await fetch(SB_URL+"/auth/v1/signup",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
-  const j=await r.json(); if(!r.ok) throw new Error(j.error_description||j.msg||j.message||"Could not create the account");
-  if(j.access_token){auth.set(j.access_token,email);return {signedIn:true}} return {signedIn:false};
+async function rpc(name, args){
+  const r = await fetch(SB_URL + "/rest/v1/rpc/" + name, { method:"POST", headers:hdrs(), body: JSON.stringify(args||{}) });
+  const t = await r.text(); let j = null; try{ j = t ? JSON.parse(t) : null }catch(e){ j = t; }
+  if(!r.ok){ const msg = (j && j.message) || (typeof j === "string" ? j : "") || ("Error " + r.status); throw new Error(msg); }
+  return j;
 }
 
 /* ===================================================================
@@ -811,13 +875,13 @@ const ICON={pin:'<svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-1
 /* ===================================================================
    BOARD
    =================================================================== */
-let POSTS=[], CHAPTERS=[], FILTER="all";
+let POSTS=[], CHAPTERS=[], FILTER="all", MEMBERS={};
 async function loadPosts(){
   try{
-    POSTS = await sbGet("uso_posts?select=*&order=is_pinned.desc,starts_at.asc.nullsfirst&limit=400");
+    const [posts, mem] = await Promise.all([ sbGet("uso_posts?select=*&order=is_pinned.desc,starts_at.asc.nullsfirst&limit=400"), sbGet("uso_members_public?select=id,display_name,area,ride").catch(()=>[]) ]);
+    POSTS = posts; MEMBERS = {}; mem.forEach(m => MEMBERS[m.id] = m);
   }catch(e){ console.error(e); $("#upcoming").innerHTML='<div class="empty"><b>Announcements are offline</b>Could not reach the server. Refresh in a moment.</div>'; $("#upcoming").classList.remove("skeleton"); return; }
   renderBoard(); renderCalendar(); renderNextUp(); renderTicker();
-  if(document.body.classList.contains("admin")) renderPostList();
 }
 function splitPosts(){
   const now=Date.now(), pub=POSTS.filter(p=>p.is_published);
@@ -856,6 +920,7 @@ function card(p){
         ${w.main?`<div>${ICON.clock}<span>${esc(w.main)}${w.alt?`<br><span class="alt">${esc(w.alt)}</span>`:""}</span></div>`:""}
         ${(p.location_name||p.address)?`<div>${ICON.pin}<span>${esc(p.location_name)}${p.location_name&&p.address?"<br>":""}<span class="alt">${esc(p.address)}</span></span></div>`:""}
         ${p.hosted_by?`<div>${ICON.user}<span>Hosted by ${esc(p.hosted_by)}</span></div>`:""}
+        ${postedBy(p)}
       </div>
       ${p.details?`<p class="${long?"clamp":""}">${esc(p.details)}</p>${long?`<button class="more" data-more>Read more</button>`:""}`:""}
     </div></div>
@@ -866,6 +931,7 @@ function card(p){
       <button class="ib" data-share>${ICON.share} Share</button>
     </div></article>`;
 }
+function postedBy(p){ if(!p.created_by || p.created_by==="site") return ""; const m=MEMBERS[p.member_id]; const tag=m?memberTag(m):""; return `<div class="by">${ICON.flag}<span>Posted by <b>${esc(p.created_by)}</b>${tag?` <span class="alt">· ${esc(tag)}</span>`:""}</span></div>`; }
 function bindCards(root){
   $$("[data-lb]",root).forEach(el=>el.onclick=()=>{ $("#lb img").src=el.dataset.lb; $("#lb").classList.add("on"); });
   $$("[data-more]",root).forEach(b=>b.onclick=()=>{ b.previousElementSibling.classList.remove("clamp"); b.remove(); });
@@ -958,75 +1024,145 @@ function highlight(id){
 }
 async function loadChapters(){
   try{ CHAPTERS=await sbGet("uso_chapters?select=*&order=sort_order.asc,name.asc"); }catch(e){ console.error(e); CHAPTERS=[]; }
-  buildMap(); if(document.body.classList.contains("admin")) renderChapList();
+  buildMap();
 }
 
 /* ===================================================================
-   ADMIN
+   ACCOUNT / MEMBERS  (#/account, #/admin is an alias)
    =================================================================== */
-const LOCAL_TZ=VIEW_TZ;
-function toLocalInput(iso,tz){ if(!iso) return ""; const d=new Date(iso); const p=new Intl.DateTimeFormat("en-US",{timeZone:tz||LOCAL_TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d); const g=t=>(p.find(x=>x.type===t)||{}).value; return `${g("year")}-${g("month")}-${g("day")}T${g("hour")==="24"?"00":g("hour")}:${g("minute")}`; }
-function fromLocalInput(v){ return v? new Date(v).toISOString() : null; }   // datetime-local parses in the browser's zone = LOCAL_TZ
+const LOCAL_TZ = VIEW_TZ;
+let MYPOSTS = [], ADMIN_CHAPTERS = [], MEMBERS_ADMIN = [];
+function toLocalInput(iso){ if(!iso) return ""; const d=new Date(iso); const p=new Intl.DateTimeFormat("en-US",{timeZone:LOCAL_TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d); const g=t=>(p.find(x=>x.type===t)||{}).value; return `${g("year")}-${g("month")}-${g("day")}T${g("hour")==="24"?"00":g("hour")}:${g("minute")}`; }
+function fromLocalInput(v){ return v ? new Date(v).toISOString() : null; }
+function isAdminRoute(){ return /^#\/(account|admin)/.test(location.hash); }
+function setMsg(id, text, cls){ const m=$("#"+id); m.textContent=text||""; m.className="msg"+(cls?" "+cls:""); }
 async function route(){
-  const admin=isAdminRoute(); document.body.classList.toggle("admin",admin);
-  if(admin){ window.scrollTo(0,0); await adminInit(); }
+  const on = isAdminRoute(); document.body.classList.toggle("admin", on);
+  if(on){ window.scrollTo(0,0); await acctInit(); }
 }
-async function adminInit(){
-  $("#pf-tz").textContent=LOCAL_TZ;
-  if(!auth.token){ $("#loginpanel").hidden=false; $("#adminui").hidden=true; $("#signout").hidden=true; $("#who").textContent=""; return; }
-  try{
-    const rows=await sbGet("uso_admin_emails?select=email&limit=1");
-    if(!rows.length){ $("#li-msg").textContent="That account is not on the officer list."; $("#li-msg").className="msg err"; auth.set(null); return adminInit(); }
-  }catch(e){ if(String(e).includes("401")||String(e).includes("JWT")){ auth.set(null); return adminInit(); } }
-  $("#loginpanel").hidden=true; $("#adminui").hidden=false; $("#signout").hidden=false; $("#who").textContent=auth.email;
-  renderPostList(); renderChapList();
+async function acctInit(){
+  $("#pf-tz").textContent = LOCAL_TZ;
+  if(SESS.token && !ME){ try{ ME = await rpc("uso_me", { p_token: SESS.token }); }catch(e){ ME = null; } if(!ME) SESS.set(null); }
+  renderAcct();
 }
-$("#loginform").onsubmit=async e=>{ e.preventDefault(); const m=$("#li-msg"); m.className="msg"; m.textContent="Signing in…"; try{ await signIn($("#li-email").value.trim(),$("#li-pass").value); m.textContent=""; adminInit(); }catch(err){ m.className="msg err"; m.textContent=err.message; } };
-$("#signup").onclick=async()=>{ const m=$("#li-msg"); const email=$("#li-email").value.trim(), pw=$("#li-pass").value; if(!email||pw.length<8){ m.className="msg err"; m.textContent="Enter your email and a password of at least 8 characters."; return; } m.className="msg"; m.textContent="Creating account…"; try{ const r=await signUp(email,pw); if(r.signedIn){ m.textContent=""; adminInit(); } else { m.className="msg ok"; m.textContent="Check your email for a confirmation link, then sign in."; } }catch(err){ m.className="msg err"; m.textContent=err.message; } };
-$("#signout").onclick=()=>{ auth.set(null); adminInit(); };
-$$(".tabs button").forEach(b=>b.onclick=()=>{ $$(".tabs button").forEach(x=>x.classList.toggle("on",x===b)); $$(".tabpane").forEach(p=>p.classList.toggle("on",p.id==="tab-"+b.dataset.tab)); });
-$("#pf-kind").onchange=()=>{ $("#pf-dates").style.display=$("#pf-kind").value==="notice"?"none":""; };
-function resetPostForm(){ $("#postform").reset(); $("#pf-id").value=""; $("#pf-title").textContent="New post"; $("#pf-reset").hidden=true; $("#pf-save").textContent="Post it"; $("#pf-dates").style.display=""; $("#pf-msg").textContent=""; }
-$("#pf-reset").onclick=resetPostForm;
-$("#postform").onsubmit=async e=>{
-  e.preventDefault(); const m=$("#pf-msg"); m.className="msg"; m.textContent="Saving…";
-  const kind=$("#pf-kind").value;
-  const row={ kind, event_type:$("#pf-type").value, title:$("#pf-title-in").value.trim(), chapter:$("#pf-chapter").value.trim(),
-    starts_at: kind==="notice"?null:fromLocalInput($("#pf-start").value), ends_at: kind==="notice"?null:fromLocalInput($("#pf-end").value), all_day:$("#pf-allday").checked, tz:LOCAL_TZ,
-    location_name:$("#pf-loc").value.trim(), address:$("#pf-addr").value.trim(), details:$("#pf-details").value.trim(), flyer_url:$("#pf-flyer").value.trim(), link_url:$("#pf-link").value.trim(),
-    hosted_by:$("#pf-host").value.trim(), is_published:$("#pf-pub").checked, is_pinned:$("#pf-pin").checked, created_by:auth.email||"" };
-  if(kind==="event" && !row.starts_at){ m.className="msg err"; m.textContent="An event needs a start date and time."; return; }
-  if(row.ends_at && row.starts_at && row.ends_at<row.starts_at){ m.className="msg err"; m.textContent="The end is before the start."; return; }
-  try{ const id=$("#pf-id").value; if(id){ delete row.created_by; await sbPatch("uso_posts","id=eq."+id,row); } else { await sbPost("uso_posts",[row]); }
-    m.className="msg ok"; m.textContent=id?"Updated.":"Posted. It's live on Uso Announcements."; resetPostForm(); await loadPosts(); toast(id?"Post updated":"Posted to Uso Announcements");
-  }catch(err){ m.className="msg err"; m.textContent=err.message; }
+function renderAcct(){
+  const on = !!ME, officer = on && ME.role === "officer";
+  const na=$("#nav-acct"); if(na) na.textContent = on ? ME.username : "Sign in";
+  $("#authpanels").hidden = on; $("#adminui").hidden = !on; $("#signout").hidden = !on;
+  $("#who").textContent = on ? ME.username + (memberTag(ME) ? " · " + memberTag(ME) : "") + (officer ? " · Officer" : "") : "";
+  $("#acct-title").textContent = on ? (officer ? "Officer desk" : "Post an announcement") : "Sign in or join";
+  $$("[data-officer]").forEach(el => el.hidden = !officer);
+  $("#mine-title").textContent = officer ? "All announcements" : "Your announcements";
+  if(on){ loadMyPosts(); fillProfile(); if(officer){ loadAdminChapters(); loadMembers(); loadRecovery(); } }
+}
+$("#loginform").onsubmit = async e => {
+  e.preventDefault(); setMsg("li-msg", "Signing in…");
+  try{ const r = await rpc("uso_login", { p_username: $("#li-user").value.trim(), p_password: $("#li-pass").value });
+       SESS.set(r.token); ME = r.member; $("#li-pass").value=""; setMsg("li-msg",""); renderAcct(); toast("Welcome back, " + ME.username); }
+  catch(err){ setMsg("li-msg", err.message, "err"); }
 };
+$("#regform").onsubmit = async e => {
+  e.preventDefault(); setMsg("rg-msg", "Creating your account…");
+  try{ const r = await rpc("uso_register", { p_username: $("#rg-user").value.trim(), p_password: $("#rg-pass").value, p_email: $("#rg-email").value.trim() || null, p_area: $("#rg-area").value.trim(), p_ride: $("#rg-ride").value });
+       SESS.set(r.token); ME = r.member; $("#regform").reset(); setMsg("rg-msg",""); renderAcct(); toast("Welcome to the family, " + ME.username); }
+  catch(err){ setMsg("rg-msg", err.message, "err"); }
+};
+$("#forgot-toggle").onclick = () => { const f=$("#forgotform"); f.hidden = !f.hidden; if(!f.hidden) $("#fg-user").focus(); };
+$("#forgotform").onsubmit = async e => {
+  e.preventDefault(); setMsg("fg-msg", "Sending…");
+  try{ await rpc("uso_request_recovery", { p_username: $("#fg-user").value.trim(), p_email: $("#fg-email").value.trim(), p_message: $("#fg-text").value.trim() });
+       $("#forgotform").reset(); setMsg("fg-msg", "Sent. An officer will reach out.", "ok"); }
+  catch(err){ setMsg("fg-msg", err.message, "err"); }
+};
+$("#signout").onclick = async () => { const t=SESS.token; SESS.set(null); ME=null; MYPOSTS=[]; try{ if(t) await rpc("uso_logout",{p_token:t}); }catch(e){} renderAcct(); toast("Signed out"); };
+$$(".tabs button").forEach(b => b.onclick = () => { $$(".tabs button").forEach(x => x.classList.toggle("on", x===b)); $$(".tabpane").forEach(p => p.classList.toggle("on", p.id === "tab-" + b.dataset.tab)); });
+
+/* ---- posting ---- */
+$("#pf-kind").onchange = () => { $("#pf-dates").style.display = $("#pf-kind").value === "notice" ? "none" : ""; };
+function resetPostForm(){ $("#postform").reset(); $("#pf-id").value=""; $("#pf-title").textContent="New announcement"; $("#pf-reset").hidden=true; $("#pf-save").textContent="Post it"; $("#pf-dates").style.display=""; setMsg("pf-msg",""); }
+$("#pf-reset").onclick = resetPostForm;
+$("#postform").onsubmit = async e => {
+  e.preventDefault(); if(!ME){ setMsg("pf-msg","Sign in first.","err"); return; } setMsg("pf-msg", "Saving…");
+  const kind = $("#pf-kind").value;
+  const row = { kind, event_type: $("#pf-type").value, title: $("#pf-title-in").value.trim(), chapter: $("#pf-chapter").value.trim(),
+    starts_at: kind === "notice" ? null : fromLocalInput($("#pf-start").value), ends_at: kind === "notice" ? null : fromLocalInput($("#pf-end").value),
+    all_day: $("#pf-allday").checked, tz: LOCAL_TZ, location_name: $("#pf-loc").value.trim(), address: $("#pf-addr").value.trim(),
+    details: $("#pf-details").value.trim(), flyer_url: $("#pf-flyer").value.trim(), link_url: $("#pf-link").value.trim(),
+    hosted_by: $("#pf-host").value.trim(), is_published: $("#pf-pub").checked };
+  if(ME.role === "officer") row.is_pinned = $("#pf-pin").checked;
+  if(kind === "event" && !row.starts_at){ setMsg("pf-msg", "An event needs a start date and time.", "err"); return; }
+  if(row.ends_at && row.starts_at && row.ends_at < row.starts_at){ setMsg("pf-msg", "The end is before the start.", "err"); return; }
+  const id = $("#pf-id").value; if(id) row.id = id;
+  try{ await rpc("uso_save_post", { p_token: SESS.token, p: row });
+       setMsg("pf-msg", id ? "Updated." : "Posted. It's live on Uso Announcements.", "ok"); resetPostForm(); await Promise.all([loadPosts(), loadMyPosts()]); toast(id ? "Updated" : "Posted"); }
+  catch(err){ setMsg("pf-msg", err.message, "err"); }
+};
+async function loadMyPosts(){ if(!ME) return; try{ MYPOSTS = await rpc("uso_my_posts", { p_token: SESS.token }); }catch(e){ MYPOSTS=[]; } renderPostList(); }
 function renderPostList(){
-  const list=$("#postlist"); if(!list) return;
-  const rows=POSTS.slice().sort((a,b)=>new Date(b.starts_at||b.created_at)-new Date(a.starts_at||a.created_at));
-  list.innerHTML = rows.length? rows.map(p=>`<div class="arow${p.is_published?"":" draft"}" data-id="${p.id}">
-    <div class="dt">${p.starts_at?esc(fmt(new Date(p.starts_at),LOCAL_TZ,{month:"short",day:"numeric",year:"2-digit"})):"NOTICE"}</div>
-    <div><b>${p.is_pinned?"📌 ":""}${esc(p.title)}</b><small>${p.is_published?"Published":"DRAFT"} · ${esc(TYPE1[p.event_type]||"")}${p.chapter?" · "+esc(p.chapter):""}${p.location_name?" · "+esc(p.location_name):""}</small></div>
-    <div class="acts"><button class="ib" data-edit>Edit</button><button class="ib" data-toggle>${p.is_published?"Unpublish":"Publish"}</button><button class="ib" data-del>Delete</button></div></div>`).join("") : '<div class="msg">No posts yet.</div>';
-  $$("[data-edit]",list).forEach(b=>b.onclick=()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); $("#pf-id").value=p.id; $("#pf-kind").value=p.kind; $("#pf-kind").onchange(); $("#pf-type").value=p.event_type; $("#pf-chapter").value=p.chapter; $("#pf-title-in").value=p.title; $("#pf-start").value=toLocalInput(p.starts_at); $("#pf-end").value=toLocalInput(p.ends_at); $("#pf-allday").checked=p.all_day; $("#pf-loc").value=p.location_name; $("#pf-addr").value=p.address; $("#pf-details").value=p.details; $("#pf-flyer").value=p.flyer_url; $("#pf-link").value=p.link_url; $("#pf-host").value=p.hosted_by; $("#pf-pub").checked=p.is_published; $("#pf-pin").checked=p.is_pinned; $("#pf-title").textContent="Editing: "+p.title; $("#pf-reset").hidden=false; $("#pf-save").textContent="Save changes"; $("#postform").scrollIntoView({behavior:"smooth",block:"start"}); });
-  $$("[data-toggle]",list).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); try{ await sbPatch("uso_posts","id=eq."+p.id,{is_published:!p.is_published}); await loadPosts(); toast(p.is_published?"Unpublished":"Published"); }catch(e){ toast("Failed: "+e.message); } });
-  $$("[data-del]",list).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); if(!confirm(`Delete "${p.title}"? This cannot be undone.`)) return; try{ await sbDelete("uso_posts","id=eq."+p.id); await loadPosts(); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
+  const list = $("#postlist"); if(!list || !ME) return;
+  const officer = ME.role === "officer";
+  list.innerHTML = MYPOSTS.length ? MYPOSTS.map(p => `<div class="arow${p.is_published ? "" : " draft"}" data-id="${p.id}">
+    <div class="dt">${p.starts_at ? esc(fmt(new Date(p.starts_at), LOCAL_TZ, {month:"short",day:"numeric",year:"2-digit"})) : "NOTICE"}</div>
+    <div><b>${p.is_pinned ? "📌 " : ""}${esc(p.title)}</b><small>${p.is_published ? "Published" : "DRAFT"} · ${esc(TYPE1[p.event_type]||"")}${p.chapter ? " · " + esc(p.chapter) : ""} · by ${esc(p.created_by||"?")}${p.updated_by && p.updated_by !== p.created_by ? " · edited by " + esc(p.updated_by) : ""}</small></div>
+    <div class="acts"><button class="ib" data-edit>Edit</button><button class="ib" data-toggle>${p.is_published ? "Unpublish" : "Publish"}</button>${officer ? `<button class="ib" data-pin>${p.is_pinned ? "Unpin" : "Pin"}</button>` : ""}<button class="ib" data-del>Delete</button></div></div>`).join("")
+    : '<div class="msg">Nothing yet. Post something from the Post tab.</div>';
+  const find = b => MYPOSTS.find(x => x.id === b.closest(".arow").dataset.id);
+  $$("[data-edit]", list).forEach(b => b.onclick = () => { const p = find(b);
+    $("#pf-id").value=p.id; $("#pf-kind").value=p.kind; $("#pf-kind").onchange(); $("#pf-type").value=p.event_type; $("#pf-chapter").value=p.chapter; $("#pf-title-in").value=p.title;
+    $("#pf-start").value=toLocalInput(p.starts_at); $("#pf-end").value=toLocalInput(p.ends_at); $("#pf-allday").checked=p.all_day; $("#pf-loc").value=p.location_name; $("#pf-addr").value=p.address;
+    $("#pf-details").value=p.details; $("#pf-flyer").value=p.flyer_url; $("#pf-link").value=p.link_url; $("#pf-host").value=p.hosted_by; $("#pf-pub").checked=p.is_published; $("#pf-pin").checked=p.is_pinned;
+    $("#pf-title").textContent="Editing: "+p.title; $("#pf-reset").hidden=false; $("#pf-save").textContent="Save changes";
+    $$(".tabs button")[0].click(); $("#postform").scrollIntoView({behavior:"smooth",block:"start"}); });
+  $$("[data-toggle]", list).forEach(b => b.onclick = async () => { const p=find(b); try{ await rpc("uso_save_post",{p_token:SESS.token,p:{id:p.id,is_published:!p.is_published}}); await Promise.all([loadPosts(),loadMyPosts()]); toast(p.is_published?"Unpublished":"Published"); }catch(e){ toast("Failed: "+e.message); } });
+  $$("[data-pin]", list).forEach(b => b.onclick = async () => { const p=find(b); try{ await rpc("uso_save_post",{p_token:SESS.token,p:{id:p.id,is_pinned:!p.is_pinned}}); await Promise.all([loadPosts(),loadMyPosts()]); toast(p.is_pinned?"Unpinned":"Pinned"); }catch(e){ toast("Failed: "+e.message); } });
+  $$("[data-del]", list).forEach(b => b.onclick = async () => { const p=find(b); if(!confirm(`Delete "${p.title}"? This cannot be undone.`)) return; try{ await rpc("uso_delete_post",{p_token:SESS.token,p_id:p.id}); await Promise.all([loadPosts(),loadMyPosts()]); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
 }
-$("#reload-posts").onclick=loadPosts;
-function resetChapForm(){ $("#chapform").reset(); $("#cf-id").value=""; $("#cf-sort").value=100; $("#cf-active").checked=true; $("#cf-title").textContent="New chapter"; $("#cf-reset").hidden=true; $("#cf-msg").textContent=""; }
-$("#cf-reset").onclick=resetChapForm;
-$("#chapform").onsubmit=async e=>{
-  e.preventDefault(); const m=$("#cf-msg"); m.className="msg"; m.textContent="Saving…";
-  const row={ name:$("#cf-name").value.trim(), city:$("#cf-city").value.trim(), region:$("#cf-region").value.trim(), country:$("#cf-country").value.trim(), lat:parseFloat($("#cf-lat").value), lng:parseFloat($("#cf-lng").value), sort_order:parseInt($("#cf-sort").value||"100",10), note:$("#cf-note").value.trim(), is_active:$("#cf-active").checked, is_founding:$("#cf-founding").checked };
-  try{ const id=$("#cf-id").value; if(id) await sbPatch("uso_chapters","id=eq."+id,row); else await sbPost("uso_chapters",[row]); m.className="msg ok"; m.textContent="Saved."; resetChapForm(); await loadChapters(); toast("Chapter saved"); }
-  catch(err){ m.className="msg err"; m.textContent=err.message; }
+$("#reload-posts").onclick = () => { loadPosts(); loadMyPosts(); };
+
+/* ---- profile ---- */
+function fillProfile(){ if(!ME) return; $("#pr-user").value=ME.username; $("#pr-email").value=ME.email||""; $("#pr-area").value=ME.area||""; $("#pr-ride").value=ME.ride||""; $("#pr-cur").value=""; $("#pr-new").value=""; }
+$("#profform").onsubmit = async e => {
+  e.preventDefault(); setMsg("pr-msg","Saving…");
+  try{ ME = await rpc("uso_update_profile", { p_token:SESS.token, p_email:$("#pr-email").value.trim()||null, p_area:$("#pr-area").value.trim(), p_ride:$("#pr-ride").value, p_current_password:$("#pr-cur").value||null, p_new_password:$("#pr-new").value||null });
+       setMsg("pr-msg","Saved.","ok"); renderAcct(); loadPosts(); }
+  catch(err){ setMsg("pr-msg", err.message, "err"); }
 };
+
+/* ---- officers: chapters ---- */
+function resetChapForm(){ $("#chapform").reset(); $("#cf-id").value=""; $("#cf-sort").value=100; $("#cf-active").checked=true; $("#cf-title").textContent="New chapter"; $("#cf-reset").hidden=true; setMsg("cf-msg",""); }
+$("#cf-reset").onclick = resetChapForm;
+$("#chapform").onsubmit = async e => {
+  e.preventDefault(); setMsg("cf-msg","Saving…");
+  const row = { name:$("#cf-name").value.trim(), city:$("#cf-city").value.trim(), region:$("#cf-region").value.trim(), country:$("#cf-country").value.trim(), lat:parseFloat($("#cf-lat").value), lng:parseFloat($("#cf-lng").value), sort_order:parseInt($("#cf-sort").value||"100",10), note:$("#cf-note").value.trim(), is_active:$("#cf-active").checked, is_founding:$("#cf-founding").checked };
+  const id=$("#cf-id").value; if(id) row.id=id;
+  try{ await rpc("uso_save_chapter",{p_token:SESS.token,p:row}); setMsg("cf-msg","Saved.","ok"); resetChapForm(); await Promise.all([loadChapters(),loadAdminChapters()]); toast("Chapter saved"); }
+  catch(err){ setMsg("cf-msg", err.message, "err"); }
+};
+async function loadAdminChapters(){ if(!ME||ME.role!=="officer") return; try{ ADMIN_CHAPTERS = await rpc("uso_all_chapters",{p_token:SESS.token}); }catch(e){ ADMIN_CHAPTERS=[]; } renderChapList(); }
 function renderChapList(){
   const list=$("#chaplistadmin"); if(!list) return;
-  list.innerHTML = CHAPTERS.length? CHAPTERS.map(c=>`<div class="arow${c.is_active?"":" draft"}" data-id="${c.id}"><div class="dt">${c.is_founding?"★ ":""}${esc(c.name)}</div><div><b>${esc([c.city,c.region,c.country].filter(Boolean).join(", "))||"—"}</b><small>${c.lat.toFixed(3)}, ${c.lng.toFixed(3)}${c.note?" · "+esc(c.note):""}${c.is_active?"":" · HIDDEN"}</small></div><div class="acts"><button class="ib" data-cedit>Edit</button><button class="ib" data-cdel>Delete</button></div></div>`).join("") : '<div class="msg">No chapters yet.</div>';
-  $$("[data-cedit]",list).forEach(b=>b.onclick=()=>{ const c=CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); $("#cf-id").value=c.id; $("#cf-name").value=c.name; $("#cf-city").value=c.city; $("#cf-region").value=c.region; $("#cf-country").value=c.country; $("#cf-lat").value=c.lat; $("#cf-lng").value=c.lng; $("#cf-sort").value=c.sort_order; $("#cf-note").value=c.note; $("#cf-active").checked=c.is_active; $("#cf-founding").checked=c.is_founding; $("#cf-title").textContent="Editing: "+c.name; $("#cf-reset").hidden=false; $("#chapform").scrollIntoView({behavior:"smooth",block:"start"}); });
-  $$("[data-cdel]",list).forEach(b=>b.onclick=async()=>{ const c=CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); if(!confirm(`Delete the ${c.name} chapter from the map?`)) return; try{ await sbDelete("uso_chapters","id=eq."+c.id); await loadChapters(); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
+  list.innerHTML = ADMIN_CHAPTERS.length ? ADMIN_CHAPTERS.map(c=>`<div class="arow${c.is_active?"":" draft"}" data-id="${c.id}"><div class="dt">${c.is_founding?"★ ":""}${esc(c.name)}</div><div><b>${esc([c.city,c.region,c.country].filter(Boolean).join(", "))||"—"}</b><small>${(+c.lat).toFixed(3)}, ${(+c.lng).toFixed(3)}${c.note?" · "+esc(c.note):""}${c.is_active?"":" · HIDDEN"}</small></div><div class="acts"><button class="ib" data-cedit>Edit</button><button class="ib" data-cdel>Delete</button></div></div>`).join("") : '<div class="msg">No chapters yet.</div>';
+  $$("[data-cedit]",list).forEach(b=>b.onclick=()=>{ const c=ADMIN_CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); $("#cf-id").value=c.id; $("#cf-name").value=c.name; $("#cf-city").value=c.city; $("#cf-region").value=c.region; $("#cf-country").value=c.country; $("#cf-lat").value=c.lat; $("#cf-lng").value=c.lng; $("#cf-sort").value=c.sort_order; $("#cf-note").value=c.note; $("#cf-active").checked=c.is_active; $("#cf-founding").checked=c.is_founding; $("#cf-title").textContent="Editing: "+c.name; $("#cf-reset").hidden=false; $("#chapform").scrollIntoView({behavior:"smooth",block:"start"}); });
+  $$("[data-cdel]",list).forEach(b=>b.onclick=async()=>{ const c=ADMIN_CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); if(!confirm(`Delete the ${c.name} chapter from the map?`)) return; try{ await rpc("uso_delete_chapter",{p_token:SESS.token,p_id:c.id}); await Promise.all([loadChapters(),loadAdminChapters()]); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
 }
+
+/* ---- officers: members + recovery ---- */
+async function loadMembers(){ if(!ME||ME.role!=="officer") return; try{ MEMBERS_ADMIN = await rpc("uso_admin_members",{p_token:SESS.token}); }catch(e){ MEMBERS_ADMIN=[]; } renderMembers(); }
+function renderMembers(){
+  const list=$("#memberlist"); if(!list) return;
+  list.innerHTML = MEMBERS_ADMIN.length ? MEMBERS_ADMIN.map(m=>`<div class="arow${m.is_active?"":" draft"}" data-id="${m.id}"><div class="dt">${m.role==="officer"?"★ ":""}${esc(m.username)}</div><div><b>${esc(memberTag(m)||"—")}</b><small>${m.email?esc(m.email)+" · ":""}${m.posts} post${m.posts==1?"":"s"} · joined ${esc(fmt(new Date(m.created_at),LOCAL_TZ,{month:"short",day:"numeric",year:"numeric"}))}${m.is_active?"":" · DEACTIVATED"}</small></div><div class="acts"><button class="ib" data-mrole>${m.role==="officer"?"Make member":"Make officer"}</button><button class="ib" data-mreset>Reset password</button><button class="ib" data-mactive>${m.is_active?"Deactivate":"Reactivate"}</button></div></div>`).join("") : '<div class="msg">No members yet.</div>';
+  const find=b=>MEMBERS_ADMIN.find(x=>x.id===b.closest(".arow").dataset.id);
+  $$("[data-mrole]",list).forEach(b=>b.onclick=async()=>{ const m=find(b); const role=m.role==="officer"?"member":"officer"; if(!confirm(`Make ${m.username} ${role==="officer"?"an officer":"a regular member"}?`)) return; try{ await rpc("uso_admin_set_member",{p_token:SESS.token,p_member_id:m.id,p_role:role,p_active:m.is_active}); await loadMembers(); toast("Updated"); }catch(e){ toast("Failed: "+e.message); } });
+  $$("[data-mactive]",list).forEach(b=>b.onclick=async()=>{ const m=find(b); if(!confirm(`${m.is_active?"Deactivate":"Reactivate"} ${m.username}?`)) return; try{ await rpc("uso_admin_set_member",{p_token:SESS.token,p_member_id:m.id,p_role:m.role,p_active:!m.is_active}); await loadMembers(); toast("Updated"); }catch(e){ toast("Failed: "+e.message); } });
+  $$("[data-mreset]",list).forEach(b=>b.onclick=async()=>{ const m=find(b); const pw=prompt(`New password for ${m.username} (at least 8 characters). Give it to them privately; they can change it in their Profile.`); if(!pw) return; try{ await rpc("uso_admin_reset_password",{p_token:SESS.token,p_member_id:m.id,p_new_password:pw}); toast("Password reset"); }catch(e){ toast("Failed: "+e.message); } });
+}
+$("#reload-members").onclick = loadMembers;
+async function loadRecovery(){ if(!ME||ME.role!=="officer") return; let rows=[]; try{ rows = await rpc("uso_admin_recovery",{p_token:SESS.token}); }catch(e){}
+  const list=$("#recoverylist"); const open=rows.filter(r=>!r.handled_at).length; $("#recoverylist").innerHTML = rows.length ? rows.map(r=>`<div class="arow${r.handled_at?" draft":""}" data-id="${r.id}"><div class="dt">${esc(fmt(new Date(r.created_at),LOCAL_TZ,{month:"short",day:"numeric"}))}</div><div><b>${esc(r.username||"(no username)")}${r.email?" · "+esc(r.email):""}</b><small>${r.message?esc(r.message)+" · ":""}${r.matches&&r.matches.length?"Matches: "+r.matches.map(x=>esc(x.username)+(x.email?" ("+esc(x.email)+")":"")).join(", "):"No matching account"}${r.handled_at?" · handled by "+esc(r.handled_by):""}</small></div><div class="acts">${r.handled_at?"":'<button class="ib" data-rdone>Mark handled</button>'}</div></div>`).join("") : '<div class="msg">No requests.</div>';
+  const tab=$('[data-tab="recovery"]'); if(tab) tab.textContent = "Recovery requests" + (open ? " ("+open+")" : "");
+  $$("[data-rdone]",list).forEach(b=>b.onclick=async()=>{ try{ await rpc("uso_admin_handle_recovery",{p_token:SESS.token,p_id:b.closest(".arow").dataset.id}); await loadRecovery(); }catch(e){ toast("Failed: "+e.message); } });
+}
+$("#reload-recovery").onclick = loadRecovery;
 
 /* ===================================================================
    CHROME: nav, drawer, reveal, lightbox, parallax
@@ -1050,7 +1186,8 @@ if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
   const patch=$("#patch"); addEventListener("mousemove",e=>{ if(window.scrollY>600) return; const r=patch.getBoundingClientRect(); const dx=(e.clientX-(r.left+r.width/2))/window.innerWidth, dy=(e.clientY-(r.top+r.height/2))/window.innerHeight; patch.style.transform=`perspective(900px) rotateY(${dx*10}deg) rotateX(${-dy*10}deg)`; },{passive:true});
 }
 addEventListener("hashchange",()=>{ route(); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c) c.scrollIntoView({behavior:"smooth",block:"center"}); } });
-(async()=>{ await route(); await Promise.all([loadPosts(),loadChapters()]); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c){ c.scrollIntoView({block:"center"}); c.style.borderColor="var(--gold)"; } } })();
+(async()=>{ if(SESS.token && !ME){ try{ ME = await rpc("uso_me",{p_token:SESS.token}); }catch(e){} if(!ME) SESS.set(null); const na=$("#nav-acct"); if(na && ME) na.textContent = ME.username; }
+  await route(); await Promise.all([loadPosts(),loadChapters()]); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c){ c.scrollIntoView({block:"center"}); c.style.borderColor="var(--gold)"; } } })();
 </script>
 </body>
 </html>
