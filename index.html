@@ -199,6 +199,40 @@ section{position:relative}
 .pasthead.open i{transform:rotate(90deg)}
 #past{display:none;margin-top:1.4rem;opacity:.72}
 #past.open{display:grid}
+.calwrap{margin-top:3.5rem;border:1px solid var(--line-2);border-radius:5px;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));overflow:hidden}
+.calhead{display:flex;justify-content:space-between;align-items:end;gap:1rem;padding:1.3rem 1.4rem 1rem;border-bottom:1px solid var(--line)}
+.calmonth{font-family:var(--font-display);font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:.06em;line-height:1;margin-top:.3rem}
+.calnav{display:flex;gap:.4rem}
+.calnav .ib{font-size:.95rem;padding:.45rem .85rem;color:var(--gold)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.cal .wd{background:var(--ink-2);text-align:center;font-family:var(--font-display);letter-spacing:.22em;font-size:.72rem;color:var(--mute);padding:.55rem 0}
+.cal .d{background:var(--ink-2);min-height:96px;padding:.4rem .45rem;position:relative;display:flex;flex-direction:column;gap:.2rem;cursor:pointer;transition:background .2s}
+.cal .d:hover{background:var(--ink-3)}
+.cal .d.out{opacity:.32;cursor:default}
+.cal .d.past{opacity:.55}
+.cal .d.past.out{opacity:.25}
+.cal .d.sel{background:rgba(212,164,55,.1);box-shadow:inset 0 0 0 1px var(--gold)}
+.cal .n{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;color:var(--bone-2);line-height:1;padding:.1rem .15rem;align-self:flex-start}
+.cal .d.today .n{background:var(--gold);color:var(--ink);border-radius:2px;padding:.15rem .35rem}
+.cal .p{font-size:.68rem;line-height:1.2;color:var(--ink);background:var(--gold);border-radius:2px;padding:.15rem .35rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.cal .p.memorial{background:#e8e2d3}.cal .p.show{background:#cfc9bb}.cal .p.cruise{background:#a9cfeb}.cal .p.meeting{background:#b9d99f}.cal .p.fundraiser{background:#f2b3c6}.cal .p.party{background:#f5b27f}
+.cal .more{font-size:.66rem;color:var(--gold);letter-spacing:.04em}
+.cal .dots{display:none;gap:3px;flex-wrap:wrap}
+.cal .dots i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:block}
+.calday{padding:1.1rem 1.4rem 1.3rem}
+.calday h4{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.06em;margin-bottom:.6rem;color:var(--gold)}
+.calday .ev{display:flex;gap:1rem;align-items:flex-start;padding:.6rem 0;border-top:1px solid var(--line)}
+.calday .ev:first-of-type{border-top:0}
+.calday .ev b{display:block;font-weight:600;font-size:.95rem;color:var(--bone)}
+.calday .ev span{font-size:.82rem;color:var(--bone-2)}
+.calday .ev .t{font-family:var(--font-display);letter-spacing:.06em;color:var(--gold);min-width:88px;font-size:.95rem;padding-top:.15rem}
+.calday .none{color:var(--mute);font-size:.9rem}
+@media (max-width:640px){
+  .cal .d{min-height:54px;padding:.3rem}
+  .cal .p,.cal .more{display:none}
+  .cal .dots{display:flex}
+  .calhead{padding:1rem}
+}
 .skeleton .card{min-height:220px;animation:pulse 1.4s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.5}}
 
@@ -330,7 +364,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   <div class="wrap">
     <a class="brand" href="#top"><span class="mark">U</span><span><b>USOS FAMILY</b><small>WORLDWIDE · EST. 1992</small></span></a>
     <div class="links">
-      <a href="#board">Board</a>
+      <a href="#board">Uso Announcements</a>
       <a href="#mc">Motorcycle Club</a>
       <a href="#story">Our Story</a>
       <a href="#world">Chapters</a>
@@ -340,7 +374,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   </div>
 </nav>
 <div class="drawer" id="drawer">
-  <a href="#board">Board</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/admin">Officer sign-in</a>
+  <a href="#board">Uso Announcements</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/admin">Officer sign-in</a>
 </div>
 
 <div id="site">
@@ -426,7 +460,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   <div class="wrap">
     <div class="boardhead">
       <div>
-        <div class="eyebrow rv">The Board</div>
+        <div class="eyebrow rv">Uso Announcements</div>
         <h2 class="h2 rv d1">Don't miss <span class="foil">a single one</span></h2>
         <p class="lede rv d2">Every ride, show, cruise, meeting and gathering across the family, in one place. Times are shown in <em>your</em> time zone, with the event's local time underneath.</p>
       </div>
@@ -434,6 +468,21 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     </div>
     <div class="filters" id="filters"></div>
     <div class="grid skeleton" id="upcoming"><div class="card"></div><div class="card"></div><div class="card"></div></div>
+    <div class="calwrap rv" id="calwrap">
+      <div class="calhead">
+        <div>
+          <div class="eyebrow">Calendar</div>
+          <h3 class="calmonth" id="calmonth"></h3>
+        </div>
+        <div class="calnav">
+          <button class="ib" id="cal-prev" aria-label="Previous month">‹</button>
+          <button class="ib" id="cal-today">Today</button>
+          <button class="ib" id="cal-next" aria-label="Next month">›</button>
+        </div>
+      </div>
+      <div class="cal" id="cal" role="grid" aria-label="Event calendar"></div>
+      <div class="calday" id="calday" hidden></div>
+    </div>
     <div class="pasthead" id="pasthead" hidden><i>▶</i> Past events <span id="pastn"></span></div>
     <div class="grid" id="past"></div>
   </div>
@@ -578,7 +627,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       </div>
       <div>
         <h5>On the site</h5>
-        <ul><li><a href="#board">Announcements board</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
+        <ul><li><a href="#board">Uso Announcements</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
       </div>
       <div>
         <h5>Family</h5>
@@ -599,7 +648,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
 <section id="admin">
   <div class="wrap" style="max-width:960px">
     <div class="adminbar">
-      <div><div class="eyebrow">Officers</div><h2 class="h2" style="margin-bottom:0">Post to the board</h2></div>
+      <div><div class="eyebrow">Officers</div><h2 class="h2" style="margin-bottom:0">Post an announcement</h2></div>
       <div style="display:flex;gap:.6rem;align-items:center"><span class="who" id="who"></span><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
     </div>
 
@@ -617,7 +666,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     </div>
 
     <div id="adminui" hidden>
-      <div class="tabs"><button class="on" data-tab="posts">Board posts</button><button data-tab="chapters">Chapters</button></div>
+      <div class="tabs"><button class="on" data-tab="posts">Announcements</button><button data-tab="chapters">Chapters</button></div>
 
       <div class="tabpane on" id="tab-posts">
         <div class="panel">
@@ -652,7 +701,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
             <p style="font-size:.76rem;color:var(--mute);margin:0">Times are entered in your own time zone (<b id="pf-tz"></b>) and shown to everyone in theirs.</p>
           </form>
         </div>
-        <div class="panel"><h3>All posts <button class="btn ghost sm" type="button" id="reload-posts">Refresh</button></h3><div class="alist" id="postlist"></div></div>
+        <div class="panel"><h3>All announcements <button class="btn ghost sm" type="button" id="reload-posts">Refresh</button></h3><div class="alist" id="postlist"></div></div>
       </div>
 
       <div class="tabpane" id="tab-chapters">
@@ -766,8 +815,8 @@ let POSTS=[], CHAPTERS=[], FILTER="all";
 async function loadPosts(){
   try{
     POSTS = await sbGet("uso_posts?select=*&order=is_pinned.desc,starts_at.asc.nullsfirst&limit=400");
-  }catch(e){ console.error(e); $("#upcoming").innerHTML='<div class="empty"><b>The board is offline</b>Could not reach the server. Refresh in a moment.</div>'; $("#upcoming").classList.remove("skeleton"); return; }
-  renderBoard(); renderNextUp(); renderTicker();
+  }catch(e){ console.error(e); $("#upcoming").innerHTML='<div class="empty"><b>Announcements are offline</b>Could not reach the server. Refresh in a moment.</div>'; $("#upcoming").classList.remove("skeleton"); return; }
+  renderBoard(); renderCalendar(); renderNextUp(); renderTicker();
   if(document.body.classList.contains("admin")) renderPostList();
 }
 function splitPosts(){
@@ -787,7 +836,7 @@ function renderBoard(){
   $$("#filters .chip").forEach(b=>b.onclick=()=>{FILTER=b.dataset.f;renderBoard();});
   const vis = FILTER==="all"?up:up.filter(p=>(p.kind==="notice"?"notice":p.event_type)===FILTER);
   const u=$("#upcoming"); u.classList.remove("skeleton");
-  u.innerHTML = vis.length? vis.map(card).join("") : `<div class="empty"><b>Nothing on the board yet</b>When an officer posts a ride, show or gathering it shows up here. Check back soon.</div>`;
+  u.innerHTML = vis.length? vis.map(card).join("") : `<div class="empty"><b>Nothing posted yet</b>When an officer posts a ride, show or gathering it shows up here. Check back soon.</div>`;
   bindCards(u);
   const ph=$("#pasthead"); ph.hidden=!past.length; $("#pastn").textContent=past.length?"("+past.length+")":"";
   $("#past").innerHTML=past.map(card).join(""); bindCards($("#past"));
@@ -823,6 +872,51 @@ function bindCards(root){
   $$("[data-ics]",root).forEach(b=>b.onclick=()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const blob=new Blob([icsFor(p)],{type:"text/calendar"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=(p.title||"event").replace(/[^\w]+/g,"-").toLowerCase()+".ics"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); });
   $$("[data-share]",root).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const w=whenText(p); const url="https://usofamily.com/#post-"+p.id; const text=p.title+(w.main?" — "+w.main:"")+((p.location_name||p.address)?" @ "+[p.location_name,p.address].filter(Boolean).join(", "):""); try{ if(navigator.share){ await navigator.share({title:p.title,text,url}); return; } await navigator.clipboard.writeText(text+"\n"+url); toast("Copied to clipboard"); }catch(e){} });
 }
+/* ---- calendar ---- */
+const CAL={y:new Date().getFullYear(),m:new Date().getMonth(),sel:null};
+function dayKey(d,tz){ const p=new Intl.DateTimeFormat("en-CA",{timeZone:tz||VIEW_TZ,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(d); const g=t=>(p.find(x=>x.type===t)||{}).value; return g("year")+"-"+g("month")+"-"+g("day"); }
+function eventsByDay(){
+  const map={};
+  POSTS.filter(p=>p.is_published && p.kind==="event" && p.starts_at).forEach(p=>{
+    const s=new Date(p.starts_at), e=p.ends_at?new Date(p.ends_at):s;
+    const tz=p.all_day?(p.tz||VIEW_TZ):VIEW_TZ;
+    let k=dayKey(s,tz), last=dayKey(e,tz), guard=0;
+    const cur=new Date(s.getTime());
+    while(guard++<62){ (map[k]=map[k]||[]).push(p); if(k>=last) break; cur.setDate(cur.getDate()+1); k=dayKey(cur,tz); }
+  });
+  return map;
+}
+function renderCalendar(){
+  const grid=$("#cal"); if(!grid) return;
+  const map=eventsByDay(), first=new Date(CAL.y,CAL.m,1), lead=first.getDay(), dim=new Date(CAL.y,CAL.m+1,0).getDate();
+  const todayKey=dayKey(new Date());
+  $("#calmonth").textContent=first.toLocaleDateString("en-US",{month:"long",year:"numeric"});
+  let out=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(w=>'<div class="wd">'+w+'</div>').join("");
+  const cell=(d,out_)=>{
+    const k=(d.getFullYear())+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    const evs=map[k]||[]; const cls=["d"]; if(out_) cls.push("out"); if(k===todayKey) cls.push("today"); if(k<todayKey) cls.push("past"); if(CAL.sel===k) cls.push("sel");
+    const pills=evs.slice(0,3).map(p=>'<div class="p '+esc(p.event_type)+'" title="'+esc(p.title)+'">'+esc(p.title)+'</div>').join("")+(evs.length>3?'<div class="more">+'+(evs.length-3)+' more</div>':"");
+    const dots='<div class="dots">'+evs.slice(0,4).map(()=>"<i></i>").join("")+'</div>';
+    return '<div class="'+cls.join(" ")+'" data-k="'+k+'" role="gridcell" tabindex="'+(out_?-1:0)+'"><span class="n">'+d.getDate()+'</span>'+pills+dots+'</div>';
+  };
+  for(let i=lead-1;i>=0;i--) out+=cell(new Date(CAL.y,CAL.m,-i),true);
+  for(let d=1;d<=dim;d++) out+=cell(new Date(CAL.y,CAL.m,d),false);
+  const tail=(7-((lead+dim)%7))%7; for(let i=1;i<=tail;i++) out+=cell(new Date(CAL.y,CAL.m+1,i),true);
+  grid.innerHTML=out;
+  $$(".d:not(.out)",grid).forEach(el=>{ el.onclick=()=>selectDay(el.dataset.k); el.onkeydown=e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); selectDay(el.dataset.k); } }; });
+  renderDayPanel(map);
+}
+function selectDay(k){ CAL.sel=(CAL.sel===k)?null:k; renderCalendar(); }
+function renderDayPanel(map){
+  const box=$("#calday"); if(!CAL.sel){ box.hidden=true; return; }
+  const evs=map[CAL.sel]||[]; const [y,m,d]=CAL.sel.split("-").map(Number); const label=new Date(y,m-1,d).toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});
+  box.hidden=false;
+  box.innerHTML='<h4>'+esc(label)+'</h4>'+(evs.length? evs.map(p=>{ const s=new Date(p.starts_at); const t=p.all_day?"All day":fmt(s,VIEW_TZ,{hour:"numeric",minute:"2-digit"}); return '<div class="ev"><div class="t">'+esc(t)+'</div><div><b>'+esc(p.title)+'</b><span>'+esc([TYPE1[p.event_type],p.chapter,p.location_name].filter(Boolean).join(" · "))+'</span></div><button class="ib" data-goto="'+p.id+'" style="margin-left:auto">Details</button></div>'; }).join("") : '<div class="none">Nothing scheduled this day.</div>');
+  $$("[data-goto]",box).forEach(b=>b.onclick=()=>{ const c=$('.card[data-id="'+b.dataset.goto+'"]'); if(!c){ FILTER="all"; renderBoard(); } const c2=$('.card[data-id="'+b.dataset.goto+'"]'); if(c2){ c2.scrollIntoView({behavior:"smooth",block:"center"}); c2.style.borderColor="var(--gold)"; setTimeout(()=>c2.style.borderColor="",2500); } });
+}
+$("#cal-prev").onclick=()=>{ CAL.m--; if(CAL.m<0){CAL.m=11;CAL.y--;} renderCalendar(); };
+$("#cal-next").onclick=()=>{ CAL.m++; if(CAL.m>11){CAL.m=0;CAL.y++;} renderCalendar(); };
+$("#cal-today").onclick=()=>{ const n=new Date(); CAL.y=n.getFullYear(); CAL.m=n.getMonth(); CAL.sel=dayKey(n); renderCalendar(); };
 function renderNextUp(){
   const {up}=splitPosts(); const now=Date.now();
   const ev=up.filter(p=>p.kind==="event" && new Date(p.starts_at).getTime()>now).sort((a,b)=>new Date(a.starts_at)-new Date(b.starts_at))[0];
@@ -904,7 +998,7 @@ $("#postform").onsubmit=async e=>{
   if(kind==="event" && !row.starts_at){ m.className="msg err"; m.textContent="An event needs a start date and time."; return; }
   if(row.ends_at && row.starts_at && row.ends_at<row.starts_at){ m.className="msg err"; m.textContent="The end is before the start."; return; }
   try{ const id=$("#pf-id").value; if(id){ delete row.created_by; await sbPatch("uso_posts","id=eq."+id,row); } else { await sbPost("uso_posts",[row]); }
-    m.className="msg ok"; m.textContent=id?"Updated.":"Posted. It's live on the board."; resetPostForm(); await loadPosts(); toast(id?"Post updated":"Posted to the board");
+    m.className="msg ok"; m.textContent=id?"Updated.":"Posted. It's live on Uso Announcements."; resetPostForm(); await loadPosts(); toast(id?"Post updated":"Posted to Uso Announcements");
   }catch(err){ m.className="msg err"; m.textContent=err.message; }
 };
 function renderPostList(){
