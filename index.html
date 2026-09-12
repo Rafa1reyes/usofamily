@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Usos Family — Uso Motorcycle Club &amp; Usos Car Club</title>
-<meta name="description" content="The official home of the Usos Family worldwide. Upcoming rides, shows, cruises and gatherings for every chapter, the story of Kita Lealao and the club he founded in Carson in 1992, and the Uso Motorcycle Club.">
+<title>Usos Family — Usos Car Club &amp; Uso Motorcycle Club</title>
+<meta name="description" content="The official home of the Usos Family worldwide: the Usos Car Club founded by Kita Lealao in Carson in 1992, and the Uso Motorcycle Club. Upcoming shows, rides, cruises and gatherings for every chapter.">
 <meta property="og:title" content="Usos Family — Same Team. Same Scheme. Same Dream.">
 <meta property="og:description" content="Every ride, show and gathering across the Uso chapters worldwide, on one board.">
 <meta property="og:type" content="website">
@@ -156,6 +156,15 @@ section{position:relative}
 .boardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem;margin-bottom:2rem}
 .tz{font-size:.8rem;color:var(--mute);letter-spacing:.04em}
 .tz b{color:var(--bone-2);font-weight:500}
+.audwrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.aud{display:inline-flex;border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--ink-2)}
+.aud button{border:0;background:transparent;color:var(--bone-2);font-family:var(--font-display);letter-spacing:.16em;font-size:1rem;padding:.65rem 1.2rem;display:inline-flex;align-items:center;gap:.5rem;transition:.2s;border-right:1px solid var(--line)}
+.aud button:last-child{border-right:0}
+.aud button i{font-style:normal;font-size:.9em;opacity:.85}
+.aud button:hover{color:var(--gold)}
+.aud button.on{background:var(--gold);color:var(--ink)}
+.audnote{font-size:.8rem;color:var(--mute)}
+.type .aud-tag{margin-left:.5rem;padding:.1rem .45rem;border:1px solid var(--line-2);border-radius:999px;font-size:.62rem;letter-spacing:.14em;color:var(--bone-2)}
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
 .chip{border:1px solid var(--line-2);background:transparent;color:var(--bone-2);font-family:var(--font-display);letter-spacing:.16em;font-size:.9rem;padding:.45rem .95rem;border-radius:999px;transition:.2s}
 .chip:hover{border-color:var(--gold);color:var(--gold)}
@@ -440,7 +449,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     </div>
     <h1 class="title black foil rv d1">Usos</h1>
     <div class="ribbon rv d1"><span>Familia</span></div>
-    <div class="sub rv d2">Uso Motorcycle Club <span>·</span> Usos Car Club <span>·</span> Worldwide</div>
+    <div class="sub rv d2">Usos Car Club <span>·</span> Uso Motorcycle Club <span>·</span> Worldwide</div>
     <p class="motto rv d2">“Same Team. Same Scheme. Same Dream.”</p>
     <div class="actions rv d3">
       <a class="btn" href="#board">See what's coming up</a>
@@ -466,10 +475,15 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       <div>
         <div class="eyebrow rv">Uso Announcements</div>
         <h2 class="h2 rv d1">Don't miss <span class="foil">a single one</span></h2>
-        <p class="lede rv d2">Every ride, show, cruise, meeting and gathering across the family, in one place. Times are shown in <em>your</em> time zone, with the event's local time underneath.</p>
+        <p class="lede rv d2">Every show, cruise, ride, meeting and gathering across the family, in one place. Pick <em>Low Riders</em> or <em>Motorcycles</em> to see only your side of the family; most of the time we all roll together. Times are shown in <em>your</em> time zone, with the event's local time underneath.</p>
       </div>
       <div class="tz rv d2">Showing times in <b id="tzname"></b></div>
     </div>
+    <div class="audwrap rv d2"><div class="aud" id="aud" role="tablist" aria-label="Who is this for">
+      <button data-aud="both" class="on" role="tab"><i>◆</i>Everyone</button>
+      <button data-aud="lowrider" role="tab"><i>🚗</i>Low Riders</button>
+      <button data-aud="motorcycle" role="tab"><i>🏍</i>Motorcycles</button>
+    </div><div class="audnote" id="audnote"></div></div>
     <div class="filters" id="filters"></div>
     <div class="grid skeleton" id="upcoming"><div class="card"></div><div class="card"></div><div class="card"></div></div>
     <div class="calwrap rv" id="calwrap">
@@ -628,7 +642,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     <div class="cols">
       <div>
         <div class="script">Familia</div>
-        <p>The official home of the Usos Family: the Usos Car Club and the Uso Motorcycle Club. Founded in Carson, California in 1992. Everywhere now.</p>
+        <p>The official home of the Usos Family: the Usos Car Club, est. 1992, and the Uso Motorcycle Club. Founded in Carson, California in 1992. Everywhere now.</p>
       </div>
       <div>
         <h5>On the site</h5>
@@ -711,7 +725,10 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
               <label class="l">Type<select id="pf-type"><option value="ride">Ride</option><option value="show">Car show</option><option value="cruise">Cruise</option><option value="meeting">Meeting</option><option value="gathering" selected>Gathering</option><option value="memorial">Memorial</option><option value="fundraiser">Fundraiser</option><option value="party">Party</option><option value="other">Other</option></select></label>
               <label class="l">Chapter<input id="pf-chapter" list="chaplist" placeholder="e.g. Santa Maria"><datalist id="chaplist"></datalist></label>
             </div>
-            <label class="l">Title<input id="pf-title-in" maxlength="140" required placeholder="Memorial Ride for Kita"></label>
+            <div class="row">
+              <label class="l">Title<input id="pf-title-in" maxlength="140" required placeholder="Memorial Ride for Kita"></label>
+              <label class="l">Who is it for<select id="pf-aud"><option value="both" selected>Everyone — low riders and motorcycles</option><option value="lowrider">Low Riders only (car club)</option><option value="motorcycle">Motorcycles only (rides)</option></select></label>
+            </div>
             <div class="row3" id="pf-dates">
               <label class="l">Starts<input type="datetime-local" id="pf-start"></label>
               <label class="l">Ends (optional)<input type="datetime-local" id="pf-end"></label>
@@ -877,6 +894,12 @@ const ICON={pin:'<svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-1
    BOARD
    =================================================================== */
 let POSTS=[], CHAPTERS=[], FILTER="all", MEMBERS={};
+const AUD_LABEL={both:"Everyone",lowrider:"Low Riders only",motorcycle:"Motorcycles only"};
+let AUD=(()=>{ try{ const v=localStorage.getItem("uso_aud"); return ["both","lowrider","motorcycle"].includes(v)?v:"both" }catch(e){ return "both" } })();
+function audOK(p){ const a=p.audience||"both"; return AUD==="both" || a==="both" || a===AUD; }
+function setAud(v){ AUD=v; try{ localStorage.setItem("uso_aud",v) }catch(e){} $$("#aud button").forEach(b=>b.classList.toggle("on",b.dataset.aud===v)); $("#audnote").textContent = v==="both" ? "" : (v==="lowrider" ? "Showing car club events plus everything for the whole family." : "Showing motorcycle rides plus everything for the whole family."); renderBoard(); renderCalendar(); renderNextUp(); renderTicker(); }
+$$("#aud button").forEach(b=>b.onclick=()=>setAud(b.dataset.aud));
+$$("#aud button").forEach(b=>b.classList.toggle("on",b.dataset.aud===AUD)); if(AUD!=="both") $("#audnote").textContent = AUD==="lowrider" ? "Showing car club events plus everything for the whole family." : "Showing motorcycle rides plus everything for the whole family.";
 async function loadPosts(){
   try{
     const [posts, mem] = await Promise.all([ sbGet("uso_posts?select=*&order=is_pinned.desc,starts_at.asc.nullsfirst&limit=400"), sbGet("uso_members_public?select=id,display_name,area,ride").catch(()=>[]) ]);
@@ -885,7 +908,7 @@ async function loadPosts(){
   renderBoard(); renderCalendar(); renderNextUp(); renderTicker();
 }
 function splitPosts(){
-  const now=Date.now(), pub=POSTS.filter(p=>p.is_published);
+  const now=Date.now(), pub=POSTS.filter(p=>p.is_published && audOK(p));
   const isPast=p=>p.kind==="event" && new Date(p.ends_at||p.starts_at).getTime() < (p.all_day? now-36*3600e3 : now-3*3600e3);
   const up=pub.filter(p=>!isPast(p)), past=pub.filter(isPast).sort((a,b)=>new Date(b.starts_at)-new Date(a.starts_at));
   up.sort((a,b)=>{ if(a.is_pinned!==b.is_pinned) return a.is_pinned?-1:1; if(a.kind!==b.kind) return a.kind==="notice"?-1:1; return new Date(a.starts_at||0)-new Date(b.starts_at||0); });
@@ -915,7 +938,7 @@ function card(p){
   return `<article class="card${p.is_pinned?" pinned":""}" data-id="${p.id}">
     ${p.flyer_url?`<div class="flyer" data-lb="${esc(p.flyer_url)}"><img src="${esc(p.flyer_url)}" alt="Flyer for ${esc(p.title)}" loading="lazy"></div>`:""}
     <div class="body">${date}<div class="info">
-      <div class="type ${notice?"notice":esc(p.event_type)}">${notice?"Notice":TYPE1[p.event_type]||p.event_type}${p.chapter?` · ${esc(p.chapter)}`:""}</div>
+      <div class="type ${notice?"notice":esc(p.event_type)}">${notice?"Notice":TYPE1[p.event_type]||p.event_type}${p.chapter?` · ${esc(p.chapter)}`:""}${(p.audience&&p.audience!=="both")?`<span class="aud-tag">${p.audience==="motorcycle"?"🏍 Motorcycles":"🚗 Low Riders"}</span>`:""}</div>
       <h3>${esc(p.title)}</h3>
       <div class="meta">
         ${w.main?`<div>${ICON.clock}<span>${esc(w.main)}${w.alt?`<br><span class="alt">${esc(w.alt)}</span>`:""}</span></div>`:""}
@@ -944,7 +967,7 @@ const CAL={y:new Date().getFullYear(),m:new Date().getMonth(),sel:null};
 function dayKey(d,tz){ const p=new Intl.DateTimeFormat("en-CA",{timeZone:tz||VIEW_TZ,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(d); const g=t=>(p.find(x=>x.type===t)||{}).value; return g("year")+"-"+g("month")+"-"+g("day"); }
 function eventsByDay(){
   const map={};
-  POSTS.filter(p=>p.is_published && p.kind==="event" && p.starts_at).forEach(p=>{
+  POSTS.filter(p=>p.is_published && p.kind==="event" && p.starts_at && audOK(p)).forEach(p=>{
     const s=new Date(p.starts_at), e=p.ends_at?new Date(p.ends_at):s;
     const tz=p.all_day?(p.tz||VIEW_TZ):VIEW_TZ;
     let k=dayKey(s,tz), last=dayKey(e,tz), guard=0;
@@ -962,7 +985,7 @@ function renderCalendar(){
   const cell=(d,out_)=>{
     const k=(d.getFullYear())+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
     const evs=map[k]||[]; const cls=["d"]; if(out_) cls.push("out"); if(k===todayKey) cls.push("today"); if(k<todayKey) cls.push("past"); if(CAL.sel===k) cls.push("sel");
-    const pills=evs.slice(0,3).map(p=>'<div class="p '+esc(p.event_type)+'" title="'+esc(p.title)+'">'+esc(p.title)+'</div>').join("")+(evs.length>3?'<div class="more">+'+(evs.length-3)+' more</div>':"");
+    const pills=evs.slice(0,3).map(p=>'<div class="p '+esc(p.event_type)+'" title="'+esc(p.title)+(p.audience&&p.audience!=="both"?" ("+AUD_LABEL[p.audience]+")":"")+'">'+(p.audience==="motorcycle"?"🏍 ":p.audience==="lowrider"?"🚗 ":"")+esc(p.title)+'</div>').join("")+(evs.length>3?'<div class="more">+'+(evs.length-3)+' more</div>':"");
     const dots='<div class="dots">'+evs.slice(0,4).map(()=>"<i></i>").join("")+'</div>';
     return '<div class="'+cls.join(" ")+'" data-k="'+k+'" role="gridcell" tabindex="'+(out_?-1:0)+'"><span class="n">'+d.getDate()+'</span>'+pills+dots+'</div>';
   };
@@ -996,7 +1019,7 @@ function renderNextUp(){
 }
 function renderTicker(){
   const {up}=splitPosts(); const items=up.filter(p=>p.kind==="event").slice(0,8).map(p=>`<span>${esc(p.title)} — ${esc(fmt(new Date(p.starts_at),VIEW_TZ,{month:"short",day:"numeric"}))}${p.chapter?" · "+esc(p.chapter):""}</span>`);
-  const base=items.length?items:["<span>Same Team · Same Scheme · Same Dream</span>","<span>Usos Family · Familia</span>","<span>Uso Motorcycle Club</span>","<span>Usos Car Club · Est. 1992 · Carson, CA</span>","<span>No Color Lines</span>","<span>Uso means brother</span>"];
+  const base=items.length?items:["<span>Same Team · Same Scheme · Same Dream</span>","<span>Usos Family · Familia</span>","<span>Usos Car Club · Est. 1992 · Carson, CA</span>","<span>Uso Motorcycle Club</span>","<span>No Color Lines</span>","<span>Uso means brother</span>"];
   $("#ticker").innerHTML=base.join("")+base.join("");
 }
 
@@ -1089,7 +1112,7 @@ $("#postform").onsubmit = async e => {
     starts_at: kind === "notice" ? null : fromLocalInput($("#pf-start").value), ends_at: kind === "notice" ? null : fromLocalInput($("#pf-end").value),
     all_day: $("#pf-allday").checked, tz: LOCAL_TZ, location_name: $("#pf-loc").value.trim(), address: $("#pf-addr").value.trim(),
     details: $("#pf-details").value.trim(), flyer_url: $("#pf-flyer").value.trim(), link_url: $("#pf-link").value.trim(),
-    hosted_by: $("#pf-host").value.trim(), is_published: $("#pf-pub").checked };
+    hosted_by: $("#pf-host").value.trim(), is_published: $("#pf-pub").checked, audience: $("#pf-aud").value };
   if(ME.role === "officer") row.is_pinned = $("#pf-pin").checked;
   if(kind === "event" && !row.starts_at){ setMsg("pf-msg", "An event needs a start date and time.", "err"); return; }
   if(row.ends_at && row.starts_at && row.ends_at < row.starts_at){ setMsg("pf-msg", "The end is before the start.", "err"); return; }
@@ -1104,14 +1127,14 @@ function renderPostList(){
   const officer = ME.role === "officer";
   list.innerHTML = MYPOSTS.length ? MYPOSTS.map(p => `<div class="arow${p.is_published ? "" : " draft"}" data-id="${p.id}">
     <div class="dt">${p.starts_at ? esc(fmt(new Date(p.starts_at), LOCAL_TZ, {month:"short",day:"numeric",year:"2-digit"})) : "NOTICE"}</div>
-    <div><b>${p.is_pinned ? "📌 " : ""}${esc(p.title)}</b><small>${p.is_published ? "Published" : "DRAFT"} · ${esc(TYPE1[p.event_type]||"")}${p.chapter ? " · " + esc(p.chapter) : ""} · by ${esc(p.created_by||"?")}${p.updated_by && p.updated_by !== p.created_by ? " · edited by " + esc(p.updated_by) : ""}</small></div>
+    <div><b>${p.is_pinned ? "📌 " : ""}${esc(p.title)}</b><small>${p.is_published ? "Published" : "DRAFT"} · ${esc(TYPE1[p.event_type]||"")}${p.audience&&p.audience!=="both" ? " · " + esc(AUD_LABEL[p.audience]) : ""}${p.chapter ? " · " + esc(p.chapter) : ""} · by ${esc(p.created_by||"?")}${p.updated_by && p.updated_by !== p.created_by ? " · edited by " + esc(p.updated_by) : ""}</small></div>
     <div class="acts"><button class="ib" data-edit>Edit</button><button class="ib" data-toggle>${p.is_published ? "Unpublish" : "Publish"}</button>${officer ? `<button class="ib" data-pin>${p.is_pinned ? "Unpin" : "Pin"}</button>` : ""}<button class="ib" data-del>Delete</button></div></div>`).join("")
     : '<div class="msg">Nothing yet. Post something from the Post tab.</div>';
   const find = b => MYPOSTS.find(x => x.id === b.closest(".arow").dataset.id);
   $$("[data-edit]", list).forEach(b => b.onclick = () => { const p = find(b);
     $("#pf-id").value=p.id; $("#pf-kind").value=p.kind; $("#pf-kind").onchange(); $("#pf-type").value=p.event_type; $("#pf-chapter").value=p.chapter; $("#pf-title-in").value=p.title;
     $("#pf-start").value=toLocalInput(p.starts_at); $("#pf-end").value=toLocalInput(p.ends_at); $("#pf-allday").checked=p.all_day; $("#pf-loc").value=p.location_name; $("#pf-addr").value=p.address;
-    $("#pf-details").value=p.details; $("#pf-flyer").value=p.flyer_url; $("#pf-link").value=p.link_url; $("#pf-host").value=p.hosted_by; $("#pf-pub").checked=p.is_published; $("#pf-pin").checked=p.is_pinned;
+    $("#pf-details").value=p.details; $("#pf-flyer").value=p.flyer_url; $("#pf-link").value=p.link_url; $("#pf-host").value=p.hosted_by; $("#pf-aud").value=p.audience||"both"; $("#pf-pub").checked=p.is_published; $("#pf-pin").checked=p.is_pinned;
     $("#pf-title").textContent="Editing: "+p.title; $("#pf-reset").hidden=false; $("#pf-save").textContent="Save changes";
     $$(".tabs button")[0].click(); $("#postform").scrollIntoView({behavior:"smooth",block:"start"}); });
   $$("[data-toggle]", list).forEach(b => b.onclick = async () => { const p=find(b); try{ await rpc("uso_save_post",{p_token:SESS.token,p:{id:p.id,is_published:!p.is_published}}); await Promise.all([loadPosts(),loadMyPosts()]); toast(p.is_published?"Unpublished":"Published"); }catch(e){ toast("Failed: "+e.message); } });
