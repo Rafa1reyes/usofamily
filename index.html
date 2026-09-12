@@ -1353,7 +1353,7 @@ $("#reload-recovery").onclick = loadRecovery;
 let FAMILY = [];
 const initial = n => (n||"?").replace(/[^A-Za-z0-9]/g,"").slice(0,1).toUpperCase() || "?";
 async function loadFamily(){
-  try{ FAMILY = await sbGet("uso_members_public?select=id,display_name,area,ride,role,created_at&order=display_name.asc"); }catch(e){ FAMILY=[]; }
+  try{ FAMILY = await sbGet("uso_members_public?select=id,display_name,area,ride,created_at&order=display_name.asc"); }catch(e){ FAMILY=[]; }
   FAMILY.forEach(m => MEMBERS[m.id] = m);
   renderFamily();
 }
@@ -1362,8 +1362,8 @@ function renderFamily(){
   const list = FAMILY.filter(m => !q || (m.display_name+" "+m.area+" "+(RIDE[m.ride]||"")).toLowerCase().includes(q));
   $("#fam-n").textContent = FAMILY.length;
   $("#famgrid").innerHTML = list.length ? list.map(m => `<button class="fam${ME&&ME.id===m.id?" me":""}" data-member="${m.id}">
-      <span class="av${m.role==="officer"?" officer":""}">${esc(initial(m.display_name))}</span>
-      <span style="min-width:0"><b>${esc(m.display_name)}${m.role==="officer"?'<span class="star" title="Officer">★ OFFICER</span>':""}</b><small>${esc(memberTag(m)||"—")}</small></span></button>`).join("")
+      <span class="av">${esc(initial(m.display_name))}</span>
+      <span style="min-width:0"><b>${esc(m.display_name)}</b><small>${esc(memberTag(m)||"—")}</small></span></button>`).join("")
     : `<div class="empty"><b>${FAMILY.length?"No match":"Nobody yet"}</b>${FAMILY.length?"Try another name or area.":"Be the first to create an account."}</div>`;
   $$("[data-member]", $("#famgrid")).forEach(b => b.onclick = () => openProfile(b.dataset.member));
 }
@@ -1375,9 +1375,9 @@ function openProfile(id){
   const posts = POSTS.filter(p => p.member_id === id && p.is_published).length;
   const going = Object.values(RSVPS).reduce((n, l) => n + (l.some(r => r.member_id === id) ? 1 : 0), 0);
   const joined = m.created_at ? fmt(new Date(m.created_at), VIEW_TZ, {month:"short", year:"numeric"}) : "";
-  $("#pv-av").textContent = initial(m.display_name); $("#pv-av").className = "pv-av" + (m.role === "officer" ? " officer" : "");
+  $("#pv-av").textContent = initial(m.display_name); $("#pv-av").className = "pv-av";
   $("#pv-name").textContent = m.display_name;
-  $("#pv-tag").innerHTML = [m.area ? esc(m.area) : "", m.ride ? esc(RIDE[m.ride]) : "", m.role === "officer" ? '<span style="color:var(--gold-2)">★ Officer</span>' : ""].filter(Boolean).join(" · ") || "No details yet";
+  $("#pv-tag").innerHTML = [m.area ? esc(m.area) : "", m.ride ? esc(RIDE[m.ride]) : ""].filter(Boolean).join(" · ") || "No details yet";
   $("#pv-stats").innerHTML = `<div><b>${posts}</b><span>Posted</span></div><div><b>${going}</b><span>Going to</span></div><div><b>${esc(joined||"—")}</b><span>Joined</span></div>`;
   const self = ME && ME.id === id;
   $("#pv-acts").innerHTML = self ? `<a class="btn sm" href="#/account" id="pv-edit">Edit your profile</a>`
