@@ -398,6 +398,11 @@ footer .credit a:hover{color:var(--gold-2)}
 .dm-form{display:flex;gap:.6rem;padding:.8rem 1rem;border-top:1px solid var(--line);align-items:flex-end}
 .dm-form textarea{flex:1;background:var(--ink-3);border:1px solid var(--line-2);color:var(--bone);padding:.6rem .8rem;border-radius:3px;font:inherit;font-size:.95rem;resize:none;max-height:140px;color-scheme:dark}
 .dm-form textarea:focus{outline:none;border-color:var(--gold)}
+.fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;width:56px;height:56px;border-radius:50%;background:var(--gold);border:0;box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(212,164,55,.4);display:grid;place-items:center;cursor:pointer;transition:transform .2s}
+.fab:hover{transform:translateY(-2px)}
+.fab svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.fab-n{position:absolute;top:-4px;right:-4px;background:var(--red-2);color:#fff;font-size:.7rem;font-weight:700;border-radius:999px;min-width:22px;height:22px;padding:0 .35rem;display:grid;place-items:center;border:2px solid var(--ink)}
+body.admin .fab{bottom:1.1rem}
 .navbadge{display:inline-block;background:var(--red-2);color:#fff;font-size:.62rem;font-weight:700;border-radius:999px;padding:.05rem .4rem;margin-left:.35rem;vertical-align:middle;letter-spacing:0}
 @media (min-width:721px){.dm-back{display:none!important}}
 @media (max-width:720px){
@@ -486,7 +491,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   </div>
 </nav>
 <div class="drawer" id="drawer">
-  <a href="#board">Uso Announcements</a><a href="#lr">Low Riders</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#family">Family</a><a href="#/account">Sign in / Join</a>
+  <a href="#board">Uso Announcements</a><a href="#lr">Low Riders</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#family">Family</a><a href="#" id="drawer-msg" hidden>Messages</a><a href="#/account" id="drawer-acct">Sign in / Join</a>
 </div>
 
 <div id="site">
@@ -795,7 +800,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   <div class="wrap" style="max-width:1000px">
     <div class="adminbar">
       <div><div class="eyebrow">Members</div><h2 class="h2" style="margin-bottom:0" id="acct-title">Sign in or join</h2></div>
-      <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap"><span class="who" id="who"></span><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
+      <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap"><span class="who" id="who"></span><button class="btn sm" id="acct-msg" hidden>Inbox</button><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
     </div>
 
     <div id="authpanels" class="authgrid">
@@ -947,6 +952,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
 
 <div class="lb" id="lb" role="dialog" aria-label="Flyer"><img alt=""></div>
 <div class="toast" id="toast"></div>
+<button class="fab" id="fab-msg" hidden aria-label="Open your messages"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="fab-n" id="fab-n" hidden></span></button>
 
 <script>
 /* ===================================================================
@@ -1397,15 +1403,19 @@ async function refreshUnread(){
   if(!ME){ setNavBadge(0); return; }
   try{ setNavBadge(await rpc("uso_unread_count", { p_token: SESS.token })); }catch(e){}
 }
-function setNavBadge(n){ const el = $("#nav-msg"); if(!el) return; el.hidden = !ME; el.innerHTML = "Messages" + (n ? `<span class="navbadge">${n}</span>` : ""); }
+function setNavBadge(n){ n = +n || 0; const el = $("#nav-msg"); if(el){ el.hidden = !ME; el.innerHTML = "Messages" + (n ? `<span class="navbadge">${n}</span>` : ""); }
+  const d = $("#drawer-msg"); if(d){ d.hidden = !ME; d.innerHTML = "Messages" + (n ? `<span class="navbadge">${n}</span>` : ""); }
+  const da = $("#drawer-acct"); if(da) da.textContent = ME ? "Your account (" + ME.username + ")" : "Sign in / Join";
+  const f = $("#fab-msg"); if(f){ f.hidden = !ME || !$("#dm").hidden; const fn = $("#fab-n"); fn.hidden = !n; fn.textContent = n; }
+  const a = $("#acct-msg"); if(a){ a.hidden = !ME; a.textContent = "Inbox" + (n ? " (" + n + ")" : ""); } }
 async function openDM(peerId){
   if(!ME){ toast("Sign in to send messages"); location.hash = "#/account"; return; }
-  $("#dm").hidden = false;
+  $("#dm").hidden = false; $("#fab-msg").hidden = true;
   await loadConvs();
   if(peerId) await openThread(peerId); else showList();
   clearInterval(DM.timer); DM.timer = setInterval(() => { if($("#dm").hidden){ clearInterval(DM.timer); return; } if(DM.peer) loadThread(true); else loadConvs(); }, 8000);
 }
-function closeDM(){ $("#dm").hidden = true; clearInterval(DM.timer); DM.peer = null; refreshUnread(); }
+function closeDM(){ $("#dm").hidden = true; clearInterval(DM.timer); DM.peer = null; refreshUnread(); $("#fab-msg").hidden = !ME; }
 $("#dm-x").onclick = closeDM;
 $("#dm").onclick = e => { if(e.target === $("#dm")) closeDM(); };
 $("#dm-back").onclick = showList;
@@ -1451,6 +1461,9 @@ $("#dm-text").addEventListener("keydown", e => { if(e.key === "Enter" && !e.shif
 $("#dm-text").addEventListener("input", function(){ this.style.height = ""; this.style.height = Math.min(this.scrollHeight, 140) + "px"; });
 addEventListener("keydown", e => { if(e.key === "Escape"){ closeProfile(); if(!$("#dm").hidden) closeDM(); } });
 $("#nav-msg").onclick = e => { e.preventDefault(); openDM(); };
+$("#drawer-msg").addEventListener("click", e => { e.preventDefault(); openDM(); });   // the generic #drawer a handler closes the menu
+$("#fab-msg").onclick = () => openDM();
+$("#acct-msg").onclick = () => openDM();
 clearInterval(DM.unreadTimer); DM.unreadTimer = setInterval(refreshUnread, 60000);
 
 
