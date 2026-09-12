@@ -254,7 +254,10 @@ section{position:relative}
 #mc .split,#lr .split{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
 #lr .split{grid-template-columns:.9fr 1.1fr}
 #mc .art,#lr .art{position:relative;aspect-ratio:1;width:100%;max-width:520px;justify-self:center;margin:0}
-#lr .art{aspect-ratio:4/3}
+#lr .art.photo{aspect-ratio:auto;max-width:620px;margin:0;position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 34px 70px rgba(0,0,0,.65),0 0 0 8px rgba(212,164,55,.06);transform:rotate(-1.6deg);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+#lr .art.photo:hover{transform:rotate(0) scale(1.02);box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 8px rgba(212,164,55,.14)}
+#lr .art.photo img{width:100%;height:auto;display:block}
+#lr .art.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.2rem .6rem;text-align:center;font-family:var(--font-script);font-size:2.4rem;line-height:1;color:var(--gold-4);background:linear-gradient(transparent,rgba(10,9,8,.85));text-shadow:0 2px 12px rgba(0,0,0,.8)}
 #mc .art svg,#lr .art svg{width:100%;height:100%}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
 .pillar{border:1px solid var(--line);padding:1.3rem;border-radius:3px;background:rgba(10,9,8,.5)}
@@ -518,36 +521,10 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
      ================================================================ -->
 <section class="sec" id="lr">
   <div class="wrap split">
-    <div class="art rv d2" aria-hidden="true">
-      <svg viewBox="0 0 560 420">
-        <defs>
-          <radialGradient id="lg2" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="rgba(212,164,55,.22)"/><stop offset="1" stop-color="rgba(212,164,55,0)"/></radialGradient>
-          <linearGradient id="candy" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e04848"/><stop offset=".55" stop-color="#8f1717"/><stop offset="1" stop-color="#5a0d0d"/></linearGradient>
-          <linearGradient id="chrome2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6ecd2"/><stop offset=".5" stop-color="#8a6420"/><stop offset="1" stop-color="#d4a437"/></linearGradient>
-        </defs>
-        <circle cx="280" cy="220" r="205" fill="url(#lg2)"/>
-        <circle cx="280" cy="220" r="196" fill="none" stroke="#d4a437" stroke-width="1" opacity=".35" stroke-dasharray="4 10"/>
-        <ellipse cx="280" cy="330" rx="235" ry="8" fill="rgba(0,0,0,.6)"/>
-        <!-- body: long '64-style profile, front end lifted -->
-        <path d="M52 292 L60 262 L120 250 L160 214 L230 200 L330 200 L392 214 L470 236 L512 262 L520 282 L512 300 L60 300 Z" fill="url(#candy)" stroke="#f3ead7" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M60 262 L120 250 L160 214 L230 200 L330 200 L392 214 L470 236" fill="none" stroke="#fff0b8" stroke-width="1.2" opacity=".6"/>
-        <!-- roof + glass -->
-        <path d="M170 214 L232 172 L336 172 L386 214 Z" fill="#1b1813" stroke="#f3ead7" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M184 212 L236 180 L280 180 L280 212 Z" fill="#c9c9c9" opacity=".55"/>
-        <path d="M290 180 L332 180 L372 212 L290 212 Z" fill="#c9c9c9" opacity=".55"/>
-        <!-- chrome trim line -->
-        <path d="M70 266 L500 266" stroke="url(#chrome2)" stroke-width="4" stroke-linecap="round"/>
-        <!-- wheels: tiny 13s with wire spokes, rear tucked, front dropped -->
-        <g transform="translate(150 300)"><circle r="40" fill="#0a0908" stroke="#2a251d" stroke-width="10"/><circle r="28" fill="none" stroke="url(#chrome2)" stroke-width="3"/><g stroke="#d4a437" stroke-width="1.1" opacity=".85"><path d="M0 -28 V28 M-28 0 H28 M-20 -20 L20 20 M-20 20 L20 -20 M-11 -26 L11 26 M-26 -11 L26 11 M-11 26 L11 -26 M-26 11 L26 -11"/></g><circle r="6" fill="#0a0908" stroke="#f2c94c" stroke-width="2.5"/></g>
-        <g transform="translate(430 300)"><circle r="40" fill="#0a0908" stroke="#2a251d" stroke-width="10"/><circle r="28" fill="none" stroke="url(#chrome2)" stroke-width="3"/><g stroke="#d4a437" stroke-width="1.1" opacity=".85"><path d="M0 -28 V28 M-28 0 H28 M-20 -20 L20 20 M-20 20 L20 -20 M-11 -26 L11 26 M-26 -11 L26 11 M-11 26 L11 -26 M-26 11 L26 -11"/></g><circle r="6" fill="#0a0908" stroke="#f2c94c" stroke-width="2.5"/></g>
-        <!-- bumpers, lights -->
-        <path d="M46 286 L62 286" stroke="url(#chrome2)" stroke-width="7" stroke-linecap="round"/><path d="M500 286 L528 286" stroke="url(#chrome2)" stroke-width="7" stroke-linecap="round"/>
-        <rect x="58" y="270" width="16" height="8" rx="2" fill="#ffb3b3"/><circle cx="508" cy="272" r="6" fill="#fff0b8" stroke="#d4a437" stroke-width="2"/>
-        <!-- plaque in the rear window -->
-        <rect x="200" y="186" width="34" height="14" rx="2" fill="#f6ecd2" opacity=".9"/><text x="217" y="197" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="12" fill="#0a0908">Usos</text>
-        <text x="280" y="392" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="54" fill="#f6ecd2">Familia</text>
-      </svg>
-    </div>
+    <figure class="art photo rv d2">
+      <img src="lowrider.jpg" alt="A candy-orange Impala lowrider with Uso Car Club on the windshield, three-wheeling past the shops at sunset" loading="lazy" width="1376" height="768">
+      <figcaption>Familia</figcaption>
+    </figure>
     <div>
       <div class="eyebrow rv">Usos Car Club</div>
       <h2 class="h2 rv d1">Low and slow<br><span class="foil">since ’92</span></h2>
