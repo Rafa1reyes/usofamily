@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usos Family — Uso Motorcycle Club &amp; Usos Car Club</title>
+<meta name="description" content="The official home of the Usos Family worldwide. Upcoming rides, shows, cruises and gatherings for every chapter, the story of Kita Lealao and the club he founded in Carson in 1992, and the Uso Motorcycle Club.">
+<meta property="og:title" content="Usos Family — Same Team. Same Scheme. Same Dream.">
+<meta property="og:description" content="Every ride, show and gathering across the Uso chapters worldwide, on one board.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://usofamily.com/">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a0908' stroke='%23d4a437' stroke-width='3'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='26' fill='%23d4a437'%3EUso%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pinyon+Script&family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   TOKENS
+   =================================================================== */
+:root{
+  --ink:#0a0908; --ink-2:#12100d; --ink-3:#1b1813; --ink-4:#262119;
+  --line:rgba(212,164,55,.18); --line-2:rgba(212,164,55,.34);
+  --gold:#d4a437; --gold-2:#f2c94c; --gold-3:#8a6420; --gold-4:#f6ecd2;
+  --bone:#f3ead7; --bone-2:#cbbfa6; --mute:#8d8371;
+  --red:#a31d1d; --red-2:#d43a3a;
+  --font-display:"Bebas Neue","Oswald","Impact","Arial Narrow",sans-serif;
+  --font-script:"Pinyon Script","Brush Script MT","Snell Roundhand",cursive;
+  --font-black:"UnifrakturMaguntia","Old English Text MT","Blackletter",serif;
+  --cream:#e9dcc0; --tan:#c9a87c; --leather:#8b5e3c;
+  --font-serif:"Cormorant Garamond","Georgia","Times New Roman",serif;
+  --font-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gold-foil:linear-gradient(105deg,#8a6420 0%,#d4a437 22%,#fff0b8 42%,#d4a437 58%,#8a6420 80%,#d4a437 100%);
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--font-body);font-size:16px;line-height:1.6}
+body{overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-2)}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+.wrap{width:min(var(--wrap),calc(100% - 2.5rem));margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===================================================================
+   TEXTURE + PATTERN HELPERS
+   =================================================================== */
+.foil{background:var(--gold-foil);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 9s linear infinite}
+@keyframes foil{to{background-position:220% 0}}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
+.tatau{--c:rgba(212,164,55,.55);height:14px;background:
+  linear-gradient(135deg,var(--c) 25%,transparent 25%) 0 0/14px 14px,
+  linear-gradient(225deg,var(--c) 25%,transparent 25%) 0 0/14px 14px;
+  opacity:.75}
+.tatau.dim{opacity:.32}
+.eyebrow{font-family:var(--font-display);letter-spacing:.32em;font-size:.85rem;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:2.2rem;height:1px;background:var(--gold)}
+h1,h2,h3,h4{margin:0;font-weight:400}
+.h2{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:.03em;line-height:.95;margin:.6rem 0 1.2rem}
+.h2 .foil{font-family:var(--font-black);font-size:1.02em;letter-spacing:0;text-transform:none}
+.lede{font-family:var(--font-serif);font-size:clamp(1.15rem,1.6vw,1.45rem);color:var(--bone-2);max-width:62ch;line-height:1.5}
+.lede em{color:var(--gold-2)}
+section{position:relative}
+.sec{padding:clamp(4.5rem,9vw,8rem) 0}
+
+/* ===================================================================
+   NAV
+   =================================================================== */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+.nav.on{background:rgba(10,9,8,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.brand{display:flex;align-items:center;gap:.7rem;color:var(--bone)}
+.brand .mark{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--font-black);font-size:1.45rem;color:var(--gold);line-height:1;padding-top:2px;background:radial-gradient(circle at 50% 40%,rgba(212,164,55,.16),transparent 70%)}
+.brand b{font-family:var(--font-display);letter-spacing:.2em;font-size:1.05rem;font-weight:400}
+.brand small{display:block;font-size:.6rem;letter-spacing:.26em;color:var(--mute);margin-top:-.15rem}
+.links{display:flex;gap:1.6rem;align-items:center}
+.links a{font-family:var(--font-display);letter-spacing:.18em;font-size:.95rem;color:var(--bone-2);position:relative;padding:.3rem 0}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
+.links a:hover{color:var(--bone)}.links a:hover::after{right:0}
+.links .cta{border:1px solid var(--gold);color:var(--gold);padding:.45rem 1rem;border-radius:2px}
+.links .cta::after{display:none}
+.burger{display:none;background:none;border:1px solid var(--line-2);color:var(--gold);width:42px;height:42px;border-radius:2px;font-size:1.2rem}
+.drawer{display:none}
+@media (max-width:860px){
+  .links{display:none}.burger{display:grid;place-items:center}
+  .drawer.open{display:flex;flex-direction:column;position:fixed;inset:68px 0 0 0;background:rgba(10,9,8,.97);z-index:49;padding:2rem 1.5rem;gap:1.2rem}
+  .drawer a{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.14em;color:var(--bone);border-bottom:1px solid var(--line);padding-bottom:.8rem}
+}
+
+/* ===================================================================
+   HERO
+   =================================================================== */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:5.5rem 0 4rem;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(ellipse 60% 45% at 50% 42%,rgba(212,164,55,.18),transparent 70%),
+  radial-gradient(ellipse 80% 60% at 50% 100%,rgba(163,29,29,.12),transparent 70%),
+  var(--ink)}
+.hero .bands{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 30%,transparent 75%)}
+.hero .bands svg{width:100%;height:100%}
+.hero .grain{position:absolute;inset:0;z-index:-1;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.patch{width:min(215px,52vw);aspect-ratio:1;margin:0 auto .4rem;position:relative;filter:drop-shadow(0 0 40px rgba(212,164,55,.28)) drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.patch img{width:100%;height:100%;object-fit:contain}
+.patch svg{width:100%;height:100%}
+.patch .ring{position:absolute;inset:-9%;border-radius:50%;border:1px solid var(--line-2);animation:spin 40s linear infinite;pointer-events:none}
+.patch .ring::before{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 14px var(--gold-2)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .title.black{font-family:var(--font-black);font-size:clamp(3.6rem,11vw,7.4rem);line-height:.95;letter-spacing:.02em;text-shadow:0 0 40px rgba(212,164,55,.25)}
+.hero .ribbon{display:inline-block;position:relative;margin:.2rem auto 0;padding:.35rem 2.6rem;background:var(--cream);color:var(--ink);font-family:var(--font-display);letter-spacing:.5em;font-size:clamp(.95rem,2vw,1.35rem);clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%);text-indent:.5em}
+.hero .ribbon::before,.hero .ribbon::after{content:"";position:absolute;top:22%;bottom:22%;width:1px;background:rgba(10,9,8,.35)}
+.hero .ribbon::before{left:1.4rem}.hero .ribbon::after{right:1.4rem}
+.hero .script{font-family:var(--font-script);font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:1;color:var(--gold-4);text-shadow:0 0 30px rgba(212,164,55,.35);margin-top:.1rem}
+.hero .sub{font-family:var(--font-display);letter-spacing:.34em;font-size:clamp(.8rem,1.6vw,1.05rem);color:var(--bone-2);margin-top:.9rem;text-transform:uppercase}
+.hero .sub span{color:var(--gold)}
+.hero .motto{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.2rem,2.3vw,1.6rem);color:var(--bone-2);margin:.9rem 0 0}
+.hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);letter-spacing:.2em;font-size:1.05rem;padding:.9rem 1.7rem;border-radius:2px;border:1px solid var(--gold);color:var(--ink);background:var(--gold);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{background:var(--gold-2);color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,164,55,.25)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:rgba(212,164,55,.08);color:var(--gold-2)}
+.btn.sm{padding:.55rem 1rem;font-size:.9rem;letter-spacing:.16em}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}.btn.red:hover{background:var(--red-2);border-color:var(--red-2)}
+.nextup{margin:2rem auto 0;max-width:640px;border:1px solid var(--line-2);background:rgba(18,16,13,.7);backdrop-filter:blur(8px);padding:1rem 1.3rem;display:none;grid-template-columns:auto 1fr auto;gap:1.1rem;align-items:center;text-align:left;border-radius:3px}
+.nextup.on{display:grid}
+.nextup .lbl{font-family:var(--font-display);letter-spacing:.28em;color:var(--gold);font-size:.8rem;writing-mode:vertical-rl;transform:rotate(180deg);border-right:1px solid var(--line)}
+.nextup .t{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1.1}
+.nextup .w{color:var(--bone-2);font-size:.9rem;margin-top:.2rem}
+.nextup .cd{font-family:var(--font-display);font-size:1.9rem;letter-spacing:.08em;color:var(--gold-2);text-align:center;line-height:1}
+.nextup .cd small{display:block;font-size:.6rem;letter-spacing:.3em;color:var(--mute);margin-top:.25rem}
+@media (max-width:560px){.nextup{grid-template-columns:1fr;text-align:center}.nextup .lbl{writing-mode:horizontal-tb;transform:none;border:0}}
+.scrollcue{display:none;position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);color:var(--mute);font-size:.65rem;letter-spacing:.35em;font-family:var(--font-display);flex-direction:column;align-items:center;gap:.4rem}
+.scrollcue i{width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s ease-in-out infinite}
+@media (min-height:1000px){.scrollcue{display:flex}}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+/* ===================================================================
+   TICKER
+   =================================================================== */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden;white-space:nowrap;padding:.7rem 0}
+.ticker .track{display:inline-flex;gap:3rem;animation:tick 42s linear infinite;font-family:var(--font-display);letter-spacing:.22em;font-size:.95rem;color:var(--bone-2)}
+.ticker .track span::before{content:"◆";color:var(--gold);margin-right:3rem;font-size:.6rem;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker:hover .track{animation-play-state:paused}
+
+/* ===================================================================
+   BOARD
+   =================================================================== */
+#board{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+.boardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem;margin-bottom:2rem}
+.tz{font-size:.8rem;color:var(--mute);letter-spacing:.04em}
+.tz b{color:var(--bone-2);font-weight:500}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.chip{border:1px solid var(--line-2);background:transparent;color:var(--bone-2);font-family:var(--font-display);letter-spacing:.16em;font-size:.9rem;padding:.45rem .95rem;border-radius:999px;transition:.2s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.chip .n{opacity:.6;margin-left:.35rem;font-size:.8em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.4rem}
+.card{position:relative;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--gold-foil);background-size:220% 100%;opacity:.9}
+.card:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 26px 50px rgba(0,0,0,.5),0 0 0 1px rgba(212,164,55,.12)}
+.card.pinned::after{content:"PINNED";position:absolute;top:.9rem;right:-2.1rem;transform:rotate(45deg);background:var(--red);color:#fff;font-family:var(--font-display);letter-spacing:.2em;font-size:.65rem;padding:.2rem 2.6rem;z-index:2}
+.card .flyer{aspect-ratio:16/9;background:var(--ink-4);overflow:hidden;cursor:zoom-in}
+.card .flyer img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .flyer img{transform:scale(1.04)}
+.card .body{padding:1.25rem 1.3rem 1.3rem;display:flex;gap:1.1rem;flex:1}
+.date{flex:0 0 auto;width:66px;text-align:center;border:1px solid var(--line-2);border-radius:3px;background:rgba(212,164,55,.06);padding:.45rem 0 .5rem;align-self:flex-start}
+.date .m{font-family:var(--font-display);letter-spacing:.2em;font-size:.75rem;color:var(--gold)}
+.date .d{font-family:var(--font-display);font-size:2.2rem;line-height:.95;color:var(--bone)}
+.date .w{font-size:.62rem;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-top:.15rem}
+.date.notice .d{font-size:1.4rem;padding:.25rem 0}
+.card .info{flex:1;min-width:0}
+.type{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-display);letter-spacing:.2em;font-size:.72rem;color:var(--gold);text-transform:uppercase}
+.type::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.type.ride::before{background:#e0b64a}.type.show::before{background:#c9c9c9}.type.cruise::before{background:#7ec8ff}.type.meeting::before{background:#9ad27a}.type.memorial::before{background:#fff}.type.fundraiser::before{background:#ff8fb3}.type.party::before{background:#ff8c42}.type.notice::before{background:var(--red-2)}
+.card h3{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.03em;line-height:1.05;margin:.35rem 0 .45rem}
+.meta{display:flex;flex-direction:column;gap:.25rem;font-size:.86rem;color:var(--bone-2)}
+.meta div{display:flex;gap:.5rem;align-items:flex-start}
+.meta svg{width:14px;height:14px;flex:none;margin-top:.22rem;fill:none;stroke:var(--gold);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.meta .alt{color:var(--mute);font-size:.78rem}
+.card p{margin:.7rem 0 0;color:var(--bone-2);font-size:.9rem;white-space:pre-line}
+.card p.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card .more{background:none;border:0;color:var(--gold);font-size:.8rem;padding:0;margin-top:.3rem;letter-spacing:.05em}
+.card .foot{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 1.3rem 1.2rem;margin-top:auto}
+.ib{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line-2);background:transparent;color:var(--bone-2);font-size:.75rem;letter-spacing:.06em;padding:.4rem .7rem;border-radius:2px;transition:.2s}
+.ib:hover{border-color:var(--gold);color:var(--gold)}
+.ib svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.empty{border:1px dashed var(--line-2);padding:3rem 1.5rem;text-align:center;color:var(--mute);border-radius:4px;grid-column:1/-1}
+.empty b{display:block;font-family:var(--font-display);font-size:1.6rem;letter-spacing:.06em;color:var(--bone-2);margin-bottom:.4rem}
+.pasthead{margin-top:3.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none;color:var(--mute);font-family:var(--font-display);letter-spacing:.24em;font-size:.9rem}
+.pasthead::after{content:"";flex:1;height:1px;background:var(--line)}
+.pasthead i{display:inline-block;transition:transform .3s}
+.pasthead.open i{transform:rotate(90deg)}
+#past{display:none;margin-top:1.4rem;opacity:.72}
+#past.open{display:grid}
+.skeleton .card{min-height:220px;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.5}}
+
+/* ===================================================================
+   MC / STORY / MAP / FOOTER
+   =================================================================== */
+#mc{background:var(--ink-2);overflow:hidden}
+#mc .split{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+#mc .art{position:relative;aspect-ratio:1;max-width:520px;margin:0 auto}
+#mc .art svg{width:100%;height:100%}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
+.pillar{border:1px solid var(--line);padding:1.3rem;border-radius:3px;background:rgba(10,9,8,.5)}
+.pillar b{display:block;font-family:var(--font-display);font-size:1.4rem;letter-spacing:.06em;color:var(--gold);margin-bottom:.3rem}
+.pillar span{font-size:.88rem;color:var(--bone-2)}
+@media (max-width:900px){#mc .split{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
+
+#story .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:start}
+@media (max-width:900px){#story .split{grid-template-columns:1fr}}
+.tribute{position:sticky;top:6rem;border:1px solid var(--line-2);padding:2rem;border-radius:4px;background:linear-gradient(160deg,var(--ink-3),var(--ink));text-align:center}
+.tribute .crown{font-family:var(--font-script);font-size:3.6rem;color:var(--gold-4);line-height:1}
+.tribute h3{font-family:var(--font-display);font-size:2.3rem;letter-spacing:.06em;margin-top:.3rem}
+.tribute .yrs{font-family:var(--font-display);letter-spacing:.3em;color:var(--gold);font-size:1rem}
+.tribute p{color:var(--bone-2);font-size:.92rem;margin:1rem 0 0}
+.tribute q{font-family:var(--font-serif);font-style:italic;font-size:1.25rem;color:var(--bone);display:block;margin-top:1.2rem;quotes:"“" "”"}
+.tribute .laurels{display:flex;justify-content:center;gap:1.4rem;margin-top:1.4rem;flex-wrap:wrap}
+.tribute .laurels div{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.tribute .laurels b{display:block;font-family:var(--font-display);font-size:1.5rem;letter-spacing:.06em;color:var(--gold-2)}
+.timeline{position:relative;padding-left:2.2rem;margin-top:1rem}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--gold),var(--line),var(--gold))}
+.ev{position:relative;padding:0 0 2.2rem}
+.ev::before{content:"";position:absolute;left:-2.2rem;top:.45rem;width:17px;height:17px;border-radius:50%;background:var(--ink);border:1.5px solid var(--gold);box-shadow:0 0 0 4px var(--ink)}
+.ev.big::before{background:var(--gold);box-shadow:0 0 0 4px var(--ink),0 0 18px rgba(212,164,55,.6)}
+.ev .yr{font-family:var(--font-display);font-size:2rem;letter-spacing:.06em;color:var(--gold);line-height:1}
+.ev h4{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.04em;margin:.2rem 0 .35rem;color:var(--bone)}
+.ev p{margin:0;color:var(--bone-2);font-size:.93rem;max-width:56ch}
+
+#world{background:var(--ink-2)}
+.map{position:relative;border:1px solid var(--line);border-radius:6px;background:radial-gradient(ellipse 70% 80% at 50% 50%,#15130f,#0a0908 90%);overflow:hidden;margin-top:2rem}
+.map svg{width:100%;height:auto;display:block}
+.map .dot{fill:rgba(212,164,55,.28)}
+.map .pin{cursor:pointer}
+.map .pin circle.core{fill:var(--gold-2)}
+.map .pin circle.halo{fill:none;stroke:var(--gold);stroke-width:1;opacity:.8;animation:halo 2.6s ease-out infinite}
+.map .pin.founding circle.core{fill:#fff}
+@keyframes halo{0%{r:3;opacity:.9}100%{r:16;opacity:0}}
+.map .pin text{font-family:var(--font-display);letter-spacing:.12em;font-size:9px;fill:var(--bone-2);pointer-events:none;opacity:0;transition:opacity .2s}
+.map .pin:hover text,.map .pin.show text{opacity:1}
+.map .cap{position:absolute;left:1rem;bottom:1rem;font-size:.72rem;letter-spacing:.12em;color:var(--mute);text-transform:uppercase}
+.chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.6rem;margin-top:1.6rem}
+.chap{border:1px solid var(--line);padding:.7rem .9rem;border-radius:3px;background:rgba(10,9,8,.5);cursor:pointer;transition:.2s}
+.chap:hover,.chap.on{border-color:var(--gold);background:rgba(212,164,55,.07)}
+.chap b{display:block;font-family:var(--font-display);letter-spacing:.08em;font-size:1.15rem;color:var(--bone)}
+.chap span{font-size:.75rem;color:var(--mute)}
+.chap.founding b{color:var(--gold-2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
+.stat{border-top:1px solid var(--line-2);padding-top:1rem}
+.stat b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;letter-spacing:.04em}
+.stat span{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+footer{border-top:1px solid var(--line);padding:3.5rem 0 2.5rem;background:var(--ink)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer h5{font-family:var(--font-display);letter-spacing:.24em;font-size:.9rem;color:var(--gold);margin:0 0 .8rem}
+footer p,footer li{color:var(--bone-2);font-size:.88rem}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.35rem}
+footer .script{font-family:var(--font-script);font-size:2.6rem;color:var(--gold-4);line-height:1}
+footer .bottom{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.74rem;color:var(--mute);letter-spacing:.06em}
+footer .bottom a{color:var(--mute)}footer .bottom a:hover{color:var(--gold)}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr}}
+
+/* ===================================================================
+   LIGHTBOX / TOAST / REVEAL
+   =================================================================== */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(6,5,4,.92);display:none;place-items:center;padding:2rem;cursor:zoom-out}
+.lb.on{display:grid}
+.lb img{max-width:min(96vw,1100px);max-height:90vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translate(-50%,20px);background:var(--gold);color:var(--ink);font-family:var(--font-display);letter-spacing:.14em;padding:.7rem 1.2rem;border-radius:3px;opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* ===================================================================
+   ADMIN
+   =================================================================== */
+#admin{display:none;min-height:100svh;padding:6.5rem 0 4rem;background:var(--ink-2)}
+body.admin #admin{display:block}
+body.admin #site{display:none}
+.panel{border:1px solid var(--line-2);background:var(--ink);border-radius:4px;padding:1.6rem;margin-bottom:1.4rem}
+.panel h3{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.06em;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.f{display:grid;gap:.9rem}
+.f .row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.f .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem}
+@media (max-width:640px){.f .row,.f .row3{grid-template-columns:1fr}}
+label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.f input,.f textarea,.f select{background:var(--ink-3);border:1px solid var(--line-2);color:var(--bone);padding:.65rem .8rem;border-radius:3px;font:inherit;font-size:.95rem;width:100%;color-scheme:dark}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--gold)}
+.f textarea{min-height:120px;resize:vertical}
+.f .chk{flex-direction:row;align-items:center;gap:.6rem;text-transform:none;letter-spacing:0;font-size:.9rem;color:var(--bone-2)}
+.f .chk input{width:auto}
+.f .btns{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.msg{font-size:.85rem;color:var(--bone-2);min-height:1.2em}
+.msg.err{color:#ff8a8a}.msg.ok{color:#9ad27a}
+.alist{display:flex;flex-direction:column;gap:.5rem}
+.arow{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;border:1px solid var(--line);padding:.7rem .9rem;border-radius:3px;background:var(--ink-3)}
+.arow .dt{font-family:var(--font-display);letter-spacing:.06em;color:var(--gold);font-size:.95rem;min-width:110px}
+.arow b{display:block;font-weight:600;font-size:.95rem}
+.arow small{color:var(--mute);font-size:.75rem}
+.arow.draft{opacity:.6;border-style:dashed}
+.arow .acts{display:flex;gap:.4rem}
+.tabs{display:flex;gap:.4rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line-2);background:transparent;color:var(--bone-2);font-family:var(--font-display);letter-spacing:.16em;padding:.5rem 1rem;border-radius:2px}
+.tabs button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.tabpane{display:none}.tabpane.on{display:block}
+.adminbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem}
+.adminbar .who{font-size:.85rem;color:var(--mute)}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAV
+     ================================================================ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">U</span><span><b>USOS FAMILY</b><small>WORLDWIDE · EST. 1992</small></span></a>
+    <div class="links">
+      <a href="#board">Board</a>
+      <a href="#mc">Motorcycle Club</a>
+      <a href="#story">Our Story</a>
+      <a href="#world">Chapters</a>
+      <a class="cta" href="#board">What's next</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="#board">Board</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/admin">Officer sign-in</a>
+</div>
+
+<div id="site">
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="bands" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pt1" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M0 30 L15 0 L30 30 L45 0 L60 30 L45 60 L30 30 L15 60 Z" fill="none" stroke="#d4a437" stroke-width="1"/>
+        </pattern>
+        <pattern id="pt2" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M0 40 L20 0 L40 40 Z" fill="#d4a437" opacity=".55"/>
+        </pattern>
+        <pattern id="pt3" width="80" height="24" patternUnits="userSpaceOnUse">
+          <path d="M0 12 Q20 0 40 12 T80 12" fill="none" stroke="#d4a437" stroke-width="1.2"/>
+        </pattern>
+      </defs>
+      <g class="b1"><rect x="-200" y="120" width="2000" height="60" fill="url(#pt1)"/></g>
+      <g class="b2"><rect x="-200" y="200" width="2000" height="20" fill="url(#pt2)"/></g>
+      <g class="b3"><rect x="-200" y="700" width="2000" height="24" fill="url(#pt3)"/></g>
+      <g class="b4"><rect x="-200" y="740" width="2000" height="60" fill="url(#pt1)"/></g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="patch rv" id="patch">
+      <span class="ring"></span>
+      <img src="patch.png" alt="Usos Family patch" onerror="this.remove();document.getElementById('patchsvg').style.display='block'">
+      <svg id="patchsvg" viewBox="0 0 400 440" style="display:none" role="img" aria-label="Usos Family emblem">
+        <defs>
+          <linearGradient id="gf" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#8a6420"/><stop offset=".45" stop-color="#f2c94c"/><stop offset=".6" stop-color="#f6ecd2"/><stop offset="1" stop-color="#8a6420"/></linearGradient>
+          <linearGradient id="lg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a2318"/><stop offset="1" stop-color="#0a0908"/></linearGradient>
+          <pattern id="tt" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16 L8 0 L16 16 Z" fill="#e9dcc0" opacity=".9"/><path d="M0 0 L8 16 L16 0 Z" fill="#e9dcc0" opacity=".35"/></pattern>
+        </defs>
+        <!-- shield -->
+        <path d="M200 120 C270 120 330 150 340 190 C352 250 320 330 200 400 C80 330 48 250 60 190 C70 150 130 120 200 120 Z" fill="url(#lg)" stroke="#e9dcc0" stroke-width="5"/>
+        <path d="M200 138 C262 138 314 164 322 198 C332 250 304 318 200 380 C96 318 68 250 78 198 C86 164 138 138 200 138 Z" fill="none" stroke="url(#tt)" stroke-width="16"/>
+        <path d="M200 138 C262 138 314 164 322 198 C332 250 304 318 200 380 C96 318 68 250 78 198 C86 164 138 138 200 138 Z" fill="none" stroke="#0a0908" stroke-width="1.5"/>
+        <!-- warrior silhouette (stylised) -->
+        <g fill="#e9dcc0">
+          <circle cx="208" cy="214" r="17"/>
+          <path d="M196 226 C170 232 150 250 148 270 L128 300 L140 308 L162 282 L178 276 L176 318 L150 344 L160 356 L192 328 L206 332 L238 350 L250 342 L226 316 L232 286 L262 300 L286 290 L280 278 L252 270 L236 236 C230 228 214 224 196 226 Z"/>
+          <path d="M226 222 L262 206 L280 194 L286 202 L266 216 L232 232 Z"/>
+        </g>
+        <path d="M150 330 Q200 300 250 330" fill="none" stroke="#0a0908" stroke-width="3"/>
+        <!-- USOS blackletter -->
+        <text x="200" y="98" text-anchor="middle" font-family="UnifrakturMaguntia,'Old English Text MT',serif" font-size="96" fill="url(#gf)" stroke="#e9dcc0" stroke-width="1">Usos</text>
+        <!-- ribbon -->
+        <path d="M96 106 L304 106 L296 122 L304 138 L96 138 L104 122 Z" fill="#e9dcc0"/>
+        <text x="200" y="128" text-anchor="middle" font-family="Bebas Neue,Impact,sans-serif" font-size="20" letter-spacing="9" fill="#0a0908">FAMILY</text>
+        <!-- Familia script -->
+        <path d="M110 396 L290 396 L282 408 L290 420 L110 420 L118 408 Z" fill="#0a0908" stroke="#e9dcc0" stroke-width="2"/>
+        <text x="200" y="414" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="40" fill="url(#gf)">Familia</text>
+      </svg>
+    </div>
+    <h1 class="title black foil rv d1">Usos</h1>
+    <div class="ribbon rv d1" aria-hidden="true"><span>FAMILY</span></div>
+    <div class="script rv d1">Familia</div>
+    <div class="sub rv d2">Uso Motorcycle Club <span>·</span> Usos Car Club <span>·</span> Worldwide</div>
+    <p class="motto rv d2">“Same Team. Same Scheme. Same Dream.”</p>
+    <div class="actions rv d3">
+      <a class="btn" href="#board">See what's coming up</a>
+      <a class="btn ghost" href="#story">Our story</a>
+    </div>
+    <div class="nextup rv d3" id="nextup">
+      <div class="lbl">Next up</div>
+      <div><div class="t" id="nu-t"></div><div class="w" id="nu-w"></div></div>
+      <div class="cd"><span id="nu-cd">—</span><small id="nu-cdl">days</small></div>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
+
+<!-- ================================================================
+     BOARD
+     ================================================================ -->
+<section class="sec" id="board">
+  <div class="wrap">
+    <div class="boardhead">
+      <div>
+        <div class="eyebrow rv">The Board</div>
+        <h2 class="h2 rv d1">Don't miss <span class="foil">a single one</span></h2>
+        <p class="lede rv d2">Every ride, show, cruise, meeting and gathering across the family, in one place. Times are shown in <em>your</em> time zone, with the event's local time underneath.</p>
+      </div>
+      <div class="tz rv d2">Showing times in <b id="tzname"></b></div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid skeleton" id="upcoming"><div class="card"></div><div class="card"></div><div class="card"></div></div>
+    <div class="pasthead" id="pasthead" hidden><i>▶</i> Past events <span id="pastn"></span></div>
+    <div class="grid" id="past"></div>
+  </div>
+</section>
+
+<div class="tatau dim"></div>
+
+<!-- ================================================================
+     MOTORCYCLE CLUB
+     ================================================================ -->
+<section class="sec" id="mc">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow rv">Uso Motorcycle Club</div>
+      <h2 class="h2 rv d1">Two wheels.<br><span class="foil">Same blood.</span></h2>
+      <p class="lede rv d2">The Uso Motorcycle Club rides under the same plaque as the car club that started it all. Chrome, paint, patience and pride, just on a different frame. When the family rolls out, the bikes lead.</p>
+      <div class="pillars rv d3">
+        <div class="pillar"><b>Ride together</b><span>Club runs, memorial rides and escorts for the car club's biggest shows are posted on the board first.</span></div>
+        <div class="pillar"><b>Represent</b><span>The patch is earned, worn with respect and never disgraces the name Kita built.</span></div>
+        <div class="pillar"><b>Family first</b><span>Uso means brother. That's the whole rulebook. Everything else follows from it.</span></div>
+      </div>
+    </div>
+    <div class="art rv d2" aria-hidden="true">
+      <svg viewBox="0 0 560 520">
+        <defs>
+          <radialGradient id="mg" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="rgba(212,164,55,.22)"/><stop offset="1" stop-color="rgba(212,164,55,0)"/></radialGradient>
+          <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6ecd2"/><stop offset=".5" stop-color="#8a6420"/><stop offset="1" stop-color="#d4a437"/></linearGradient>
+          <linearGradient id="tank" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d43a3a"/><stop offset=".5" stop-color="#7a1414"/><stop offset="1" stop-color="#a31d1d"/></linearGradient>
+        </defs>
+        <circle cx="280" cy="270" r="250" fill="url(#mg)"/>
+        <circle cx="280" cy="270" r="238" fill="none" stroke="#d4a437" stroke-width="1" opacity=".35" stroke-dasharray="4 10"/>
+        <ellipse cx="290" cy="392" rx="215" ry="8" fill="rgba(0,0,0,.55)"/>
+        <g transform="translate(150 325)">
+          <circle r="66" fill="#0a0908" stroke="#1b1813" stroke-width="22"/>
+          <circle r="66" fill="none" stroke="#2a251d" stroke-width="20"/>
+          <circle r="46" fill="none" stroke="url(#chrome)" stroke-width="4"/>
+          <g stroke="#d4a437" stroke-width="1.3" opacity=".85"><path d="M0 -46 V46 M-46 0 H46 M-33 -33 L33 33 M-33 33 L33 -33 M-18 -42 L18 42 M-42 -18 L42 18 M-18 42 L18 -42 M-42 18 L42 -18"/></g>
+          <circle r="10" fill="#0a0908" stroke="#f2c94c" stroke-width="3"/>
+        </g>
+        <g transform="translate(445 322)">
+          <circle r="70" fill="#0a0908" stroke="#1b1813" stroke-width="14"/>
+          <circle r="70" fill="none" stroke="#2a251d" stroke-width="12"/>
+          <circle r="54" fill="none" stroke="url(#chrome)" stroke-width="3.5"/>
+          <g stroke="#d4a437" stroke-width="1.2" opacity=".85"><path d="M0 -54 V54 M-54 0 H54 M-38 -38 L38 38 M-38 38 L38 -38 M-21 -50 L21 50 M-50 -21 L50 21 M-21 50 L21 -50 M-50 21 L50 -21"/></g>
+          <circle r="9" fill="#0a0908" stroke="#f2c94c" stroke-width="3"/>
+        </g>
+        <path d="M92 300 A70 70 0 0 1 208 300" fill="none" stroke="#f3ead7" stroke-width="9" stroke-linecap="round"/>
+        <g fill="none" stroke="#f3ead7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M150 325 L205 240 L300 232"/>
+          <path d="M150 325 L245 330 L330 300"/>
+          <path d="M205 240 L245 330"/>
+          <path d="M300 232 L330 300"/>
+          <path d="M300 232 L395 180"/>
+        </g>
+        <g fill="none" stroke="url(#chrome)" stroke-width="7" stroke-linecap="round">
+          <path d="M392 176 L445 322"/><path d="M404 172 L457 318"/>
+        </g>
+        <g fill="none" stroke="#f3ead7" stroke-width="6" stroke-linecap="round">
+          <path d="M395 178 L380 118 L360 104"/><path d="M395 178 L410 118 L430 104"/>
+        </g>
+        <circle cx="408" cy="200" r="13" fill="#f6ecd2" stroke="#d4a437" stroke-width="3"/>
+        <path d="M215 232 C230 208 300 202 318 218 C330 230 312 246 296 246 L240 246 C222 246 210 240 215 232 Z" fill="url(#tank)" stroke="#f3ead7" stroke-width="2"/>
+        <path d="M232 228 C250 216 296 214 308 224" fill="none" stroke="#f6ecd2" stroke-width="1.6" opacity=".9"/>
+        <path d="M150 262 C170 250 205 250 220 258 L218 268 L152 270 Z" fill="#0a0908" stroke="#f3ead7" stroke-width="2.5"/>
+        <g fill="#1b1813" stroke="url(#chrome)" stroke-width="3">
+          <path d="M248 258 L262 258 L272 300 L238 300 Z"/><path d="M286 254 L300 254 L318 296 L282 296 Z"/>
+          <rect x="240" y="298" width="80" height="26" rx="6"/>
+        </g>
+        <g stroke="#d4a437" stroke-width="2" opacity=".9"><path d="M249 266 H270 M251 275 H273 M253 284 H276 M289 262 H306 M292 271 H310 M295 280 H314"/></g>
+        <g fill="none" stroke="url(#chrome)" stroke-width="7" stroke-linecap="round">
+          <path d="M318 296 C360 300 400 330 470 348"/><path d="M270 300 C300 318 360 344 460 362"/>
+        </g>
+        <path d="M228 330 L215 350" stroke="#f3ead7" stroke-width="5" stroke-linecap="round"/>
+        <text x="280" y="470" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="54" fill="#f6ecd2">Familia</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="tatau"></div>
+
+<!-- ================================================================
+     STORY
+     ================================================================ -->
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="eyebrow rv">Our Story</div>
+    <h2 class="h2 rv d1">From Scott Park<br>to <span class="foil">the whole world</span></h2>
+    <div class="split">
+      <aside class="tribute rv d2">
+        <div class="crown">Kita</div>
+        <h3>KITA SILIVA LEALAO</h3>
+        <div class="yrs">1958 — 2020</div>
+        <p>Founder and high chief of the Uso Car Club. Born in Santa Clara, raised in the San Francisco Bay Area, a Cadillac man through and through. He set out to erase the line between lowriding and the stigma that shadowed it, and built a family instead.</p>
+        <q>No color lines.</q>
+        <div class="laurels">
+          <div><b>1992</b>Founded Uso</div>
+          <div><b>2×</b>Club of the Year</div>
+          <div><b>HOF</b>Lowrider Hall of Fame</div>
+        </div>
+        <p style="font-size:.78rem;color:var(--mute);margin-top:1.4rem">More than 600 people came to his memorial in Sacramento. The family rides in his name every year.</p>
+      </aside>
+      <div class="timeline">
+        <div class="ev big rv"><div class="yr">1992</div><h4>August, Scott Park, Carson</h4><p>Kita Lealao and Daniel Hunkin start the Uso Car Club in the Harbor Area of Los Angeles. "Uso" is Samoan for brother. The membership is mixed from day one, and the requirement for getting in is the person, not the car.</p></div>
+        <div class="ev rv"><div class="yr">1990s</div><h4>"No Color Lines"</h4><p>The early motto pushes the club, and lowriding itself, past the boundaries of neighborhood and flag colors. Chapters start opening across California and then out of state.</p></div>
+        <div class="ev rv"><div class="yr">1997</div><h4>Club of the Year</h4><p>Lowrider Magazine names Uso its Club of the Year for the first time.</p></div>
+        <div class="ev big rv"><div class="yr">2002</div><h4>Ten years. A new spelling.</h4><p>For the tenth anniversary the family adopts the motto "Same Team, Same Scheme, Same Dream" and the plaque becomes <b>Uce</b>, the way it sounds when you say it, after a naming conflict with the United Service Organizations. Same brothers, same blood.</p></div>
+        <div class="ev rv"><div class="yr">2004</div><h4>Club of the Year, again</h4><p>The second Lowrider Magazine Club of the Year award. By now the club is one of the biggest of any kind in lowriding.</p></div>
+        <div class="ev rv"><div class="yr">2008</div><h4>Hall of Fame</h4><p>Kita is inducted into the Lowrider Hall of Fame.</p></div>
+        <div class="ev rv"><div class="yr">2020</div><h4>Rest easy, Chief</h4><p>Kita passes on February 8, 2020 in Elk Grove, California, at 61. Over 600 riders and lowriders fill his memorial in Sacramento. The Detroit chapter is established in his memory that same year.</p></div>
+        <div class="ev big rv"><div class="yr">Today</div><h4>Thirty-plus chapters, five continents</h4><p>Hawaii to Australia, Sweden to Italy, Alaska to Japan, Canada to Guam. And a motorcycle club riding alongside. This site is where the whole family looks to see what's next.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     WORLD
+     ================================================================ -->
+<section class="sec" id="world">
+  <div class="wrap">
+    <div class="eyebrow rv">Chapters</div>
+    <h2 class="h2 rv d1">One family, <span class="foil">every time zone</span></h2>
+    <p class="lede rv d2">Tap a chapter to find it on the map. Officers can add or correct chapters from the admin panel.</p>
+    <div class="map rv d2" id="map"></div>
+    <div class="chapters" id="chapters"></div>
+    <div class="stats rv">
+      <div class="stat"><b class="foil" id="st-ch">—</b><span>Chapters listed</span></div>
+      <div class="stat"><b class="foil" id="st-co">—</b><span>Countries</span></div>
+      <div class="stat"><b class="foil" id="st-yr">—</b><span>Years strong</span></div>
+      <div class="stat"><b class="foil">1</b><span>Family</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="script">Familia</div>
+        <p>The official home of the Usos Family: the Usos Car Club and the Uso Motorcycle Club. Founded in Carson, California in 1992. Everywhere now.</p>
+      </div>
+      <div>
+        <h5>On the site</h5>
+        <ul><li><a href="#board">Announcements board</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
+      </div>
+      <div>
+        <h5>Family</h5>
+        <ul><li><a href="https://www.instagram.com/usocarclub/" target="_blank" rel="noopener">Instagram @usocarclub</a></li><li><a href="#/admin">Officer sign-in</a></li></ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="yr"></span> Usos Family · usofamily.com</span>
+      <span>In memory of Kita Lealao · <a href="#top">Back to top</a></span>
+    </div>
+  </div>
+</footer>
+</div><!-- /site -->
+
+<!-- ================================================================
+     ADMIN
+     ================================================================ -->
+<section id="admin">
+  <div class="wrap" style="max-width:960px">
+    <div class="adminbar">
+      <div><div class="eyebrow">Officers</div><h2 class="h2" style="margin-bottom:0">Post to the board</h2></div>
+      <div style="display:flex;gap:.6rem;align-items:center"><span class="who" id="who"></span><a class="btn ghost sm" href="#top">← Site</a><button class="btn ghost sm" id="signout" hidden>Sign out</button></div>
+    </div>
+
+    <div class="panel" id="loginpanel">
+      <h3>Sign in</h3>
+      <form class="f" id="loginform">
+        <div class="row">
+          <label class="l">Email<input type="email" id="li-email" autocomplete="username" required></label>
+          <label class="l">Password<input type="password" id="li-pass" autocomplete="current-password" required minlength="8"></label>
+        </div>
+        <div class="btns"><button class="btn sm" type="submit">Sign in</button><button class="btn ghost sm" type="button" id="signup">First time? Create account</button></div>
+        <div class="msg" id="li-msg"></div>
+        <p style="font-size:.78rem;color:var(--mute);margin:0">Only emails on the officer list can post. Creating an account with an email that isn't on the list does nothing.</p>
+      </form>
+    </div>
+
+    <div id="adminui" hidden>
+      <div class="tabs"><button class="on" data-tab="posts">Board posts</button><button data-tab="chapters">Chapters</button></div>
+
+      <div class="tabpane on" id="tab-posts">
+        <div class="panel">
+          <h3><span id="pf-title">New post</span><button class="btn ghost sm" type="button" id="pf-reset" hidden>Cancel edit</button></h3>
+          <form class="f" id="postform">
+            <input type="hidden" id="pf-id">
+            <div class="row3">
+              <label class="l">Kind<select id="pf-kind"><option value="event">Event (has a date)</option><option value="notice">Notice (no date)</option></select></label>
+              <label class="l">Type<select id="pf-type"><option value="ride">Ride</option><option value="show">Car show</option><option value="cruise">Cruise</option><option value="meeting">Meeting</option><option value="gathering" selected>Gathering</option><option value="memorial">Memorial</option><option value="fundraiser">Fundraiser</option><option value="party">Party</option><option value="other">Other</option></select></label>
+              <label class="l">Chapter<input id="pf-chapter" list="chaplist" placeholder="e.g. Sacramento"><datalist id="chaplist"></datalist></label>
+            </div>
+            <label class="l">Title<input id="pf-title-in" maxlength="140" required placeholder="Memorial Ride for Kita"></label>
+            <div class="row3" id="pf-dates">
+              <label class="l">Starts<input type="datetime-local" id="pf-start"></label>
+              <label class="l">Ends (optional)<input type="datetime-local" id="pf-end"></label>
+              <label class="l chk" style="align-self:end"><input type="checkbox" id="pf-allday"> All day</label>
+            </div>
+            <div class="row">
+              <label class="l">Location name<input id="pf-loc" placeholder="Scott Park"></label>
+              <label class="l">Address<input id="pf-addr" placeholder="23410 Catskill Ave, Carson, CA"></label>
+            </div>
+            <label class="l">Details<textarea id="pf-details" placeholder="Meet-up time, route, what to bring, who to call…"></textarea></label>
+            <div class="row">
+              <label class="l">Flyer image URL (optional)<input id="pf-flyer" type="url" placeholder="https://…/flyer.jpg"></label>
+              <label class="l">Link (optional)<input id="pf-link" type="url" placeholder="https://… tickets, Facebook event, etc."></label>
+            </div>
+            <div class="row">
+              <label class="l">Hosted by<input id="pf-host" placeholder="Uso MC Sacramento"></label>
+              <div class="btns" style="align-self:end"><label class="l chk"><input type="checkbox" id="pf-pub" checked> Published</label><label class="l chk"><input type="checkbox" id="pf-pin"> Pinned to top</label></div>
+            </div>
+            <div class="btns"><button class="btn sm" type="submit" id="pf-save">Post it</button><span class="msg" id="pf-msg"></span></div>
+            <p style="font-size:.76rem;color:var(--mute);margin:0">Times are entered in your own time zone (<b id="pf-tz"></b>) and shown to everyone in theirs.</p>
+          </form>
+        </div>
+        <div class="panel"><h3>All posts <button class="btn ghost sm" type="button" id="reload-posts">Refresh</button></h3><div class="alist" id="postlist"></div></div>
+      </div>
+
+      <div class="tabpane" id="tab-chapters">
+        <div class="panel">
+          <h3><span id="cf-title">New chapter</span><button class="btn ghost sm" type="button" id="cf-reset" hidden>Cancel edit</button></h3>
+          <form class="f" id="chapform">
+            <input type="hidden" id="cf-id">
+            <div class="row">
+              <label class="l">Chapter name<input id="cf-name" required maxlength="80" placeholder="Sacramento"></label>
+              <label class="l">City<input id="cf-city" placeholder="Sacramento"></label>
+            </div>
+            <div class="row">
+              <label class="l">State / region<input id="cf-region" placeholder="California"></label>
+              <label class="l">Country<input id="cf-country" placeholder="USA"></label>
+            </div>
+            <div class="row3">
+              <label class="l">Latitude<input id="cf-lat" type="number" step="any" min="-90" max="90" required placeholder="38.58"></label>
+              <label class="l">Longitude<input id="cf-lng" type="number" step="any" min="-180" max="180" required placeholder="-121.49"></label>
+              <label class="l">Sort order<input id="cf-sort" type="number" value="100"></label>
+            </div>
+            <label class="l">Note<input id="cf-note" placeholder="Founded 2010"></label>
+            <div class="btns"><label class="l chk"><input type="checkbox" id="cf-active" checked> Active</label><label class="l chk"><input type="checkbox" id="cf-founding"> Founding chapter</label></div>
+            <div class="btns"><button class="btn sm" type="submit">Save chapter</button><span class="msg" id="cf-msg"></span></div>
+            <p style="font-size:.76rem;color:var(--mute);margin:0">Need coordinates? Right-click the spot in Google Maps and the first line of the menu is the latitude, longitude.</p>
+          </form>
+        </div>
+        <div class="panel"><h3>All chapters</h3><div class="alist" id="chaplistadmin"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-label="Flyer"><img alt=""></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================================================================
+   SUPABASE (hand-rolled REST client — no CDN dependency)
+   Shared project with PoolTidy / Jazzie.Hair / GoreChess; tables are uso_*.
+   =================================================================== */
+const SB_URL = "https://oylpbdmrtskzrlchcvso.supabase.co";
+const SB_KEY = "sb_publishable_qJMFWpxtpEoj2lm-dM879w_ZTfLvqUN";
+const auth = {
+  get token(){ try{return localStorage.getItem("uso_tok")||null}catch(e){return null} },
+  get email(){ try{return localStorage.getItem("uso_email")||null}catch(e){return null} },
+  set(tok,email){ try{ if(tok){localStorage.setItem("uso_tok",tok);localStorage.setItem("uso_email",email||"")} else {localStorage.removeItem("uso_tok");localStorage.removeItem("uso_email")} }catch(e){} }
+};
+function hdrs(extra){ return Object.assign({apikey:SB_KEY,"Content-Type":"application/json",Authorization:"Bearer "+(auth.token||SB_KEY)},extra||{}); }
+async function sbFetch(path,init){
+  let r = await fetch(SB_URL+path,init());
+  if(r.status===401 && auth.token){ auth.set(null); if(!isAdminRoute()) r = await fetch(SB_URL+path,init()); }
+  return r;
+}
+async function sbGet(path){ const r=await sbFetch("/rest/v1/"+path,()=>({headers:hdrs()})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
+async function sbPost(table,rows){ const r=await sbFetch("/rest/v1/"+table,()=>({method:"POST",headers:hdrs({Prefer:"return=representation"}),body:JSON.stringify(rows)})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
+async function sbPatch(table,filter,patch){ const r=await sbFetch("/rest/v1/"+table+"?"+filter,()=>({method:"PATCH",headers:hdrs({Prefer:"return=representation"}),body:JSON.stringify(patch)})); if(!r.ok) throw new Error(await r.text()||r.status); return r.json(); }
+async function sbDelete(table,filter){ const r=await sbFetch("/rest/v1/"+table+"?"+filter,()=>({method:"DELETE",headers:hdrs({Prefer:"return=minimal"})})); if(!r.ok) throw new Error(await r.text()||r.status); return true; }
+async function signIn(email,password){
+  const r=await fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
+  const j=await r.json(); if(!r.ok) throw new Error(j.error_description||j.msg||j.message||"Could not sign in");
+  auth.set(j.access_token,email); return j;
+}
+async function signUp(email,password){
+  const r=await fetch(SB_URL+"/auth/v1/signup",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
+  const j=await r.json(); if(!r.ok) throw new Error(j.error_description||j.msg||j.message||"Could not create the account");
+  if(j.access_token){auth.set(j.access_token,email);return {signedIn:true}} return {signedIn:false};
+}
+
+/* ===================================================================
+   HELPERS
+   =================================================================== */
+const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const VIEW_TZ = (()=>{ try{return Intl.DateTimeFormat().resolvedOptions().timeZone}catch(e){return "UTC"} })();
+const TYPES={ride:"Rides",show:"Shows",cruise:"Cruises",meeting:"Meetings",gathering:"Gatherings",memorial:"Memorials",fundraiser:"Fundraisers",party:"Parties",other:"Other"};
+const TYPE1={ride:"Ride",show:"Car show",cruise:"Cruise",meeting:"Meeting",gathering:"Gathering",memorial:"Memorial",fundraiser:"Fundraiser",party:"Party",other:"Other"};
+function fmt(d,tz,opts){ try{ return new Intl.DateTimeFormat("en-US",Object.assign({timeZone:tz},opts)).format(d) }catch(e){ return new Intl.DateTimeFormat("en-US",opts).format(d) } }
+function tzAbbr(d,tz){ try{ const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,timeZoneName:"short"}).formatToParts(d); return (p.find(x=>x.type==="timeZoneName")||{}).value||tz }catch(e){ return tz } }
+function sameZone(a,b){ if(a===b) return true; const d=new Date(); return fmt(d,a,{hour:"2-digit",minute:"2-digit",hour12:false})===fmt(d,b,{hour:"2-digit",minute:"2-digit",hour12:false}) && tzAbbr(d,a)===tzAbbr(d,b); }
+function whenText(p){
+  if(!p.starts_at) return "";
+  const s=new Date(p.starts_at), e=p.ends_at?new Date(p.ends_at):null;
+  if(p.all_day){ let t=fmt(s,p.tz,{weekday:"long",month:"long",day:"numeric",year:"numeric"}); if(e && fmt(e,p.tz,{month:"long",day:"numeric"})!==fmt(s,p.tz,{month:"long",day:"numeric"})) t+=" – "+fmt(e,p.tz,{month:"long",day:"numeric"}); return {main:t+" · All day",alt:""}; }
+  const day=fmt(s,VIEW_TZ,{weekday:"long",month:"long",day:"numeric"});
+  let time=fmt(s,VIEW_TZ,{hour:"numeric",minute:"2-digit"});
+  if(e){ const sameDay=fmt(e,VIEW_TZ,{month:"short",day:"numeric"})===fmt(s,VIEW_TZ,{month:"short",day:"numeric"}); time+=" – "+(sameDay?"":fmt(e,VIEW_TZ,{weekday:"short",month:"short",day:"numeric"})+", ")+fmt(e,VIEW_TZ,{hour:"numeric",minute:"2-digit"}); }
+  const main=day+" · "+time+" "+tzAbbr(s,VIEW_TZ);
+  let alt="";
+  if(p.tz && !sameZone(p.tz,VIEW_TZ)){ alt="Event local time: "+fmt(s,p.tz,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" "+tzAbbr(s,p.tz); }
+  return {main,alt};
+}
+function mapsUrl(p){ const q=[p.location_name,p.address].filter(Boolean).join(", "); return q?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q):""; }
+function icsFor(p){
+  const z=d=>new Date(d).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const dOnly=(d,tz)=>fmt(new Date(d),tz,{year:"numeric",month:"2-digit",day:"2-digit"}).replace(/(\d+)\/(\d+)\/(\d+)/,"$3$1$2");
+  const clean=s=>String(s||"").replace(/\\/g,"\\\\").replace(/\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\\;");
+  let dt;
+  if(p.all_day){ const s=dOnly(p.starts_at,p.tz); const end=new Date(p.ends_at||p.starts_at); end.setDate(end.getDate()+1); dt="DTSTART;VALUE=DATE:"+s+"\r\nDTEND;VALUE=DATE:"+dOnly(end,p.tz); }
+  else { const e=p.ends_at?new Date(p.ends_at):new Date(new Date(p.starts_at).getTime()+2*3600e3); dt="DTSTART:"+z(p.starts_at)+"\r\nDTEND:"+z(e); }
+  const loc=[p.location_name,p.address].filter(Boolean).join(", ");
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Usos Family//usofamily.com//EN","BEGIN:VEVENT","UID:"+p.id+"@usofamily.com","DTSTAMP:"+z(new Date()),dt,"SUMMARY:"+clean(p.title),loc?"LOCATION:"+clean(loc):"","DESCRIPTION:"+clean((p.details||"")+(p.link_url?"\n"+p.link_url:"")+"\nhttps://usofamily.com/#board"),"END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
+}
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("on"),2200); }
+function isAdminRoute(){ return location.hash.indexOf("#/admin")===0; }
+const ICON={pin:'<svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',flag:'<svg viewBox="0 0 24 24"><path d="M5 21V4h11l-1.5 4L16 12H5"/></svg>',cal:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',map:'<svg viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>',share:'<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>',link:'<svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>'};
+
+/* ===================================================================
+   BOARD
+   =================================================================== */
+let POSTS=[], CHAPTERS=[], FILTER="all";
+async function loadPosts(){
+  try{
+    POSTS = await sbGet("uso_posts?select=*&order=is_pinned.desc,starts_at.asc.nullsfirst&limit=400");
+  }catch(e){ console.error(e); $("#upcoming").innerHTML='<div class="empty"><b>The board is offline</b>Could not reach the server. Refresh in a moment.</div>'; $("#upcoming").classList.remove("skeleton"); return; }
+  renderBoard(); renderNextUp(); renderTicker();
+  if(document.body.classList.contains("admin")) renderPostList();
+}
+function splitPosts(){
+  const now=Date.now(), pub=POSTS.filter(p=>p.is_published);
+  const isPast=p=>p.kind==="event" && new Date(p.ends_at||p.starts_at).getTime() < (p.all_day? now-36*3600e3 : now-3*3600e3);
+  const up=pub.filter(p=>!isPast(p)), past=pub.filter(isPast).sort((a,b)=>new Date(b.starts_at)-new Date(a.starts_at));
+  up.sort((a,b)=>{ if(a.is_pinned!==b.is_pinned) return a.is_pinned?-1:1; if(a.kind!==b.kind) return a.kind==="notice"?-1:1; return new Date(a.starts_at||0)-new Date(b.starts_at||0); });
+  return {up,past};
+}
+function renderBoard(){
+  const {up,past}=splitPosts();
+  // filters
+  const counts={}; up.forEach(p=>{ const k=p.kind==="notice"?"notice":p.event_type; counts[k]=(counts[k]||0)+1; });
+  const keys=["all"].concat(Object.keys(counts).sort((a,b)=>(a==="notice"?-1:b==="notice"?1:0)));
+  if(!keys.includes(FILTER)) FILTER="all";
+  $("#filters").innerHTML = keys.map(k=>`<button class="chip${FILTER===k?" on":""}" data-f="${k}">${k==="all"?"Everything":k==="notice"?"Notices":TYPES[k]||k}<span class="n">${k==="all"?up.length:counts[k]}</span></button>`).join("");
+  $$("#filters .chip").forEach(b=>b.onclick=()=>{FILTER=b.dataset.f;renderBoard();});
+  const vis = FILTER==="all"?up:up.filter(p=>(p.kind==="notice"?"notice":p.event_type)===FILTER);
+  const u=$("#upcoming"); u.classList.remove("skeleton");
+  u.innerHTML = vis.length? vis.map(card).join("") : `<div class="empty"><b>Nothing on the board yet</b>When an officer posts a ride, show or gathering it shows up here. Check back soon.</div>`;
+  bindCards(u);
+  const ph=$("#pasthead"); ph.hidden=!past.length; $("#pastn").textContent=past.length?"("+past.length+")":"";
+  $("#past").innerHTML=past.map(card).join(""); bindCards($("#past"));
+}
+function card(p){
+  const notice=p.kind==="notice", s=p.starts_at?new Date(p.starts_at):null, w=whenText(p);
+  const date = notice? `<div class="date notice"><div class="m">NOTICE</div><div class="d">!</div></div>`
+    : `<div class="date"><div class="m">${fmt(s,VIEW_TZ,{month:"short"}).toUpperCase()}</div><div class="d">${fmt(s,VIEW_TZ,{day:"numeric"})}</div><div class="w">${fmt(s,VIEW_TZ,{weekday:"short"})}</div></div>`;
+  const maps=mapsUrl(p);
+  const long=(p.details||"").length>260 || (p.details||"").split("\n").length>4;
+  return `<article class="card${p.is_pinned?" pinned":""}" data-id="${p.id}">
+    ${p.flyer_url?`<div class="flyer" data-lb="${esc(p.flyer_url)}"><img src="${esc(p.flyer_url)}" alt="Flyer for ${esc(p.title)}" loading="lazy"></div>`:""}
+    <div class="body">${date}<div class="info">
+      <div class="type ${notice?"notice":esc(p.event_type)}">${notice?"Notice":TYPE1[p.event_type]||p.event_type}${p.chapter?` · ${esc(p.chapter)}`:""}</div>
+      <h3>${esc(p.title)}</h3>
+      <div class="meta">
+        ${w.main?`<div>${ICON.clock}<span>${esc(w.main)}${w.alt?`<br><span class="alt">${esc(w.alt)}</span>`:""}</span></div>`:""}
+        ${(p.location_name||p.address)?`<div>${ICON.pin}<span>${esc(p.location_name)}${p.location_name&&p.address?"<br>":""}<span class="alt">${esc(p.address)}</span></span></div>`:""}
+        ${p.hosted_by?`<div>${ICON.user}<span>Hosted by ${esc(p.hosted_by)}</span></div>`:""}
+      </div>
+      ${p.details?`<p class="${long?"clamp":""}">${esc(p.details)}</p>${long?`<button class="more" data-more>Read more</button>`:""}`:""}
+    </div></div>
+    <div class="foot">
+      ${!notice?`<button class="ib" data-ics>${ICON.cal} Add to calendar</button>`:""}
+      ${maps?`<a class="ib" href="${maps}" target="_blank" rel="noopener">${ICON.map} Directions</a>`:""}
+      ${p.link_url?`<a class="ib" href="${esc(p.link_url)}" target="_blank" rel="noopener">${ICON.link} Link</a>`:""}
+      <button class="ib" data-share>${ICON.share} Share</button>
+    </div></article>`;
+}
+function bindCards(root){
+  $$("[data-lb]",root).forEach(el=>el.onclick=()=>{ $("#lb img").src=el.dataset.lb; $("#lb").classList.add("on"); });
+  $$("[data-more]",root).forEach(b=>b.onclick=()=>{ b.previousElementSibling.classList.remove("clamp"); b.remove(); });
+  $$("[data-ics]",root).forEach(b=>b.onclick=()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const blob=new Blob([icsFor(p)],{type:"text/calendar"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=(p.title||"event").replace(/[^\w]+/g,"-").toLowerCase()+".ics"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); });
+  $$("[data-share]",root).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".card").dataset.id); const w=whenText(p); const url="https://usofamily.com/#post-"+p.id; const text=p.title+(w.main?" — "+w.main:"")+((p.location_name||p.address)?" @ "+[p.location_name,p.address].filter(Boolean).join(", "):""); try{ if(navigator.share){ await navigator.share({title:p.title,text,url}); return; } await navigator.clipboard.writeText(text+"\n"+url); toast("Copied to clipboard"); }catch(e){} });
+}
+function renderNextUp(){
+  const {up}=splitPosts(); const now=Date.now();
+  const ev=up.filter(p=>p.kind==="event" && new Date(p.starts_at).getTime()>now).sort((a,b)=>new Date(a.starts_at)-new Date(b.starts_at))[0];
+  const box=$("#nextup"); if(!ev){ box.classList.remove("on"); return; }
+  box.classList.add("on"); $("#nu-t").textContent=ev.title; $("#nu-w").textContent=whenText(ev).main+(ev.location_name?" · "+ev.location_name:"");
+  box.onclick=()=>{ location.hash="#board"; const c=$(`.card[data-id="${ev.id}"]`); if(c){ c.scrollIntoView({behavior:"smooth",block:"center"}); } };
+  box.style.cursor="pointer";
+  const tick=()=>{ const ms=new Date(ev.starts_at)-Date.now(); if(ms<=0){ $("#nu-cd").textContent="NOW"; $("#nu-cdl").textContent="happening"; return; } const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4); if(d>0){ $("#nu-cd").textContent=d; $("#nu-cdl").textContent=d===1?"day":"days"; } else if(h>0){ $("#nu-cd").textContent=h+"h "+m+"m"; $("#nu-cdl").textContent="to go"; } else { $("#nu-cd").textContent=m+"m"; $("#nu-cdl").textContent="to go"; } };
+  tick(); clearInterval(box._t); box._t=setInterval(tick,30000);
+}
+function renderTicker(){
+  const {up}=splitPosts(); const items=up.filter(p=>p.kind==="event").slice(0,8).map(p=>`<span>${esc(p.title)} — ${esc(fmt(new Date(p.starts_at),VIEW_TZ,{month:"short",day:"numeric"}))}${p.chapter?" · "+esc(p.chapter):""}</span>`);
+  const base=items.length?items:["<span>Same Team · Same Scheme · Same Dream</span>","<span>Usos Family · Familia</span>","<span>Uso Motorcycle Club</span>","<span>Usos Car Club · Est. 1992 · Carson, CA</span>","<span>No Color Lines</span>","<span>Uso means brother</span>"];
+  $("#ticker").innerHTML=base.join("")+base.join("");
+}
+
+/* ===================================================================
+   WORLD MAP
+   =================================================================== */
+const DOTS="7c0l7l0l7q0l7u0l7z0l830l880l8c0l8g0l8l0l8p0l8u0l8y0l930la20lab0lag0lak0lao0lat0lax0lb20lb60lbb0lbf0lbk0lbo0lbs0lbx0lc10lc60l6o0q6s0q710q760q7a0q7f0q7j0q7o0q7w0q810q850q8a0q8e0q8j0q8w0q900q950q990q9e0q9i0q9n0q9r0q9w0qa00qa40qa90qad0qai0qam0qar0qav0qb00qb40qb80qbd0qbh0qbm0qbq0qbv0qbz0qc80qcc0qch0qcl0qcq0qhj0qhs0qi50qia0qie0qij0qin0qis0qiw0ql40ql80qld0q5v0u6v0u6z0u740u780u7h0u7l0u7q0u7u0u7z0u830u8u0u8y0u930u970u9c0u9g0u9k0u9p0u9t0u9y0ua20ua70uab0uag0uak0uao0uat0uax0ub20ub60ubb0ubf0ubk0ubo0ubs0ubx0uc10uc60uca0ucf0uer0uew0uf00uf90ufr0ulb0ulf0ulk0uls0u570y5b0y6k0y6o0y6x0y760y7f0y7j0y7o0y7s0y8j0y8n0y8s0y8w0y900y950y990y9e0y9i0y9n0y9r0y9w0ya00ya40ya90yad0yai0yam0yar0yav0yb00yb40yb80ybd0ybh0ybm0ybq0ybv0ybz0yc40yc80yf20yf70yfk0yfo0ylv0ylz0y4n13501354135i136013641368136v138p139c139g139k139p139t139y13a213a713ab13ag13ak13ao13at13ax13b213b613bb13bf13bk13bo13bs13bx13c113c613ca13il13ip13iu13iy13l613lf13lk13lo13ls13lx13m113m613ma13mf13mj13on134g174k179n179r179w17a017a417a917ad17ai17am17ar17av17b017b417b817bd17bh17bm17bq17bv17bz17c417c817cc17ia17ie17km17kr17kv17l017l417l817ld17lh17lm17lq17lv17lz17m417m817mc17ml17491c4e1c4i1c4n1c4w1c501c591c5m1c5r1c601c681c6d1c6m1c6q1c741c7c1c7h1c7l1c9p1c9t1c9y1ca21ca71cab1cag1cak1cao1cat1cax1cb21cb61cbb1cbf1cbk1cbo1cbs1cbx1cc11cc61chz1ci31ci81cjc1cjg1cjp1ck71ckb1ckg1ckk1cko1ckt1ckx1cl21cl61clb1clf1clk1clo1cls1clx1cm11cm61cma1cmf1cmj1cmo1cms1cmw1cn11cn51cna1cne1cnj1cnn1cns1cor1c091g0d1g0i1g0m1g0r1g0v1g101g141g181g1d1g1h1g1m1g1q1g1v1g1z1g241g281g2c1g2h1g2l1g2q1g2u1g2z1g331g381g3c1g3g1g3l1g3p1g3u1g3y1g431g471g4c1g4g1g4k1g4p1g4t1g4y1g521g571g5b1g5g1g5k1g5o1g5t1g5x1g621g661g6b1g6f1g6k1g6o1g6s1g6x1g711g761g7a1g7f1g7j1g7o1g7s1g7w1g811g851g8a1g8e1g8j1g8n1g8s1g8w1g901g951g991g9e1g9i1g9n1g9r1g9w1ga01ga41ga91gad1gai1gam1gar1gav1gb01gb41gb81gbd1gbh1gbm1gbq1gbv1gbz1gc41gc81gcc1gch1gcl1gcq1gcu1gcz1gd31gd81gdc1gdg1gdl1gdp1gdu1gdy1ge31ge71gec1geg1gek1gep1get1gey1gf21gf71gfb1gfg1gfk1gfo1gft1gfx1gg21gg61ggb1ggf1ggk1ggo1ggs1ggx1gh11gh61gha1ghf1ghj1gho1ghs1ghw1gi11gi51gia1gie1gij1gin1gis1giw1gj01gj51gj91gje1gji1gjn1gjr1gjw1gk01gk41gk91gkd1gki1gkm1gkr1gkv1gl01gl41gl81gld1glh1glm1glq1glv1glz1gm41gm81gmc1gmh1gml1gmq1gmu1gmz1gn31gn81gnc1gng1gnl1gnp1gnu1gny1go31go71goc1gog1gok1gop1got1goy1gp21gp71gpb1gpg1gpk1gpo1gpt1gpx1gq21gq61gqb1gqf1gqk1gqo1gqs1gqx1gr11gr61gra1grf1grj1gro1g1f1l1k1l1o1l1s1l1x1l211l261l2a1l2f1l2j1l2o1l2s1l2w1l311l351l3j1l3n1l3w1l401l451l491l4i1l501l541l591l5d1l5i1l5m1l5r1l5v1l6d1l6m1l6q1l7c1l7h1l7u1l7z1l831l881l8c1l8g1l9p1l9t1l9y1la21la71lab1lag1lak1lao1lat1lax1lb21lb61lbb1lbf1lbk1lbo1lbs1lbx1lc11lfd1lfi1lfm1lfr1lfv1lg01lg41lg81lgd1lil1lip1lj71ljc1ljg1ljp1ljt1ljy1lk21lk71lkb1lkg1lkk1lko1lkt1lkx1ll21ll61llb1llf1llk1llo1lls1llx1lm11lm61lma1lmf1lmj1lmo1lms1lmw1ln11ln51lna1lne1lnj1lnn1lns1lnw1lo01lo51lo91loe1loi1lon1lor1low1lp01lp41lp91lpd1lpi1lpm1lpr1lpv1lq01lq41lq81lqh1lqm1lqv1lr41lr81lrc1lrh1l0d1p0i1p0m1p0r1p0v1p101p141p181p1d1p1h1p1m1p1q1p1v1p1z1p241p281p2c1p2h1p2l1p2q1p2u1p2z1p331p381p3c1p3g1p3l1p3p1p3u1p3y1p431p471p4c1p4g1p4k1p4p1p4t1p4y1p521p571p5b1p5g1p5k1p5o1p5t1p5x1p621p661p6b1p6f1p6k1p6o1p6s1p6x1p711p761p7a1p7f1p7j1p7o1p7s1p7w1p811p851p8a1p8e1p8j1p8n1p8s1p8w1p901p951p991p9e1p9i1p9n1p9r1p9w1pa01pa41pa91pad1pai1pam1par1pav1pb01pb41pb81pbd1pbh1pbm1pbq1pbv1pbz1pc41pc81pcc1pch1pcl1pcq1pcu1pcz1pd31pd81pdc1pdg1pdl1pdp1pdu1pdy1pe31pe71pec1peg1pek1pep1pet1pey1pf21ph11ph61pha1phj1pho1pjn1p0g1u0t1u0x1u121u161u1b1u1f1u1k1u1o1u1s1u1x1u211u261u2a1u2f1u2j1u2o1u2s1u2w1u311u351u3a1u3e1u3j1u3n1u3s1u3w1u401u451u491u4e1u4i1u4n1u4r1u4w1u501u541u591u5d1u5i1u5m1u5r1u5v1u601u641u681u6d1u6h1u6m1u6q1u6v1u6z1u741u781u7c1u7h1u7l1u7q1u7u1u7z1u831u881u8c1u8g1u8l1u8p1u8u1u8y1u931u971u9c1u9g1u9k1u9p1u9t1u9y1ua21ua71uab1uag1uak1uao1uat1uax1ub21ub61ubb1ubf1ubk1ubo1ubs1ubx1uc11uc61uca1ucf1ucj1uco1ucs1ucw1ud11ud51uda1ude1udj1udn1uds1udw1ue01ue51ue91uee1uei1uen1uer1uew1ugm1uh41ujc1ujg1u0i1y141y181y1d1y1h1y1m1y1q1y1v1y1z1y241y281y2c1y2h1y2l1y2q1y2u1y2z1y331y381y3c1y3g1y3l1y3p1y3u1y3y1y431y471y4c1y4g1y4k1y4p1y4t1y4y1y521y571y5b1y5g1y5k1y5o1y5t1y5x1y621y661y6b1y6f1y6k1y6o1y6s1y6x1y711y7a1y7f1y7w1y811y851y8a1y8e1y8j1y8n1y8s1y9w1ya01ya41ya91yad1yai1yam1yar1yc81ycc1ych1ycl1ycq1yet1yey1yf21yf71yfb1yfg1yft1yfx1yg21yg61ygb1ygf1ygk1ygs1yh11yh61yha1yhf1yhj1yho1yhs1yhw1yi11yi51yia1yie1yij1yin1yis1yiw1yj01yj51yj91yje1yji1yjn1yjr1yjw1yk01yk41yk91ykd1yki1ykm1ykr1ykv1yl01yl41yl81yld1ylh1ylm1ylq1ylv1ylz1ym41ym81ymc1ymh1yml1ymq1ymu1ymz1yn31yn81ync1yng1ynl1ynp1ynu1yny1yo31yo71yoc1yog1yok1yop1yot1yoy1yp21yp71ypb1ypg1ypk1ypo1ypt1ypx1yq21yq61yqb1yqf1yqk1yqo1yqs1yqx1yr11yr61yra1yrf1yro1y0t221f221k221o221s221x22212226222a222f222j222o222s222w22312235223a223e223j223n223s223w224022452249224e224i224n224r224w225022542259225d225i225m225r225v226022642268226d226h226m226q226v228g228l228u22a222a722ab22ag22ak22ao22en22er22ew22f022f422f922fm22fr22fv22g022g422g822gd22gh22gm22gq22gv22gz22h422h822hc22hh22hl22hq22hu22hz22i322i822ic22ig22il22ip22iu22iy22j322j722jc22jg22jk22jp22jt22jy22k222k722kb22kg22kk22ko22kt22kx22l222l622lb22lf22lk22lo22ls22lx22m122m622ma22mf22mj22mo22ms22mw22n122n522na22ne22nj22nn22ns22nw22o022o522o922oe22oi22on22or22ow22p022p422p922pd22pi22pm22pr22pv22q022q422q822qd22qh22qm22qq22qv22qz22r422r822rc22rh22rl22rq22142718271d271h271m271q271v271z27242728272c272h272l272q272u272z27332738273c273g273l273p273u273y27432747274c274g274k274p274t274y27522757275b275g275k275o275t275x27622766276b276f276k277w27812785278a278w27a427a927ad27ai27am27ec27eg27ek27ep27et27ey27f227f727fo27ft27fx27g227g627gb27gf27gk27go27gs27gx27h127h627ha27hf27hj27ho27hs27hw27i127i527ia27ie27ij27in27is27iw27j027j527j927je27ji27jn27jr27jw27k027k427k927kd27ki27km27kr27kv27l027l427l827ld27lh27lm27lq27lv27lz27m427m827mc27mh27ml27mq27mu27mz27n327n827nc27ng27nl27np27nu27ny27o327o727oc27og27ok27op27ot27oy27p227p727pb27pg27pk27po27pt27px27qb27qk27qo27qs27qx27r127r627122b1b2b1f2b1k2b1o2b1s2b1x2b212b2a2b2f2b312b352b3a2b3e2b3j2b3n2b3s2b3w2b402b452b492b4e2b4i2b4n2b4r2b4w2b502b542b592b5d2b5i2b5m2b5r2b5v2b602b642b682b6d2b6h2b7z2b832b882b8c2bee2bei2ben2ber2bew2bf02bf42bf92bg82bgd2bgh2bgm2bgq2bgv2bgz2bh42bh82bhc2bhh2bhl2bhq2bhu2bhz2bi32bi82bic2big2bil2bip2biu2biy2bj32bj72bjc2bjg2bjk2bjp2bjt2bjy2bk22bk72bkb2bkg2bkk2bko2bkt2bkx2bl22bl62blb2blf2blk2blo2bls2blx2bm12bm62bma2bmf2bmj2bmo2bms2bmw2bn12bn52bna2bne2bnj2bnn2bns2bnw2bo02bo52bo92boe2boi2bon2bor2bow2bp02bp42bp92bpd2bpi2bpm2bpr2bqd2bqh2bqm2bqq2b1v2g1z2g242g3c2g3g2g3l2g3p2g3u2g3y2g432g472g4c2g4g2g4k2g4p2g4t2g4y2g522g572g5b2g5g2g5k2g5o2g5t2g5x2g622g662g6b2g6f2g6k2g6o2g7w2g812g852g8a2g8e2g8j2g8n2g8s2g8w2g902gdl2geg2get2gey2gf22gft2gfx2gg22gg62ggb2ggf2ggk2ggo2ggs2ggx2gh12gh62gha2ghf2ghj2gho2ghs2ghw2gi12gi52gia2gie2gij2gin2gis2giw2gj02gj52gj92gje2gji2gjn2gjr2gjw2gk02gk42gk92gkd2gki2gkm2gkr2gkv2gl02gl42gl82gld2glh2glm2glq2glv2glz2gm42gm82gmc2gmh2gml2gmq2gmu2gmz2gn32gn82gnc2gng2gnl2gnp2gnu2gny2go32go72goc2gog2gok2gop2gq62gqb2g1o2k3s2k3w2k402k452k492k4e2k4i2k4n2k4r2k4w2k502k542k592k5d2k5i2k5m2k5r2k5v2k602k642k682k6d2k6h2k6m2k6q2k6v2k6z2k832k882k8c2k8g2k8l2k8p2k8u2k8y2kdj2kdn2ken2kew2kf02kf42kfm2kfr2kfv2kg02kg42kg82kgd2kgh2kgm2kgq2kgv2kgz2kh42kh82khc2khh2khl2khq2khu2khz2ki32ki82kic2kig2kil2kip2kiu2kiy2kj32kj72kjc2kjg2kjk2kjp2kjt2kjy2kk22kk72kkb2kkg2kkk2kko2kkt2kkx2kl22kl62klb2klf2klk2klo2kls2klx2km12km62kma2kmf2kmj2kmo2kms2kmw2kn12kn52kna2kne2knj2knn2kns2knw2ko02ko52ko92koe2koi2kq02kq42kq82kqd2k1d2p1h2p3p2p3u2p3y2p432p472p4c2p4g2p4k2p4p2p4t2p4y2p522p572p5b2p5g2p5k2p5o2p5t2p5x2p622p662p6b2p6f2p6k2p6o2p6s2p6x2p712p762p7a2p7f2p7w2p812p852p8a2p8e2p8j2p8n2p8s2p8w2p902p952p992pdc2pdl2pdp2pek2pep2pet2pfk2pfo2pft2pfx2pg22pg62pgb2pgf2pgk2pgo2pgs2pgx2ph12ph62pha2phf2phj2pho2phs2phw2pi12pi52pia2pie2pij2pin2pis2piw2pj02pj52pj92pje2pji2pjn2pjr2pjw2pk02pk42pk92pkd2pki2pkm2pkr2pkv2pl02pl42pl82pld2plh2plm2plq2plv2plz2pm42pm82pmc2pmh2pml2pmq2pmu2pmz2pn32pn82pnc2png2pnl2pnp2pnu2pny2po32po72poc2ppx2pq22pq62pqb2p3n2t3w2t402t452t492t4e2t4i2t4n2t4r2t4w2t502t542t592t5d2t5i2t5m2t5r2t5v2t602t642t682t6d2t6h2t6m2t6q2t6v2t6z2t742t782t7c2t7h2t7u2t7z2t832t882t8c2t8g2t8l2t8p2t8u2t8y2t932t972t9c2t9g2td52tda2tde2tds2tei2ter2tew2tf02tf42tf92tfd2tfi2tfm2tfr2tfv2tg02tg42tg82tgd2tgh2tgm2tgq2tgv2tgz2th42th82thc2thh2thl2thq2thu2thz2ti32ti82tic2tig2til2tip2tiu2tiy2tj32tj72tjc2tjg2tjk2tjp2tjt2tjy2tk22tk72tkb2tkg2tkk2tko2tkt2tkx2tl22tl62tlb2tlf2tlk2tlo2tls2tlx2tm12tm62tma2tmf2tmj2tmo2tms2tmw2tn12tn52tna2tne2tnj2tnn2tns2tnw2to02to52to92toe2ton2tq02tq42t0d2y432y472y4c2y4g2y4k2y4p2y4t2y4y2y522y572y5b2y5g2y5k2y5o2y5t2y5x2y622y662y6b2y6f2y6k2y6o2y6s2y6x2y712y762y7a2y7f2y7j2y7w2y812y852y8a2y8e2y8j2y8n2y8s2y8w2y902y952y992y9e2y9i2yd82ydl2ydp2ydu2ydy2yec2yeg2yek2yep2yet2yey2yf22yf72yfb2yfg2yfk2yfo2yft2yfx2yg22yg62ygb2ygf2ygk2ygo2ygs2ygx2yh12yh62yha2yhf2yhj2yho2yhs2yhw2yi12yi52yia2yie2yij2yin2yis2yiw2yj02yj52yj92yje2yji2yjn2yjr2yjw2yk02yk42yk92ykd2yki2ykm2ykr2ykv2yl02yl42yl82yld2ylh2ylm2ylq2ylv2ylz2ym42ym82ymc2ymh2yml2ymq2ymu2ymz2yn32yn82ync2yng2ynl2ynp2ynu2yny2yo32yo72yoc2yog2yok2yop2yq22y453249324e324i324n324r324w325032543259325d325i325m325r325v326032643268326d326h326m326q326v326z32743278327c327h327l327q327u327z32833288328c328g328l328p328u328y3293329732dj32e032e532e932ee32ei32en32er32ew32f032f432f932fd32fi32fm32fr32fv32g032g432g832gd32gh32gm32gq32gv32gz32h432h832hc32hh32hl32hq32hu32hz32i332i832ic32ig32il32ip32iu32iy32j332j732jc32jg32jk32jp32jt32jy32k232k732kb32kg32kk32ko32kt32kx32l232l632lb32lf32lk32lo32ls32lx32m132m632ma32mf32mj32mo32ms32mw32n132n532na32ne32nj32nn32ns32nw32o032o532o932oe32oi32on32ow324c364g364k364p364t364y36523657365b365g365k365o365t365x36623666366b366f366k366o366s366x36713676367a367f367j367o367s367w36813685368a368e368j368s368w369e369i369n36du36dy36e336e736ec36eg36ek36ep36et36ey36f236f736fb36fg36fk36fo36ft36fx36g236g636gb36gf36gk36go36gs36gx36h136h636ha36hf36hj36ho36hs36hw36i136i536ia36ie36ij36in36is36iw36j036j536j936je36ji36jn36jr36jw36k036k436k936kd36ki36km36kr36kv36l036l436l836ld36lh36lm36lq36lv36lz36m436m836mc36mh36ml36mq36mu36mz36n336n836nc36ng36nl36np36nu36ny36o336o736oc36og36ok36op364e3b4i3b4n3b4r3b4w3b503b543b593b5d3b5i3b5m3b5r3b5v3b603b643b683b6d3b6h3b6m3b6q3b6v3b6z3b743b783b7c3b7h3b7l3b7q3b7u3b7z3b833b883b8c3b8l3b8p3b8u3bds3bdw3be03be53be93bee3bei3ben3ber3bew3bf03bf43bf93bfd3bfi3bfm3bfr3bfv3bg03bg43bg83bgd3bgh3bgm3bgq3bgv3bgz3bh43bh83bhc3bhh3bhl3bhq3bhu3bhz3bi33bi83bic3big3bil3bip3biu3biy3bj33bj73bjc3bjg3bjk3bjp3bjt3bjy3bk23bk73bkb3bkg3bkk3bko3bkt3bkx3bl23bl63blb3blf3blk3blo3bls3blx3bm13bm63bma3bmf3bmj3bmo3bms3bmw3bn13bn53bna3bne3bnj3bnn3bns3bnw3bo03bo53bo93boe3boi3bow3b4g3f4k3f4p3f4t3f4y3f523f573f5b3f5g3f5k3f5o3f5t3f5x3f623f663f6b3f6f3f6k3f6o3f6s3f6x3f713f763f7a3f7f3f7j3f7o3f7s3f7w3f813f853f8a3f8e3f8j3f8n3f8s3f903f953fdu3fdy3fe33fe73fec3feg3fek3fep3fet3ff23ff73ffb3ffg3ffk3ffo3fft3ffx3fg23fg63fgk3fgx3fh13fh63fha3fhf3fhj3fi13fi53fia3fie3fij3fin3fis3fiw3fj03fj53fj93fje3fji3fjn3fjr3fjw3fk03fk43fk93fkd3fki3fkm3fkr3fkv3fl03fl43fl83fld3flh3flm3flq3flv3flz3fm43fm83fmc3fmh3fml3fmq3fmu3fmz3fn33fn83fnc3fng3fnl3fnp3fnu3fny3fo33fo73foc3fog3f4e3k4i3k4n3k4r3k4w3k503k543k593k5d3k5i3k5m3k5r3k5v3k603k643k683k6d3k6h3k6m3k6q3k6v3k6z3k743k783k7c3k7h3k7l3k7q3k7u3k7z3k833k883k8c3k8g3k8u3kdw3ke03ke53ke93kee3kei3ker3kf43kf93kfd3kfi3kfm3kfr3kfv3kg03kgz3kh43kh83khc3khh3khu3khz3ki33ki83kic3kig3kil3kip3kiu3kiy3kj33kj73kjc3kjg3kjk3kjp3kjt3kjy3kk23kk73kkb3kkg3kkk3kko3kkt3kkx3kl23kl63klb3klf3klk3klo3kls3klx3km13km63kma3kmf3kmj3kmo3kms3kmw3kn13kn53kna3kne3knj3knn3kns3knw3ko03ko53ko93kow3kp03k4c3o4g3o4k3o4p3o4t3o4y3o523o573o5b3o5g3o5k3o5o3o5t3o5x3o623o663o6b3o6f3o6k3o6o3o6s3o6x3o713o763o7a3o7f3o7j3o7o3o7s3o7w3o813o853o8a3o8e3odc3odg3odl3odp3odu3ody3oe33oek3oet3oey3ofg3ofk3ofo3oft3ofx3oh63oha3ohf3ohj3oi13oi53oia3oie3oij3oin3ois3oiw3oj03oj53oj93oje3oji3ojn3ojr3ojw3ok03ok43ok93okd3oki3okm3okr3okv3ol03ol43ol83old3olh3olm3olq3olv3olz3om43om83omc3omh3oml3omq3omu3omz3on33on83onc3ong3onl3onp3onu3ony3oop3ooy3o4e3t4i3t4n3t4r3t4w3t503t543t593t5d3t5i3t5m3t5r3t5v3t603t643t683t6d3t6h3t6m3t6q3t6v3t6z3t743t783t7c3t7h3t7l3t7q3t7u3t7z3t833t883tda3tde3tdj3tdn3tds3tdw3ten3tf03tf43tfi3tfm3tfr3tg03tg83tgd3tgh3tgm3tgq3tgv3tgz3th43th83thc3thh3thl3ti33ti83tic3tig3til3tip3tiu3tiy3tj33tj73tjc3tjg3tjk3tjp3tjt3tjy3tk23tk73tkb3tkg3tkk3tko3tkt3tkx3tl23tl63tlb3tlf3tlk3tlo3tls3tlx3tm13tm63tma3tmf3tmj3tmo3tms3tmw3tn13tn53tne3tnj3tnn3tns3tor3t4g3x4k3x4p3x4t3x4y3x523x573x5b3x5g3x5k3x5o3x5t3x5x3x623x663x6b3x6f3x6k3x6o3x6s3x6x3x713x763x7a3x7f3x7j3x7o3x7s3x7w3x813xd83xdc3xdg3xdl3xdp3xdu3xek3xf73xfk3xfo3xfx3xg23xg63xgb3xgf3xgk3xgo3xgs3xgx3xh13xh63xha3xhf3xhj3xho3xi53xia3xie3xij3xin3xis3xiw3xj03xj53xj93xje3xji3xjn3xjr3xjw3xk03xk43xk93xkd3xki3xkm3xkr3xkv3xl03xl43xl83xld3xlh3xlm3xlq3xlv3xlz3xm43xm83xmc3xmh3xml3xmq3xmu3xmz3xnl3xnp3xop3xot3x4i424n424r424w425042544259425d425i425m425r425v426042644268426d426h426m426q426v426z42744278427c427h427l427q427u427z42da42de42dj42dn42ds42ew42f042fm42g042g442g842gd42gh42gm42gq42gv42gz42h442h842hc42hh42hl42i342i842ic42ig42il42ip42iu42iy42j342j742jc42jg42jk42jp42jt42jy42k242k742kb42kg42kk42ko42kt42kx42l242l642lb42lf42lk42lo42ls42lx42m142m642ma42mf42mj42mo42ms42mw42n142ns42on42or424k464p464t464y46524657465b465g465k465o465t465x46624666466b466f466k466o466s466x46714676467a467f467j467o467s467w46dy46e346e746ec46eg46ek46ep46go46gs46gx46h146h646ha46hf46hj46ho46hs46hw46i146i546ia46ie46ij46in46is46iw46j046j546j946je46ji46jn46jr46jw46k046k446k946kd46ki46km46kr46kv46l046l446l846ld46lh46lm46lq46lv46lz46m446m846mc46mh46ml46mq46mu46mz46n346np46nu46og46ok46op464r4a4w4a504a544a594a5d4a5i4a5m4a5r4a5v4a604a644a684a6d4a6h4a6m4a6q4a6v4a6z4a744a784a7c4a7h4a7l4a7q4a7u4ade4adj4adn4ads4adw4ae04ae54ae94aee4aei4aen4agq4agv4agz4ah44ah84ahc4ahh4ahl4ahq4ahu4ahz4ai34ai84aic4aig4ail4aip4aiu4aiy4aj34aj74ajc4ajg4ajk4ajp4ajt4ajy4ak24ak74akb4akg4akk4ako4akt4akx4al24al64alb4alf4alk4alo4als4alx4am14am64ama4amf4amj4amo4ams4amw4an14an54ao04ao54aoe4a4y4f524f574f5b4f5g4f5k4f5o4f5t4f5x4f624f664f6b4f6f4f6k4f6o4f6s4f6x4f714f764f7a4f7f4f7j4f7o4fd84fdc4fdg4fdl4fdp4fdu4fdy4fe34fe74fec4feg4fek4fep4fet4fey4ffk4fgo4fgs4fgx4fh14fh64fha4fhf4fhj4fho4fhs4fhw4fi14fi54fia4fie4fij4fin4fis4fiw4fj04fj54fj94fje4fji4fjn4fjr4fjw4fk04fk44fk94fkd4fki4fkm4fkr4fkv4fl04fl44fl84fld4flh4flm4flq4flv4flz4fm44fm84fmc4fmh4fml4fmq4fmu4fmz4fn34fn84f504j594j5d4j5i4j5m4j5r4j5v4j604j644j684j6d4j6h4j6m4j6q4j6v4j6z4j744j784j7c4j7h4j7l4jd54jda4jde4jdj4jdn4jds4jdw4je04je54je94jee4jei4jen4jer4jew4jf04jf44jfi4jfm4jfr4jfv4jg04jg84jgd4jgm4jgq4jgv4jgz4jh44jh84jhc4jhh4jhl4jhq4jhu4jhz4ji34ji84jic4jig4jil4jip4jiu4jiy4jj34jj74jjc4jjg4jjk4jjp4jjt4jjy4jk24jk74jkb4jkg4jkk4jko4jkt4jkx4jl24jl64jlb4jlf4jlk4jlo4jls4jlx4jm14jm64jma4jmf4jmj4jmo4jms4jmw4jn14jn54jna4j524o5b4o5g4o5k4o5o4o5t4o5x4o624o664o6b4o6f4o6k4o6s4o6x4o7j4od84odc4odg4odl4odp4odu4ody4oe34oe74oec4oeg4oek4oep4oet4oey4of24of74ofb4ofg4ofk4ofo4oft4ofx4og24og64ogb4ogf4ogk4ogo4ogs4ogx4oh14oh64oha4ohf4ohj4ohw4oi14oi54oia4oie4oij4oin4ois4oiw4oj04oj54oj94oje4oji4ojn4ojr4ojw4ok04ok44ok94okd4oki4okm4okr4okv4ol04ol44ol84old4olh4olm4olq4olv4olz4om44om84omc4omh4oml4omq4omu4omz4on34on84o544s5d4s5i4s5m4s5r4s5v4s604s644s684s6d4s7l4sd14sd54sda4sde4sdj4sdn4sds4sdw4se04se54se94see4sei4sen4ser4sew4sf04sf44sf94sfd4sfi4sfm4sfr4sfv4sg04sg44sg84sgd4sgq4sgv4sgz4sh44sh84shc4shh4shl4shz4si34si84sic4sig4sil4sip4siu4siy4sj34sj74sjc4sjg4sjk4sjp4sjt4sjy4sk24sk74skb4skg4skk4sko4skt4skx4sl24sl64slb4slf4slk4slo4sls4slx4sm14sm64sma4smf4smj4smo4sms4smw4sn14sn54s5k4x5o4x5t4x5x4x624x664x6b4x7o4xcu4xcz4xd34xd84xdc4xdg4xdl4xdp4xdu4xdy4xe34xe74xec4xeg4xek4xep4xet4xey4xf24xf74xfb4xfg4xfk4xfo4xft4xfx4xg24xg64xgb4xgf4xgs4xgx4xh14xh64xha4xhf4xhj4xho4xie4xij4xin4xis4xiw4xj04xj54xj94xje4xji4xjn4xjr4xjw4xk04xk44xk94xkd4xki4xkm4xkr4xkv4xl04xl44xl84xld4xlh4xlm4xlq4xlv4xlz4xm44xm84xmc4xmh4xml4xmq4xmu4xmz4xn34x59515m515r515v516051645168516d51cs51cw51d151d551da51de51dj51dn51ds51dw51e051e551e951ee51ei51en51er51ew51f051f451f951fd51fi51fm51fr51fv51g051g451g851gd51gh51gv51gz51h451h851hc51hh51hl51hq51hu51i851j351j751jc51jg51jk51jp51jt51jy51k251k751kb51kg51kk51ko51kt51kx51l251l651lb51lf51lk51lo51ls51lx51m151m651ma51mf51mj51mo51ms51mw51n151na515g565o565t565x56625666566b56cq56cu56cz56d356d856dc56dg56dl56dp56du56dy56e356e756ec56eg56ek56ep56et56ey56f256f756fb56fg56fk56fo56ft56fx56g256g656gb56gf56gk56gx56h156h656ha56hf56hj56ho56hs56hw56i156i556ia56ie56j956je56ji56jn56jr56jw56k056k456k956kd56ki56km56kr56kv56l056l456l856ld56lh56lm56lq56lv56lz56m456m856mc56mh56ml56mq56mu56n8565v5a605a645a685a745a7u5aco5acs5acw5ad15ad55ada5ade5adj5adn5ads5adw5ae05ae55ae95aee5aei5aen5aer5aew5af05af45af95afd5afi5afm5afr5afv5ag05ag45ag85agd5agh5agm5agq5agz5ah45ah85ahc5ahh5ahl5ahq5ahu5ahz5ai35ai85aic5aig5ajc5ajg5ajk5ajp5ajt5ajy5ak25ak75akb5akg5akk5al25al65alb5alf5alk5alo5als5alx5am15am65amf5a5t5e5x5e625e665e6b5e6f5e6x5e715e7w5e815ecq5ecu5ecz5ed35ed85edc5edg5edl5edp5edu5edy5ee35ee75eec5eeg5eek5eep5eet5eey5ef25ef75efb5efg5efk5efo5eft5efx5eg25eg65egb5egf5egk5ego5eh15eh65eha5ehf5ehj5eho5ehs5ehw5ei15ei55eia5eji5ejn5ejr5ejw5ek05ek45ek95ekd5eki5el45el85eld5elh5elm5elq5elv5elz5e605j645j685j6d5j6h5j6q5j6v5j6z5j885j8c5j8g5j8l5j8p5jco5jcs5jcw5jd15jd55jda5jde5jdj5jdn5jds5jdw5je05je55je95jee5jei5jen5jer5jew5jf05jf45jf95jfd5jfi5jfm5jfr5jfv5jg05jg45jg85jgd5jgh5jgm5jgq5jh45jh85jhc5jhh5jhl5jhq5jhu5jhz5ji35ji85jjk5jjp5jjt5jjy5jk25jk75jkb5jl65jlb5jlf5jlk5jlo5jls5jlx5jm15j6b5n6f5n6k5n6o5n6s5n6x5n715ncq5ncu5ncz5nd35nd85ndc5ndg5ndl5ndp5ndu5ndy5ne35ne75nec5neg5nek5nep5net5ney5nf25nf75nfb5nfg5nfk5nfo5nft5nfx5ng25ng65ngb5ngf5ngk5ngo5ngs5nha5nhf5nhj5nho5nhs5nhw5ni15njn5njr5njw5nk05nk45nl85nld5nlh5nlm5nlq5nlv5nlz5nm45nn85nnc5n6q5s6v5s6z5s745s785s7c5sco5scs5scw5sd15sd55sda5sde5sdj5sdn5sds5sdw5se05se55se95see5sei5sen5ser5sew5sf05sf45sf95sfd5sfi5sfm5sfr5sfv5sg05sg45sg85sgd5sgh5sgm5sgq5sgv5sgz5sh85shc5shh5shl5shq5shu5sjp5sjt5sjy5sk25slk5slo5sls5slx5sm15sm65sma5s715w765w7a5w7f5wcq5wcu5wcz5wd35wd85wdc5wdg5wdl5wdp5wdu5wdy5we35we75wec5weg5wek5wep5wet5wey5wf25wf75wfb5wfg5wfk5wfo5wft5wfx5wg25wg65wgb5wgf5wgk5wgo5wgs5wgx5wh15wha5whf5whj5wjr5wjw5wk05wlh5wlm5wlq5wlv5wlz5wm45wm85wnc5w78617c618c61co61cs61cw61d161d561da61de61dj61dn61ds61dw61e061e561e961ee61ei61en61er61ew61f061f461f961fd61fi61fm61fr61fv61g061g461g861gd61gh61gm61gq61gv61gz61h461h861jt61jy61lk61ls61lx61m161m661ma61ne61nj617a657f6585658a658e658j658n658s659065cu65cz65d365d865dc65dg65dl65dp65du65dy65e365e765ec65eg65ek65ep65et65ey65f265f765fb65fg65fk65fo65ft65fx65g265g665gb65gf65gk65go65gs65gx65h165h665ha65hf65hj65ho65hs65jw65k065lz65m465n365ng657h6a7l6a7q6a7u6a836a886a8c6a8g6a8l6a8p6a8u6a8y6a936acw6ad16ad56ada6ade6adj6adn6ads6adw6ae06ae56ae96aee6aei6aen6aer6aew6af06af46af96afd6afi6afm6afr6afv6ag06ag46ag86agd6agh6agm6agq6agv6agz6ah46ah86ahc6ahh6ahl6ahq6ajt6ak26alk6anj6a7w6e816e856e8a6e8e6e8j6e8n6e8s6e8w6e906e956e996ed36ed86edc6edg6edl6edp6edu6edy6ee36ee76eec6eeg6eek6eep6eet6eey6ef26ef76efb6efg6efk6efo6eft6efx6eg26eg66egb6egf6egk6ego6egs6egx6eh16eh66eha6ehf6ehj6eho6ek46elm6enl6e7z6i836i886i8c6i8g6i8l6i8p6i8u6i8y6i936i976i9c6i9g6i9k6i9p6id56ida6ide6idj6idn6ids6iee6iei6ien6ier6iew6if06if46if96ifd6ifi6ifm6ifr6ifv6ig06ig46ig86igd6igh6igm6igq6igv6igz6ih46ih86ihc6ihh6ihl6ilo6ils6imw6in16i816n856n8a6n8e6n8j6n8n6n8s6n8w6n906n956n996n9e6n9i6n9n6n9r6n9w6nep6net6ney6nf26nf76nfb6nfg6nfk6nfo6nft6nfx6ng26ng66ngb6ngf6ngk6ngo6ngs6ngx6nh16nh66nha6nhf6nhj6nld6nlh6nlq6nlv6nmq6nmu6n7u6r7z6r836r886r8c6r8g6r8l6r8p6r8u6r8y6r936r976r9c6r9g6r9k6r9p6r9t6r9y6rer6rew6rf06rf46rf96rfd6rfi6rfm6rfr6rfv6rg06rg46rg86rgd6rgh6rgm6rgq6rgv6rgz6rh46rh86rhc6rlk6rls6rmj6rmo6rms6rmw6r7s6w7w6w816w856w8a6w8e6w8j6w8n6w8s6w8w6w906w956w996w9e6w9i6w9n6w9r6w9w6wa06wep6wet6wey6wf26wf76wfb6wfg6wfk6wfo6wft6wfx6wg26wg66wgb6wgf6wgk6wgo6wgs6wgx6wh16wh66wlm6wlq6wmc6wmh6wml6wmq6wmu6wmz6wn86wnc6wng6w6v707q707u707z70837088708c708g708l708p708u708y70937097709c709g709k709p709t70a270a770en70er70ew70f070f470f970fd70fi70fm70fr70fv70g070g470g870gd70gh70gm70gq70gv70gz70h470lo70ls70mf70mj70mo70ms70mw70n570ne70o5707s757w75817585758a758e758j758n758s758w759075957599759e759i759n759r759w75a075a475a975ad75ep75et75ey75f275f775fb75fg75fk75fo75ft75fx75g275g675gb75gf75gk75go75gs75gx75h175lq75lv75mh75ml75mq75mu75n375n875og75ok75op757q797u797z79837988798c798g798l798p798u798y79937997799c799g799k799p799t799y79a279a779ab79ag79ak79ao79at79ax79ew79f079f479f979fd79fi79fm79fr79fv79g079g479g879gd79gh79gm79gq79gv79lx79m179n579na79ne79oe79oi79on79or79ow79p0797o7e7s7e7w7e817e857e8a7e8e7e8j7e8n7e8s7e8w7e907e957e997e9e7e9i7e9n7e9r7e9w7ea07ea47ea97ead7eai7eam7ear7eav7eb07eb47eey7ef27ef77efb7efg7efk7efo7eft7efx7eg27eg67egb7egf7egk7ego7egs7elz7eok7eop7eot7eoy7ep27epb7epg7epk7e7u7i7z7i837i887i8c7i8g7i8l7i8p7i8u7i8y7i937i977i9c7i9g7i9k7i9p7i9t7i9y7ia27ia77iab7iag7iak7iao7iat7iax7ib27ib67if07if47if97ifd7ifi7ifm7ifr7ifv7ig07ig47ig87igd7igh7igm7igq7igv7im67ima7imf7imj7ion7ior7iow7ip07ip47i7w7m817m857m8a7m8e7m8j7m8n7m8s7m8w7m907m957m997m9e7m9i7m9n7m9r7m9w7ma07ma47ma97mad7mai7mam7mar7mav7mb07mb47mey7mf27mf77mfb7mfg7mfk7mfo7mft7mfx7mg27mg67mgb7mgf7mgk7mgo7mgs7mgx7mmu7mmz7mn87mnl7mot7moy7mpb7mqb7m7z7r837r887r8c7r8g7r8l7r8p7r8u7r8y7r937r977r9c7r9g7r9k7r9p7r9t7r9y7ra27ra77rab7rag7rak7rao7rat7rax7rb27rf07rf47rf97rfd7rfi7rfm7rfr7rfv7rg07rg47rg87rgd7rgh7rgm7rgq7rgv7rgz7rpi7rqd7r817v857v8a7v8e7v8j7v8n7v8s7v8w7v907v957v997v9e7v9i7v9n7v9r7v9w7va07va47va97vad7vai7vam7var7vav7vf27vf77vfb7vfg7vfk7vfo7vft7vfx7vg27vg67vgb7vgf7vgk7vgo7vgs7vgx7vo77v838088808c808g808l808p808u808y80938097809c809g809k809p809t809y80a280a780ab80ag80ak80ao80at80ew80f080f480f980fd80fi80fm80fr80fv80g080g480g880gd80gh80gm80gq80gv80gz80hq80o080o580o980ow8085848a848e848j848n848s848w849084958499849e849i849n849r849w84a084a484a984ad84ai84am84ar84av84ey84f284f784fb84fg84fk84fo84ft84fx84g284g684gb84gf84gk84go84gs84gx84hj84ho84hs84nl84np84nu84ny84o384o784oc84ot84oy84p2848c898g898l898p898u898y89938997899c899g899k899p899t899y89a289a789ab89ag89ak89ao89at89ew89f089f489f989fd89fi89fm89fr89fv89g089g489g889gd89gh89gm89gq89gv89hc89hh89hl89hq89nj89nn89ns89nw89o089o589o989oe89oi89ow89p089p4898j8d8n8d8s8d8w8d908d958d998d9e8d9i8d9n8d9r8d9w8da08da48da98dad8dai8dam8dar8dey8df28df78dfb8dfg8dfk8dfo8dft8dfx8dg28dg68dgb8dgf8dgk8dgo8dhf8dhj8dho8dnc8dng8dnl8dnp8dnu8dny8do38do78doc8dog8dok8dop8dot8doy8dp28d8l8i8p8i8u8i8y8i938i978i9c8i9g8i9k8i9p8i9t8i9y8ia28ia78iab8iag8iak8iao8if08if48if98ifd8ifi8ifm8ifr8ifv8ig08ig48ig88igd8igh8ihc8ihh8ihl8iic8in58ina8ine8inj8inn8ins8inw8io08io58io98ioe8ioi8ion8ior8iow8ip08ip48ip98i8j8m8n8m8s8m8w8m908m958m998m9e8m9i8m9n8m9r8m9w8ma08ma48ma98mad8mai8mam8mf28mf78mfb8mfg8mfk8mfo8mft8mfx8mg28mg68mgb8mgf8mgk8mha8mhf8mhj8mmu8mmz8mn38mn88mnc8mng8mnl8mnp8mnu8mny8mo38mo78moc8mog8mok8mop8mot8moy8mp28mp78mpb8mqo8m8g8q8l8q8p8q8u8q8y8q938q978q9c8q9g8q9k8q9p8q9t8q9y8qa28qa78qab8qag8qf48qf98qfd8qfi8qfm8qfr8qfv8qg08qg48qg88qgd8qgh8qgm8qhc8qhh8qms8qmw8qn18qn58qna8qne8qnj8qnn8qns8qnw8qo08qo58qo98qoe8qoi8qon8qor8qow8qp08qp48qp98qpd8qpi8q8j8v8n8v8s8v8w8v908v958v998v9e8v9i8v9n8v9r8v9w8va08va48vf28vf78vfb8vfg8vfk8vfo8vft8vfx8vg28vg68vgb8vgf8vgk8vha8vhf8vmq8vmu8vmz8vn38vn88vnc8vng8vnl8vnp8vnu8vny8vo38vo78voc8vog8vok8vop8vot8voy8vp28vp78vpb8vpg8vpk8v8g8z8l8z8p8z8u8z8y8z938z978z9c8z9g8z9k8z9p8z9t8z9y8za28zf48zf98zfd8zfi8zfm8zfr8zfv8zg08zg48zg88zgd8zms8zmw8zn18zn58zna8zne8znj8znn8zns8znw8zo08zo58zo98zoe8zoi8zon8zor8zow8zp08zp48zp98zpd8zpi8zpm8z8j948n948s948w949094959499949e949i949n949r949w94a094a494f794fb94fg94fk94fo94ft94fx94g294g694gb94mq94mu94mz94n394n894nc94ng94nl94np94nu94ny94o394o794oc94og94ok94op94ot94oy94p294p794pb94pg94pk94po948g988l988p988u988y98939897989c989g989k989p989t989y98f998fd98fi98fm98fr98fv98g098g498g898ms98mw98n198n598na98ne98nj98nn98ns98nw98o098o598o998oe98oi98on98or98ow98p098p498p998pd98pi98pm988e9d8j9d8n9d8s9d8w9d909d959d999d9e9d9i9d9n9d9r9d9w9dfb9dfg9dfk9dfo9dft9dfx9dg29dg69dmu9dmz9dn39dn89dnc9dng9dnl9dnp9dnu9dny9do39do79doc9dog9dok9dop9dot9doy9dp29dp79dpb9dpg9dpk9dpo9d8g9h8l9h8p9h8u9h8y9h939h979h9c9h9g9h9k9h9p9h9t9hfd9hfi9hfm9hfr9hfv9hg09hmw9hn19hn59hna9hne9hnj9ho99hoe9hoi9hon9hor9how9hp09hp49hp99hpd9hpi9hpm9h8e9m8j9m8n9m8s9m8w9m909m959m999m9i9m9n9mfg9mmu9mmz9mn39mok9mop9mot9moy9mp29mp79mpb9mpg9m8c9q8g9q8l9q8p9q8u9q8y9q939q979q9c9q9g9qoi9qor9qow9qp09qp49qp99qpd9qrc9q8a9u8e9u8j9u8n9u8s9u8w9u909u959u999u9e9uot9uoy9up29up79upb9upg9urf9u8c9z8g9z8l9z8p9z8u9z8y9z939zrc9zrh9z8aa38ea38ja38na38sa38wa390a3p2a3pba3rfa388a88ca88ga88la88pa88ua88ya8p4a8p9a8r8a88aac8eac8jac8nac8sacqxacr1ac88ah8cah8gah8lahqvahqzah8aal8eal8jal8nal8sal83aq88aq8caq8gaq8laq8aau8eau8jau8cay8gay8lay97ay9cay8ab38eb38jb38nb38lb78pb7";
+function buildMap(){
+  const W=1000,H=500, m=$("#map");
+  let dots="";
+  for(let i=0;i<DOTS.length;i+=4){ const x=parseInt(DOTS.substr(i,2),36), y=parseInt(DOTS.substr(i+2,2),36); dots+=`<circle class="dot" cx="${x}" cy="${y}" r="1.7"/>`; }
+  const pins=CHAPTERS.filter(c=>c.is_active).map(c=>{ const x=((c.lng+180)/360*W).toFixed(1), y=((90-c.lat)/180*H).toFixed(1); const label=c.name.toUpperCase(); const right=c.lng<110; return `<g class="pin${c.is_founding?" founding":""}" data-id="${c.id}" transform="translate(${x} ${y})"><circle class="halo" r="4"/><circle class="core" r="3.2"/><text x="${right?8:-8}" y="3.5" text-anchor="${right?"start":"end"}">${esc(label)}</text></g>`; }).join("");
+  m.innerHTML=`<svg viewBox="0 20 ${W} 420" role="img" aria-label="World map of Uso chapters"><g>${dots}</g><g id="pins">${pins}</g></svg><div class="cap">Gold pins are chapters · white is the founding chapter</div>`;
+  $$("#pins .pin").forEach(g=>g.onclick=()=>highlight(g.dataset.id));
+  const list=$("#chapters");
+  const active=CHAPTERS.filter(c=>c.is_active);
+  list.innerHTML=active.map(c=>`<div class="chap${c.is_founding?" founding":""}" data-id="${c.id}" tabindex="0"><b>${esc(c.name)}</b><span>${esc([c.city,c.region,c.country].filter(Boolean).join(", "))||"&nbsp;"}</span></div>`).join("");
+  $$(".chap",list).forEach(el=>{ el.onclick=()=>highlight(el.dataset.id); el.onkeydown=e=>{ if(e.key==="Enter") highlight(el.dataset.id); }; });
+  $("#st-ch").textContent=active.length; $("#st-co").textContent=new Set(active.map(c=>c.country||c.name)).size; $("#st-yr").textContent=new Date().getFullYear()-1992;
+  $("#chaplist").innerHTML=active.map(c=>`<option value="${esc(c.name)}">`).join("");
+}
+function highlight(id){
+  $$("#pins .pin").forEach(g=>g.classList.toggle("show",g.dataset.id===id));
+  $$(".chap").forEach(el=>el.classList.toggle("on",el.dataset.id===id));
+  const g=$(`#pins .pin[data-id="${id}"]`); if(g){ g.parentNode.appendChild(g); if(window.innerWidth<900) $("#map").scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+async function loadChapters(){
+  try{ CHAPTERS=await sbGet("uso_chapters?select=*&order=sort_order.asc,name.asc"); }catch(e){ console.error(e); CHAPTERS=[]; }
+  buildMap(); if(document.body.classList.contains("admin")) renderChapList();
+}
+
+/* ===================================================================
+   ADMIN
+   =================================================================== */
+const LOCAL_TZ=VIEW_TZ;
+function toLocalInput(iso,tz){ if(!iso) return ""; const d=new Date(iso); const p=new Intl.DateTimeFormat("en-US",{timeZone:tz||LOCAL_TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d); const g=t=>(p.find(x=>x.type===t)||{}).value; return `${g("year")}-${g("month")}-${g("day")}T${g("hour")==="24"?"00":g("hour")}:${g("minute")}`; }
+function fromLocalInput(v){ return v? new Date(v).toISOString() : null; }   // datetime-local parses in the browser's zone = LOCAL_TZ
+async function route(){
+  const admin=isAdminRoute(); document.body.classList.toggle("admin",admin);
+  if(admin){ window.scrollTo(0,0); await adminInit(); }
+}
+async function adminInit(){
+  $("#pf-tz").textContent=LOCAL_TZ;
+  if(!auth.token){ $("#loginpanel").hidden=false; $("#adminui").hidden=true; $("#signout").hidden=true; $("#who").textContent=""; return; }
+  try{
+    const rows=await sbGet("uso_admin_emails?select=email&limit=1");
+    if(!rows.length){ $("#li-msg").textContent="That account is not on the officer list."; $("#li-msg").className="msg err"; auth.set(null); return adminInit(); }
+  }catch(e){ if(String(e).includes("401")||String(e).includes("JWT")){ auth.set(null); return adminInit(); } }
+  $("#loginpanel").hidden=true; $("#adminui").hidden=false; $("#signout").hidden=false; $("#who").textContent=auth.email;
+  renderPostList(); renderChapList();
+}
+$("#loginform").onsubmit=async e=>{ e.preventDefault(); const m=$("#li-msg"); m.className="msg"; m.textContent="Signing in…"; try{ await signIn($("#li-email").value.trim(),$("#li-pass").value); m.textContent=""; adminInit(); }catch(err){ m.className="msg err"; m.textContent=err.message; } };
+$("#signup").onclick=async()=>{ const m=$("#li-msg"); const email=$("#li-email").value.trim(), pw=$("#li-pass").value; if(!email||pw.length<8){ m.className="msg err"; m.textContent="Enter your email and a password of at least 8 characters."; return; } m.className="msg"; m.textContent="Creating account…"; try{ const r=await signUp(email,pw); if(r.signedIn){ m.textContent=""; adminInit(); } else { m.className="msg ok"; m.textContent="Check your email for a confirmation link, then sign in."; } }catch(err){ m.className="msg err"; m.textContent=err.message; } };
+$("#signout").onclick=()=>{ auth.set(null); adminInit(); };
+$$(".tabs button").forEach(b=>b.onclick=()=>{ $$(".tabs button").forEach(x=>x.classList.toggle("on",x===b)); $$(".tabpane").forEach(p=>p.classList.toggle("on",p.id==="tab-"+b.dataset.tab)); });
+$("#pf-kind").onchange=()=>{ $("#pf-dates").style.display=$("#pf-kind").value==="notice"?"none":""; };
+function resetPostForm(){ $("#postform").reset(); $("#pf-id").value=""; $("#pf-title").textContent="New post"; $("#pf-reset").hidden=true; $("#pf-save").textContent="Post it"; $("#pf-dates").style.display=""; $("#pf-msg").textContent=""; }
+$("#pf-reset").onclick=resetPostForm;
+$("#postform").onsubmit=async e=>{
+  e.preventDefault(); const m=$("#pf-msg"); m.className="msg"; m.textContent="Saving…";
+  const kind=$("#pf-kind").value;
+  const row={ kind, event_type:$("#pf-type").value, title:$("#pf-title-in").value.trim(), chapter:$("#pf-chapter").value.trim(),
+    starts_at: kind==="notice"?null:fromLocalInput($("#pf-start").value), ends_at: kind==="notice"?null:fromLocalInput($("#pf-end").value), all_day:$("#pf-allday").checked, tz:LOCAL_TZ,
+    location_name:$("#pf-loc").value.trim(), address:$("#pf-addr").value.trim(), details:$("#pf-details").value.trim(), flyer_url:$("#pf-flyer").value.trim(), link_url:$("#pf-link").value.trim(),
+    hosted_by:$("#pf-host").value.trim(), is_published:$("#pf-pub").checked, is_pinned:$("#pf-pin").checked, created_by:auth.email||"" };
+  if(kind==="event" && !row.starts_at){ m.className="msg err"; m.textContent="An event needs a start date and time."; return; }
+  if(row.ends_at && row.starts_at && row.ends_at<row.starts_at){ m.className="msg err"; m.textContent="The end is before the start."; return; }
+  try{ const id=$("#pf-id").value; if(id){ delete row.created_by; await sbPatch("uso_posts","id=eq."+id,row); } else { await sbPost("uso_posts",[row]); }
+    m.className="msg ok"; m.textContent=id?"Updated.":"Posted. It's live on the board."; resetPostForm(); await loadPosts(); toast(id?"Post updated":"Posted to the board");
+  }catch(err){ m.className="msg err"; m.textContent=err.message; }
+};
+function renderPostList(){
+  const list=$("#postlist"); if(!list) return;
+  const rows=POSTS.slice().sort((a,b)=>new Date(b.starts_at||b.created_at)-new Date(a.starts_at||a.created_at));
+  list.innerHTML = rows.length? rows.map(p=>`<div class="arow${p.is_published?"":" draft"}" data-id="${p.id}">
+    <div class="dt">${p.starts_at?esc(fmt(new Date(p.starts_at),LOCAL_TZ,{month:"short",day:"numeric",year:"2-digit"})):"NOTICE"}</div>
+    <div><b>${p.is_pinned?"📌 ":""}${esc(p.title)}</b><small>${p.is_published?"Published":"DRAFT"} · ${esc(TYPE1[p.event_type]||"")}${p.chapter?" · "+esc(p.chapter):""}${p.location_name?" · "+esc(p.location_name):""}</small></div>
+    <div class="acts"><button class="ib" data-edit>Edit</button><button class="ib" data-toggle>${p.is_published?"Unpublish":"Publish"}</button><button class="ib" data-del>Delete</button></div></div>`).join("") : '<div class="msg">No posts yet.</div>';
+  $$("[data-edit]",list).forEach(b=>b.onclick=()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); $("#pf-id").value=p.id; $("#pf-kind").value=p.kind; $("#pf-kind").onchange(); $("#pf-type").value=p.event_type; $("#pf-chapter").value=p.chapter; $("#pf-title-in").value=p.title; $("#pf-start").value=toLocalInput(p.starts_at); $("#pf-end").value=toLocalInput(p.ends_at); $("#pf-allday").checked=p.all_day; $("#pf-loc").value=p.location_name; $("#pf-addr").value=p.address; $("#pf-details").value=p.details; $("#pf-flyer").value=p.flyer_url; $("#pf-link").value=p.link_url; $("#pf-host").value=p.hosted_by; $("#pf-pub").checked=p.is_published; $("#pf-pin").checked=p.is_pinned; $("#pf-title").textContent="Editing: "+p.title; $("#pf-reset").hidden=false; $("#pf-save").textContent="Save changes"; $("#postform").scrollIntoView({behavior:"smooth",block:"start"}); });
+  $$("[data-toggle]",list).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); try{ await sbPatch("uso_posts","id=eq."+p.id,{is_published:!p.is_published}); await loadPosts(); toast(p.is_published?"Unpublished":"Published"); }catch(e){ toast("Failed: "+e.message); } });
+  $$("[data-del]",list).forEach(b=>b.onclick=async()=>{ const p=POSTS.find(x=>x.id===b.closest(".arow").dataset.id); if(!confirm(`Delete "${p.title}"? This cannot be undone.`)) return; try{ await sbDelete("uso_posts","id=eq."+p.id); await loadPosts(); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
+}
+$("#reload-posts").onclick=loadPosts;
+function resetChapForm(){ $("#chapform").reset(); $("#cf-id").value=""; $("#cf-sort").value=100; $("#cf-active").checked=true; $("#cf-title").textContent="New chapter"; $("#cf-reset").hidden=true; $("#cf-msg").textContent=""; }
+$("#cf-reset").onclick=resetChapForm;
+$("#chapform").onsubmit=async e=>{
+  e.preventDefault(); const m=$("#cf-msg"); m.className="msg"; m.textContent="Saving…";
+  const row={ name:$("#cf-name").value.trim(), city:$("#cf-city").value.trim(), region:$("#cf-region").value.trim(), country:$("#cf-country").value.trim(), lat:parseFloat($("#cf-lat").value), lng:parseFloat($("#cf-lng").value), sort_order:parseInt($("#cf-sort").value||"100",10), note:$("#cf-note").value.trim(), is_active:$("#cf-active").checked, is_founding:$("#cf-founding").checked };
+  try{ const id=$("#cf-id").value; if(id) await sbPatch("uso_chapters","id=eq."+id,row); else await sbPost("uso_chapters",[row]); m.className="msg ok"; m.textContent="Saved."; resetChapForm(); await loadChapters(); toast("Chapter saved"); }
+  catch(err){ m.className="msg err"; m.textContent=err.message; }
+};
+function renderChapList(){
+  const list=$("#chaplistadmin"); if(!list) return;
+  list.innerHTML = CHAPTERS.length? CHAPTERS.map(c=>`<div class="arow${c.is_active?"":" draft"}" data-id="${c.id}"><div class="dt">${c.is_founding?"★ ":""}${esc(c.name)}</div><div><b>${esc([c.city,c.region,c.country].filter(Boolean).join(", "))||"—"}</b><small>${c.lat.toFixed(3)}, ${c.lng.toFixed(3)}${c.note?" · "+esc(c.note):""}${c.is_active?"":" · HIDDEN"}</small></div><div class="acts"><button class="ib" data-cedit>Edit</button><button class="ib" data-cdel>Delete</button></div></div>`).join("") : '<div class="msg">No chapters yet.</div>';
+  $$("[data-cedit]",list).forEach(b=>b.onclick=()=>{ const c=CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); $("#cf-id").value=c.id; $("#cf-name").value=c.name; $("#cf-city").value=c.city; $("#cf-region").value=c.region; $("#cf-country").value=c.country; $("#cf-lat").value=c.lat; $("#cf-lng").value=c.lng; $("#cf-sort").value=c.sort_order; $("#cf-note").value=c.note; $("#cf-active").checked=c.is_active; $("#cf-founding").checked=c.is_founding; $("#cf-title").textContent="Editing: "+c.name; $("#cf-reset").hidden=false; $("#chapform").scrollIntoView({behavior:"smooth",block:"start"}); });
+  $$("[data-cdel]",list).forEach(b=>b.onclick=async()=>{ const c=CHAPTERS.find(x=>x.id===b.closest(".arow").dataset.id); if(!confirm(`Delete the ${c.name} chapter from the map?`)) return; try{ await sbDelete("uso_chapters","id=eq."+c.id); await loadChapters(); toast("Deleted"); }catch(e){ toast("Failed: "+e.message); } });
+}
+
+/* ===================================================================
+   CHROME: nav, drawer, reveal, lightbox, parallax
+   =================================================================== */
+const nav=$("#nav"); const onScroll=()=>nav.classList.toggle("on",window.scrollY>40); onScroll(); addEventListener("scroll",onScroll,{passive:true});
+$("#burger").onclick=()=>{ const d=$("#drawer"); const o=!d.classList.contains("open"); d.classList.toggle("open",o); $("#burger").setAttribute("aria-expanded",o); $("#burger").textContent=o?"✕":"☰"; };
+$$("#drawer a").forEach(a=>a.onclick=()=>$("#burger").onclick());
+$("#lb").onclick=()=>$("#lb").classList.remove("on");
+addEventListener("keydown",e=>{ if(e.key==="Escape") $("#lb").classList.remove("on"); });
+$("#pasthead").onclick=()=>{ $("#pasthead").classList.toggle("open"); $("#past").classList.toggle("open"); };
+$("#tzname").textContent=VIEW_TZ.replace(/_/g," ");
+$("#yr").textContent=new Date().getFullYear();
+const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+$$(".rv").forEach(el=>io.observe(el));
+function revealCheck(){ const H=innerHeight; $$(".rv:not(.in)").forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top<H*0.96 && r.bottom>0) el.classList.add("in"); }); }
+let rvRaf=0; const rvTick=()=>{ if(rvRaf) return; rvRaf=requestAnimationFrame(()=>{ rvRaf=0; revealCheck(); }); };
+addEventListener("scroll",rvTick,{passive:true}); addEventListener("resize",rvTick); addEventListener("hashchange",()=>setTimeout(revealCheck,50)); addEventListener("load",()=>{ revealCheck(); setTimeout(revealCheck,700); }); setTimeout(revealCheck,300); { let n=0; const t=setInterval(()=>{ revealCheck(); if(++n>12) clearInterval(t); },500); }
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+  const bands=$$(".hero .bands g"); let raf=0;
+  addEventListener("scroll",()=>{ if(raf) return; raf=requestAnimationFrame(()=>{ raf=0; const y=window.scrollY; bands.forEach((g,i)=>g.style.transform=`translate(${(i%2?1:-1)*y*0.08}px, ${y*(0.12+i*0.04)}px)`); }); },{passive:true});
+  const patch=$("#patch"); addEventListener("mousemove",e=>{ if(window.scrollY>600) return; const r=patch.getBoundingClientRect(); const dx=(e.clientX-(r.left+r.width/2))/window.innerWidth, dy=(e.clientY-(r.top+r.height/2))/window.innerHeight; patch.style.transform=`perspective(900px) rotateY(${dx*10}deg) rotateX(${-dy*10}deg)`; },{passive:true});
+}
+addEventListener("hashchange",()=>{ route(); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c) c.scrollIntoView({behavior:"smooth",block:"center"}); } });
+(async()=>{ await route(); await Promise.all([loadPosts(),loadChapters()]); if(location.hash.startsWith("#post-")){ const c=$(`.card[data-id="${location.hash.slice(6)}"]`); if(c){ c.scrollIntoView({block:"center"}); c.style.borderColor="var(--gold)"; } } })();
+</script>
+</body>
+</html>
