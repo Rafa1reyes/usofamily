@@ -250,14 +250,18 @@ section{position:relative}
    MC / STORY / MAP / FOOTER
    =================================================================== */
 #mc{background:var(--ink-2);overflow:hidden}
-#mc .split{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
-#mc .art{position:relative;aspect-ratio:1;max-width:520px;margin:0 auto}
-#mc .art svg{width:100%;height:100%}
+#lr{overflow:hidden}
+#mc .split,#lr .split{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+#lr .split{grid-template-columns:.9fr 1.1fr}
+#mc .art,#lr .art{position:relative;aspect-ratio:1;width:100%;max-width:520px;justify-self:center;margin:0}
+#lr .art{aspect-ratio:4/3}
+#mc .art svg,#lr .art svg{width:100%;height:100%}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
 .pillar{border:1px solid var(--line);padding:1.3rem;border-radius:3px;background:rgba(10,9,8,.5)}
 .pillar b{display:block;font-family:var(--font-display);font-size:1.4rem;letter-spacing:.06em;color:var(--gold);margin-bottom:.3rem}
 .pillar span{font-size:.88rem;color:var(--bone-2)}
-@media (max-width:900px){#mc .split{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
+.pillar i{color:var(--gold);font-style:normal}
+@media (max-width:900px){#mc .split,#lr .split{grid-template-columns:1fr}#lr .art{order:2}.pillars{grid-template-columns:1fr}}
 
 #story .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:start}
 @media (max-width:900px){#story .split{grid-template-columns:1fr}}
@@ -377,6 +381,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     <a class="brand" href="#top"><span class="mark">U</span><span><b>USOS FAMILY</b><small>WORLDWIDE · EST. 1992</small></span></a>
     <div class="links">
       <a href="#board">Uso Announcements</a>
+      <a href="#lr">Low Riders</a>
       <a href="#mc">Motorcycle Club</a>
       <a href="#story">Our Story</a>
       <a href="#world">Chapters</a>
@@ -387,7 +392,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
   </div>
 </nav>
 <div class="drawer" id="drawer">
-  <a href="#board">Uso Announcements</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/account">Sign in / Join</a>
+  <a href="#board">Uso Announcements</a><a href="#lr">Low Riders</a><a href="#mc">Motorcycle Club</a><a href="#story">Our Story</a><a href="#world">Chapters</a><a href="#/account">Sign in / Join</a>
 </div>
 
 <div id="site">
@@ -509,6 +514,56 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
 <div class="tatau dim"></div>
 
 <!-- ================================================================
+     LOW RIDERS (the car club)
+     ================================================================ -->
+<section class="sec" id="lr">
+  <div class="wrap split">
+    <div class="art rv d2" aria-hidden="true">
+      <svg viewBox="0 0 560 420">
+        <defs>
+          <radialGradient id="lg2" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="rgba(212,164,55,.22)"/><stop offset="1" stop-color="rgba(212,164,55,0)"/></radialGradient>
+          <linearGradient id="candy" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e04848"/><stop offset=".55" stop-color="#8f1717"/><stop offset="1" stop-color="#5a0d0d"/></linearGradient>
+          <linearGradient id="chrome2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6ecd2"/><stop offset=".5" stop-color="#8a6420"/><stop offset="1" stop-color="#d4a437"/></linearGradient>
+        </defs>
+        <circle cx="280" cy="220" r="205" fill="url(#lg2)"/>
+        <circle cx="280" cy="220" r="196" fill="none" stroke="#d4a437" stroke-width="1" opacity=".35" stroke-dasharray="4 10"/>
+        <ellipse cx="280" cy="330" rx="235" ry="8" fill="rgba(0,0,0,.6)"/>
+        <!-- body: long '64-style profile, front end lifted -->
+        <path d="M52 292 L60 262 L120 250 L160 214 L230 200 L330 200 L392 214 L470 236 L512 262 L520 282 L512 300 L60 300 Z" fill="url(#candy)" stroke="#f3ead7" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M60 262 L120 250 L160 214 L230 200 L330 200 L392 214 L470 236" fill="none" stroke="#fff0b8" stroke-width="1.2" opacity=".6"/>
+        <!-- roof + glass -->
+        <path d="M170 214 L232 172 L336 172 L386 214 Z" fill="#1b1813" stroke="#f3ead7" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M184 212 L236 180 L280 180 L280 212 Z" fill="#c9c9c9" opacity=".55"/>
+        <path d="M290 180 L332 180 L372 212 L290 212 Z" fill="#c9c9c9" opacity=".55"/>
+        <!-- chrome trim line -->
+        <path d="M70 266 L500 266" stroke="url(#chrome2)" stroke-width="4" stroke-linecap="round"/>
+        <!-- wheels: tiny 13s with wire spokes, rear tucked, front dropped -->
+        <g transform="translate(150 300)"><circle r="40" fill="#0a0908" stroke="#2a251d" stroke-width="10"/><circle r="28" fill="none" stroke="url(#chrome2)" stroke-width="3"/><g stroke="#d4a437" stroke-width="1.1" opacity=".85"><path d="M0 -28 V28 M-28 0 H28 M-20 -20 L20 20 M-20 20 L20 -20 M-11 -26 L11 26 M-26 -11 L26 11 M-11 26 L11 -26 M-26 11 L26 -11"/></g><circle r="6" fill="#0a0908" stroke="#f2c94c" stroke-width="2.5"/></g>
+        <g transform="translate(430 300)"><circle r="40" fill="#0a0908" stroke="#2a251d" stroke-width="10"/><circle r="28" fill="none" stroke="url(#chrome2)" stroke-width="3"/><g stroke="#d4a437" stroke-width="1.1" opacity=".85"><path d="M0 -28 V28 M-28 0 H28 M-20 -20 L20 20 M-20 20 L20 -20 M-11 -26 L11 26 M-26 -11 L26 11 M-11 26 L11 -26 M-26 11 L26 -11"/></g><circle r="6" fill="#0a0908" stroke="#f2c94c" stroke-width="2.5"/></g>
+        <!-- bumpers, lights -->
+        <path d="M46 286 L62 286" stroke="url(#chrome2)" stroke-width="7" stroke-linecap="round"/><path d="M500 286 L528 286" stroke="url(#chrome2)" stroke-width="7" stroke-linecap="round"/>
+        <rect x="58" y="270" width="16" height="8" rx="2" fill="#ffb3b3"/><circle cx="508" cy="272" r="6" fill="#fff0b8" stroke="#d4a437" stroke-width="2"/>
+        <!-- plaque in the rear window -->
+        <rect x="200" y="186" width="34" height="14" rx="2" fill="#f6ecd2" opacity=".9"/><text x="217" y="197" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="12" fill="#0a0908">Usos</text>
+        <text x="280" y="392" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="54" fill="#f6ecd2">Familia</text>
+      </svg>
+    </div>
+    <div>
+      <div class="eyebrow rv">Usos Car Club</div>
+      <h2 class="h2 rv d1">Low and slow<br><span class="foil">since ’92</span></h2>
+      <p class="lede rv d2">This is where it started: ten lowriders rolling out of Scott Park in Carson in August 1992. Candy paint, wire wheels, hydraulics and a plaque in the back window that means something. Two-time Lowrider Magazine Club of the Year, and still one of the biggest lowrider clubs in the world.</p>
+      <div class="pillars rv d3">
+        <div class="pillar"><b>Shows &amp; cruises</b><span>Super shows, chapter picnics and Sunday cruises are posted on Uso Announcements. Pick <i>Low Riders</i> up there to see only the car side.</span></div>
+        <div class="pillar"><b>The plaque</b><span>Uso, then Uce. Same team, same scheme, same dream. It’s earned, and the ride under it stays clean.</span></div>
+        <div class="pillar"><b>No color lines</b><span>Kita’s rule from day one. The club has always been about the person before the car, and every kind of person is in it.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tatau"></div>
+
+<!-- ================================================================
      MOTORCYCLE CLUB
      ================================================================ -->
 <section class="sec" id="mc">
@@ -516,7 +571,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     <div>
       <div class="eyebrow rv">Uso Motorcycle Club</div>
       <h2 class="h2 rv d1">Two wheels.<br><span class="foil">Same blood.</span></h2>
-      <p class="lede rv d2">The Uso Motorcycle Club rides under the same plaque as the car club that started it all. Chrome, paint, patience and pride, just on a different frame. When the family rolls out, the bikes lead.</p>
+      <p class="lede rv d2">The Uso Motorcycle Club came after the cars and rides under the same plaque. Chrome, paint, patience and pride, just on a different frame. When the family rolls out, the bikes lead.</p>
       <div class="pillars rv d3">
         <div class="pillar"><b>Ride together</b><span>Club runs, memorial rides and escorts for the car club's biggest shows are posted on the board first.</span></div>
         <div class="pillar"><b>Represent</b><span>The patch is earned, worn with respect and never disgraces the name Kita built.</span></div>
@@ -646,7 +701,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
       </div>
       <div>
         <h5>On the site</h5>
-        <ul><li><a href="#board">Uso Announcements</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
+        <ul><li><a href="#board">Uso Announcements</a></li><li><a href="#lr">Low Riders</a></li><li><a href="#mc">Motorcycle Club</a></li><li><a href="#story">Our story</a></li><li><a href="#world">Chapters</a></li></ul>
       </div>
       <div>
         <h5>Family</h5>
