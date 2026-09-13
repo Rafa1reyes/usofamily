@@ -1193,7 +1193,7 @@ function buildMap(){
   let dots="";
   for(let i=0;i<DOTS.length;i+=4){ const x=parseInt(DOTS.substr(i,2),36), y=parseInt(DOTS.substr(i+2,2),36); dots+=`<circle class="dot" cx="${x}" cy="${y}" r="1.7"/>`; }
   const pins=CHAPTERS.filter(c=>c.is_active).map(c=>{ const x=((c.lng+180)/360*W).toFixed(1), y=((90-c.lat)/180*H).toFixed(1); const label=c.name.toUpperCase(); const right=c.lng<110; return `<g class="pin${c.is_founding?" founding":""}" data-id="${c.id}" transform="translate(${x} ${y})"><circle class="halo" r="4"/><circle class="core" r="3.2"/><text x="${right?8:-8}" y="3.5" text-anchor="${right?"start":"end"}">${esc(label)}</text></g>`; }).join("");
-  m.innerHTML=`<svg viewBox="0 20 ${W} 420" role="img" aria-label="World map of Uso chapters"><g>${dots}</g><g id="pins">${pins}</g></svg><div class="cap">Gold pins are chapters · white is the founding chapter</div>`;
+  m.innerHTML=`<svg viewBox="0 20 ${W} 420" role="img" aria-label="World map of Uso chapters"><g>${dots}</g><g id="pins">${pins}</g></svg>`;
   $$("#pins .pin").forEach(g=>g.onclick=()=>highlight(g.dataset.id));
   const list=$("#chapters");
   const active=CHAPTERS.filter(c=>c.is_active);
