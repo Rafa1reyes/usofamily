@@ -306,7 +306,6 @@ section{position:relative}
 .map .pin{cursor:pointer}
 .map .pin circle.core{fill:var(--gold-2)}
 .map .pin circle.halo{fill:none;stroke:var(--gold);stroke-width:1;opacity:.8;animation:halo 2.6s ease-out infinite}
-.map .pin.founding circle.core{fill:#fff}
 @keyframes halo{0%{r:3;opacity:.9}100%{r:16;opacity:0}}
 .map .pin text{font-family:var(--font-display);letter-spacing:.12em;font-size:9px;fill:var(--bone-2);pointer-events:none;opacity:0;transition:opacity .2s}
 .map .pin:hover text,.map .pin.show text{opacity:1}
@@ -316,7 +315,6 @@ section{position:relative}
 .chap:hover,.chap.on{border-color:var(--gold);background:rgba(212,164,55,.07)}
 .chap b{display:block;font-family:var(--font-display);letter-spacing:.08em;font-size:1.15rem;color:var(--bone)}
 .chap span{font-size:.75rem;color:var(--mute)}
-.chap.founding b{color:var(--gold-2)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
 .stat{border-top:1px solid var(--line-2);padding-top:1rem}
 .stat b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;letter-spacing:.04em}
