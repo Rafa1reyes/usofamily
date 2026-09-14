@@ -812,7 +812,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
           <div class="msg" id="li-msg"></div>
         </form>
         <form class="f" id="forgotform" hidden style="margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem">
-          <p style="font-size:.85rem;color:var(--bone-2);margin:0">Give us the username or the email on the account. An officer will confirm it's you and reset your password.</p>
+          <p style="font-size:.85rem;color:var(--bone-2);margin:0">Give us the username or the email on the account. We'll confirm it's you and reset your password.</p>
           <div class="row"><label class="l">Username<input id="fg-user" autocapitalize="off"></label><label class="l">Email on the account<input id="fg-email" type="email"></label></div>
           <label class="l">Anything that helps us confirm it's you<textarea id="fg-text" style="min-height:70px" maxlength="500"></textarea></label>
           <div class="btns"><button class="btn sm" type="submit">Send request</button><span class="msg" id="fg-msg"></span></div>
@@ -825,7 +825,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
             <label class="l">Username<input id="rg-user" required minlength="3" maxlength="24" pattern="[A-Za-z0-9_.]{3,24}" title="3-24 letters, numbers, dots or underscores" autocomplete="username" autocapitalize="off" placeholder="e.g. big_tone"></label>
             <label class="l">Password<input id="rg-pass" type="password" required minlength="8" autocomplete="new-password" placeholder="at least 8 characters"></label>
           </div>
-          <label class="l">Email <span style="text-transform:none;letter-spacing:0">(optional, so an officer can help if you forget your login)</span><input id="rg-email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <label class="l">Email <span style="text-transform:none;letter-spacing:0">(optional, in case you forget your login)</span><input id="rg-email" type="email" autocomplete="email" placeholder="you@example.com"></label>
           <div class="row">
             <label class="l">Your area<input id="rg-area" maxlength="60" placeholder="Santa Maria"></label>
             <label class="l">You ride<select id="rg-ride"><option value="">Choose…</option><option value="motorcycle">Motorcycle</option><option value="lowrider">Low Rider</option><option value="both">Both</option></select></label>
@@ -1056,7 +1056,7 @@ function renderBoard(){
   $$("#filters .chip").forEach(b=>b.onclick=()=>{FILTER=b.dataset.f;renderBoard();});
   const vis = FILTER==="all"?up:up.filter(p=>(p.kind==="notice"?"notice":p.event_type)===FILTER);
   const u=$("#upcoming"); u.classList.remove("skeleton");
-  u.innerHTML = vis.length? vis.map(card).join("") : `<div class="empty"><b>Nothing posted yet</b>When an officer posts a ride, show or gathering it shows up here. Check back soon.</div>`;
+  u.innerHTML = vis.length? vis.map(card).join("") : `<div class="empty"><b>Nothing posted yet</b>When a Uso posts a ride, show or gathering it shows up here. Check back soon.</div>`;
   bindCards(u);
   const ph=$("#pasthead"); ph.hidden=!past.length; $("#pastn").textContent=past.length?"("+past.length+")":"";
   $("#past").innerHTML=past.map(card).join(""); bindCards($("#past"));
@@ -1236,8 +1236,8 @@ function renderAcct(){
   const na=$("#nav-acct"); if(na) na.textContent = on ? ME.username : "Sign in";
   if(typeof renderFamily==="function"){ renderFamily(); refreshUnread(); }
   $("#authpanels").hidden = on; $("#adminui").hidden = !on; $("#signout").hidden = !on;
-  $("#who").textContent = on ? ME.username + (memberTag(ME) ? " · " + memberTag(ME) : "") + (officer ? " · Officer" : "") : "";
-  $("#acct-title").textContent = on ? (officer ? "Officer desk" : "Post an announcement") : "Sign in or join";
+  $("#who").textContent = on ? ME.username + (memberTag(ME) ? " · " + memberTag(ME) : "") : "";
+  $("#acct-title").textContent = on ? "Post an announcement" : "Sign in or join";
   $$("[data-officer]").forEach(el => el.hidden = !officer);
   $("#mine-title").textContent = officer ? "All announcements" : "Your announcements";
   if(on){ loadMyPosts(); fillProfile(); if(officer){ loadAdminChapters(); loadMembers(); loadRecovery(); } }
@@ -1258,7 +1258,7 @@ $("#forgot-toggle").onclick = () => { const f=$("#forgotform"); f.hidden = !f.hi
 $("#forgotform").onsubmit = async e => {
   e.preventDefault(); setMsg("fg-msg", "Sending…");
   try{ await rpc("uso_request_recovery", { p_username: $("#fg-user").value.trim(), p_email: $("#fg-email").value.trim(), p_message: $("#fg-text").value.trim() });
-       $("#forgotform").reset(); setMsg("fg-msg", "Sent. An officer will reach out.", "ok"); }
+       $("#forgotform").reset(); setMsg("fg-msg", "Sent. Someone will reach out.", "ok"); }
   catch(err){ setMsg("fg-msg", err.message, "err"); }
 };
 $("#signout").onclick = async () => { const t=SESS.token; SESS.set(null); ME=null; MYPOSTS=[]; try{ if(t) await rpc("uso_logout",{p_token:t}); }catch(e){} renderAcct(); toast("Signed out"); };
