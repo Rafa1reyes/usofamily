@@ -690,7 +690,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
         <div class="ev rv"><div class="yr">2016</div><h4>Tribal King</h4><p>After his Cadillac is totaled, the family buys and builds him a 1981 Coupe De Ville. It debuts at the Las Vegas Super Show for the club’s 25th anniversary.</p></div>
         <div class="ev rv"><div class="yr">2020</div><h4>Rest easy, Kita</h4><p>Kita passes on February 8, 2020 in Elk Grove, California, at 61. More than 600 people fill his celebration of life in Roseville, outside Sacramento, two weeks before the world shut down.</p></div>
         <div class="ev rv"><div class="yr">2022</div><h4>Thirty years</h4><p>The family comes home to Carson for the 30th anniversary. Detroit, flying the plaque since 2007, marks 15 years the same summer.</p></div>
-        <div class="ev big rv"><div class="yr">Today</div><h4>Thirty-plus chapters, worldwide</h4><p>Hawaii to Australia, Sweden to Guam, Alaska to Canada, and up and down California. And since 2008, the motorcycles riding alongside. This site is where the whole family looks to see what's next.</p></div>
+        <div class="ev big rv"><div class="yr">Today</div><h4>45 chapters, worldwide</h4><p>Hawaii to Australia, Sweden to Japan, Alaska to Canada, and up and down California. And since 2008, the motorcycles riding alongside. This site is where the whole family looks to see what's next.</p></div>
       </div>
     </div>
   </div>
@@ -706,7 +706,7 @@ label.l{display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;letter-spa
     <div class="map rv d2" id="map"></div>
     <div class="chapters" id="chapters"></div>
     <div class="stats rv">
-      <div class="stat"><b class="foil" id="st-ch">—</b><span>Chapters listed</span></div>
+      <div class="stat"><b class="foil">45</b><span>Chapters</span></div>
       <div class="stat"><b class="foil" id="st-co">—</b><span>Countries</span></div>
       <div class="stat"><b class="foil" id="st-yr">—</b><span>Years strong</span></div>
       <div class="stat"><b class="foil">1</b><span>Family</span></div>
@@ -1199,7 +1199,7 @@ function buildMap(){
   const active=CHAPTERS.filter(c=>c.is_active);
   list.innerHTML=active.map(c=>`<div class="chap${c.is_founding?" founding":""}" data-id="${c.id}" tabindex="0"><b>${esc(c.name)}</b><span>${esc([c.city,c.region,c.country].filter(Boolean).join(", "))||"&nbsp;"}</span></div>`).join("");
   $$(".chap",list).forEach(el=>{ el.onclick=()=>highlight(el.dataset.id); el.onkeydown=e=>{ if(e.key==="Enter") highlight(el.dataset.id); }; });
-  $("#st-ch").textContent=active.length; $("#st-co").textContent=new Set(active.map(c=>c.country||c.name)).size; $("#st-yr").textContent=new Date().getFullYear()-1992;
+  $("#st-co").textContent=new Set(active.map(c=>c.country||c.name)).size; $("#st-yr").textContent=new Date().getFullYear()-1992;
   $("#chaplist").innerHTML=active.map(c=>`<option value="${esc(c.name)}">`).join("");
 }
 function highlight(id){
